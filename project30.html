@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photography</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #111;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 8px 20px;
+      font-weight: 600;
+      display: flex;
+      gap: 30px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #000;
+      color: #fff;
+    }
+    main {
+      max-width: 900px;
+      margin: 100px auto 120px;
+      padding: 0 20px;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color:#00000011;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      transition: color 0.3s;
+    }
+    .description {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      transition: color 0.3s;
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+      user-select: none;
+      transition: color 0.3s;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
+    /* --- DARK MODE --- */
+    .dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+    .dark-mode nav {
+      background: rgba(30, 30, 30, 0.85);
+    }
+    .dark-mode nav a {
+      color: #ccc;
+    }
+    .dark-mode nav a:hover,
+    .dark-mode nav a.active {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+    .dark-mode h1 {
+      color: #ffb3b3;
+    }
+    .dark-mode .description {
+      color: #bbb;
+    }
+    .dark-mode footer {
+      color: #bbb;
+    }
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transition: box-shadow 0.3s;
+    }
+    .lightbox.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .lightbox:after {
+      content: "×";
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .dark-mode .lightbox:after {
+      color: #ffb3b3;
+    }
+    @media (max-width: 600px){
+      nav {
+        top: 10px; right: 10px; gap: 15px; padding: 6px 14px;
+      }
+      nav a {
+        font-size: 0.9rem; padding: 6px 10px;
+      }
+      .dark-toggle {
+        top: 10px;
+        left: 10px;
+        font-size: 0.85rem;
+        padding: 7px 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+  </nav>
+
+  <main>
+    <h1>Photography @ Camino de Santiago</h1>
+    <p class="description">
+      In September 2024, I walked the Camino de Santiago — not only as a physical journey, but as a mindful
+       retreat through landscapes, light, and fleeting human encounters.
+"Caminho" is a photographic journal of that pilgrimage: a visual story told in dust, sky, rhythm, and reflection.
+From the golden plains of Castile to the misty woods of Galicia, the series blends travel photography with documentary
+ intimacy — capturing fellow pilgrims, rural textures, sacred architecture, and the quiet beauty of everyday moments along the trail.
+More than a travelogue, this is a study in stillness-in-motion: how walking long distances sharpens the eye, softens 
+the ego, and opens space for presence.
+Each photo is a step; each frame, a small pause.
+    </p>
+
+    <section class="gallery" aria-label="Jewelry Product Design">
+      <img src="project30\santi1.jpg" alt="Jewelry display 1" />
+    </section>
+    <section class="gallery" aria-label="Jewelry Product Design">
+      <img src="project30\santi2.jpg" alt="Jewelry display 1" />
+    </section>
+    <section class="gallery" aria-label="Jewelry Product Design">
+      <img src="project30\santi3.jpg" alt="Jewelry display 1" />
+    </section>
+    <section class="gallery" aria-label="Jewelry Product Design">
+      <img src="project30\santi4.jpg" alt="Jewelry display 1" />
+    </section>
+    
+  </main>
+
+  <!-- Lightbox HTML -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Expanded view" />
+  </div>
+
+  <footer>
+    © 2025 Bruno M. Reis | brunomiguelsantosreis@gmail.com
+  </footer>
+
+  <script>
+    // Dark Mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      // Dark mode preference
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+
+      // Lightbox logic
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('img');
+      document.querySelectorAll('.gallery img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('show');
+        });
+      });
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('show');
+      });
+    });
+  </script>
+
+</body>
+</html>

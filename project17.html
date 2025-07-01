@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photography</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: #111;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { text-decoration: none; color: inherit; }
+  nav {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 8px 20px;
+    font-weight: 600;
+    display: flex;
+    gap: 30px;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  nav a:hover, nav a.active {
+    background-color: #000;
+    color: #fff;
+  }
+  .dark-toggle {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s, color 0.3s;
+  }
+  .dark-mode .dark-toggle { background: #eee; color: #111; }
+  main {
+    max-width: 900px;
+    margin: 100px auto 120px;
+    padding: 0 20px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #00000011;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s;
+  }
+  .description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    transition: color 0.3s;
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.3s;
+    cursor: zoom-in;
+  }
+  .gallery img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+    user-select: none;
+    transition: color 0.3s;
+  }
+  /* Lightbox styles */
+  .lightbox {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+  }
+  .lightbox.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+    cursor: zoom-out;
+  }
+  .lightbox:after {
+    content: "×";
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  @media (max-width: 600px){
+    nav { top: 10px; right: 10px; gap: 15px; padding: 6px 14px; }
+    nav a { font-size: 0.9rem; padding: 6px 10px; }
+    main { margin: 70px auto 60px; }
+    .dark-toggle { left: 10px; top: 10px; font-size: 0.85rem; padding: 7px 13px; }
+  }
+  /* --- DARK MODE --- */
+  .dark-mode { background: #181818; color: #f0f0f0; }
+  .dark-mode nav { background: rgba(30, 30, 30, 0.85); }
+  .dark-mode nav a { color: #ccc; }
+  .dark-mode nav a:hover, .dark-mode nav a.active { background-color: #f0f0f0; color: #000; }
+  .dark-mode h1 { color: #ffb3b3; }
+  .dark-mode .description { color: #bbb; }
+  .dark-mode .gallery img { box-shadow: 0 10px 30px rgba(255,179,179,0.12); }
+  .dark-mode footer { color: #bbb; }
+  .dark-mode .lightbox { background: rgba(20,20,20,0.93); }
+  .dark-mode .lightbox img { box-shadow: 0 0 30px rgba(255,179,179,0.2); }
+  .dark-mode .lightbox:after { color: #ffb3b3; }
+</style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="cv.html">CV</a>
+</nav>
+
+<main>
+  <h1>🌍 Wandered Spaces – A Landscape & Place Photography Series</h1>
+  <p class="description">"Wandered Spaces" is an ongoing photography series that captures the emotional resonance of places — from forgotten alleyways and modern urban structures to vast natural landscapes. Rather than focusing solely on grand vistas, this project explores how space, light, and composition can tell stories. Whether it's a quiet shoreline at dawn or the geometric rhythm of city architecture, each image seeks to evoke a sense of presence and memory, inviting viewers to pause and imagine the unseen narratives of the environment.</p>
+
+  <section class="gallery" aria-label="Motion Graphics Gallery">
+    <img src="project17/paisagem1.png" alt="Urban street at sunset with shadows and warm tones" />
+    <img src="project17/paisagem2.png" alt="Nature scene with a misty morning forest landscape" />
+  </section>
+</main>
+
+<!-- Lightbox container -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Expanded view" id="lightbox-img">
+</div>
+
+<footer>
+  © 2025 Bruno Reis | brunomiguelsantosreis@gmail.com
+</footer>
+
+<script>
+  // Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+  // Set theme on load & lightbox logic
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    // Lightbox logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    // Fechar modal ao clicar fora ou no ×
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    // Fechar modal com ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    // Fechar modal ao clicar no × (pseudo-elemento)
+    lightbox.addEventListener('click', function(e) {
+      const rect = lightbox.getBoundingClientRect();
+      if (e.clientX > rect.right - 80 && e.clientY < rect.top + 80) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

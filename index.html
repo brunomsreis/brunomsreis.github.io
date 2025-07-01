@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bruno M. Reis – Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    a { text-decoration: none; color: inherit; }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 8px 20px;
+      font-weight: 600;
+      display: flex;
+      gap: 30px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #000;
+      color: #fff;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 100px 20px 120px;
+    }
+    .intro {
+      margin-bottom: 80px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-wrap;
+      overflow: hidden;
+      max-width: 100%;
+      min-height: 8em;
+    }
+    .fixed-index {
+      position: fixed;
+      top: 50%;
+      left: 40px;
+      transform: translateY(-50%);
+      font-weight: 700;
+      font-size: 4rem;
+      color: #eaeaea;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: 0.15em;
+    }
+    ul.work-list {
+      list-style: none;
+      counter-reset: work-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+    }
+    li.work-item {
+      counter-increment: work-counter;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+    li.work-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    li.work-item::before {
+      content: counter(work-counter, decimal-leading-zero);
+      position: absolute;
+      left: -80px;
+      top: 0;
+      font-size: 3.5rem;
+      color: #f0f0f0;
+      font-weight: 700;
+    }
+    .work-text {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+    .work-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .work-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    .work-image {
+      flex: 1 1 400px;
+      max-width: 500px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    }
+    .work-image img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.5s ease;
+    }
+    .work-image:hover img {
+      transform: scale(1.05);
+    }
+
+
+
+.portfolio-image {
+  flex: 1 1 400px;
+  max-width: 500px;
+  aspect-ratio: 4 / 3; /* ou 16 / 9, conforme o resto do site */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+}
+.portfolio-image iframe,
+.portfolio-image img,
+.portfolio-image video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+
+
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: #111;
+    }
+
+    /* --- DARK MODE --- */
+    .dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    .dark-mode nav {
+      background: rgba(30, 30, 30, 0.85);
+    }
+
+    .dark-mode nav a {
+      color: #ccc;
+    }
+
+    .dark-mode nav a:hover,
+    .dark-mode nav a.active {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .dark-mode .intro,
+    .dark-mode .work-text p {
+      color: #ddd;
+    }
+
+    .dark-mode .work-item::before {
+      color: #2e2e2e;
+    }
+
+    .dark-mode .fixed-index {
+      color: #2e2e2e;
+    }
+
+    .dark-mode .social-links a {
+      color: #ccc;
+    }
+
+    .dark-mode footer {
+      color: #aaa;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Dark Mode Toggle Button -->
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+<nav>
+  <a href="index.html" class="active" aria-current="page">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="cv.html">Resume</a>
+</nav>
+
+<div class="fixed-index" id="fixedIndex">01</div>
+
+<div class="container">
+  <div class="intro" id="intro">
+    <!-- Texto será escrito aqui via JS -->
+  </div>
+
+  <ul class="work-list" id="workList">
+    <li class="work-item">
+      <a href="project1.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+        <div class="work-text">
+          <h2>🎨 Graphic design @ ebankIT</h2>
+          <p>Developed a cohesive suite of visual assets to strengthen eBankIT’s brand identity across multiple channels.</p>
+        </div>
+        <div class="work-image">
+          <img src="project1/355b56160021199.63c8153d63e13.jpg" alt="Motion Graphics Project" />
+        </div>
+      </a>
+    </li>
+    <li class="work-item">
+      <div class="work-text">
+        <a href="project18.html">
+          <h2>🧠🖌️Focus Flow – Personal Time Management & Task Sharing App</h2>
+          <p>Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks.</p>
+        </a>
+      </div>
+      <div class="work-image">
+        <img src="project18/focusflow.png" alt="INESC TEC project" />
+      </div>
+    </li>
+    <li class="work-item">
+      <div class="work-text">
+        <a href="project2.html">
+        <h2>🎞️ Motion Graphics @ ebankIT</h2>
+        <p>Dynamic animations and graphic storytelling for brand promotion on social media and website.</p>
+      </a>
+      </div>
+     <div class="portfolio-image">
+          <iframe
+      src="https://archive.org/embed/academia_202506?autoplay=1&loop=1"
+  class="archive-iframe"
+  title="Archive.org video player"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+    </iframe>
+     </div>
+    </li>
+    <li class="work-item">
+      <div class="work-text">
+         <a href="project19.html">
+        <h2>📸 Black & White Series</h2>
+        <p>This project is an exploration of light, contrast, and emotion, stripped of color to focus purely on form and feeling.</p>
+      </div>
+      <div class="work-image">
+        <img src="project19\IMG_7432.jpg" alt="Bootcamp project" />
+      </a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<footer>
+  © 2025 Bruno Reis
+  <div class="social-links">
+    <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">LinkedIn</a> |
+    <a href="https://behance.net/brunomsreis" target="_blank">Behance</a> |
+    <a href="https://github.com/brunomsreis" target="_blank">GitHub</a> |
+    <a href="https://instagram.com/bru_no_reis" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  const introText = `Hey, I’m Bruno 👋 I’m a digital creative who thinks in visuals, stories, and systems.
+I started with geography 🗺️, which shaped how I see the world. Now, I bring that perspective into everything I do — multimedia design, web development, motion graphics, photography 📸, and social content. I make things that feel thoughtful, expressive, and easy to connect with.
+I’m also into writing ✍️ and a bit of a social media nerd 🤓 If it’s creative and digital, I’m probably already on it.
+Let’s make something that sticks 💡
+
+This page features some of my work, but you can check out all my projects on the Portfolio page or see my CV on the Resume page.`;
+
+  const introElement = document.getElementById('intro');
+  let index = 0;
+
+  function typeIntro() {
+    if (index < introText.length) {
+      introElement.textContent += introText.charAt(index);
+      index++;
+      setTimeout(typeIntro, 35);
+    }
+  }
+
+  window.onload = () => {
+    typeIntro();
+  };
+
+  const fixedIndex = document.getElementById('fixedIndex');
+  const workItems = document.querySelectorAll('li.work-item');
+
+  function updateFixedIndex() {
+    let scrollPosition = window.scrollY + window.innerHeight / 2;
+    for (let i = 0; i < workItems.length; i++) {
+      const item = workItems[i];
+      const elementTop = item.offsetTop;
+      const elementBottom = elementTop + item.offsetHeight;
+      if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+        let index = i + 1;
+        fixedIndex.textContent = index < 10 ? '0' + index : index;
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateFixedIndex);
+  window.addEventListener('resize', updateFixedIndex);
+  window.addEventListener('load', updateFixedIndex);
+
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+</script>
+
+</body>
+</html>

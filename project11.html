@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photography</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: #111;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  nav {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 8px 20px;
+    font-weight: 600;
+    display: flex;
+    gap: 30px;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  nav a:hover,
+  nav a.active {
+    background-color: #000;
+    color: #fff;
+  }
+  main {
+    max-width: 900px;
+    margin: 100px auto 120px;
+    padding: 0 20px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color:#00000011;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s;
+  }
+  .description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    transition: color 0.3s;
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  .gallery img:hover {
+    transform: scale(1.04);
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+    user-select: none;
+    transition: color 0.3s;
+  }
+  .dark-toggle {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s, color 0.3s;
+  }
+  .dark-mode .dark-toggle {
+    background: #eee;
+    color: #111;
+  }
+  /* --- DARK MODE --- */
+  .dark-mode {
+    background: #121212;
+    color: #f0f0f0;
+  }
+  .dark-mode nav {
+    background: rgba(30, 30, 30, 0.85);
+  }
+  .dark-mode nav a {
+    color: #ccc;
+  }
+  .dark-mode nav a:hover,
+  .dark-mode nav a.active {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+  .dark-mode h1 {
+    color: #ffb3b3;
+  }
+  .dark-mode .description {
+    color: #bbb;
+  }
+  .dark-mode footer {
+    color: #bbb;
+  }
+  /* Modal styles */
+  #modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+  #modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    transition: box-shadow 0.3s;
+  }
+  #closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    transition: color 0.3s;
+  }
+  .dark-mode #modal {
+    background-color: rgba(20,20,20,0.93);
+  }
+  .dark-mode #modal img {
+    box-shadow: 0 0 30px rgba(255,179,179,0.2);
+  }
+  .dark-mode #closeBtn {
+    color: #ffb3b3;
+  }
+  @media (max-width: 600px){
+    nav {
+      top: 10px; right: 10px; gap: 15px; padding: 6px 14px;
+    }
+    nav a {
+      font-size: 0.9rem; padding: 6px 10px;
+    }
+    .dark-toggle {
+      top: 10px;
+      left: 10px;
+      font-size: 0.85rem;
+      padding: 7px 13px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="cv.html">CV</a>
+</nav>
+
+<main>
+  <h1>Photography @ FiliJoia  </h1>
+  <p class="description">In collaboration with Portolis, a jewelry brand, I photographed their latest collection using a blend of product and lifestyle imagery. 
+    The project featured detailed close-ups that highlighted the craftsmanship and texture of each piece, along with styled portraits 
+    showcasing the jewelry in use. The goal was to create an elegant, cohesive visual story that reflected the brand’s identity 
+    and elevated its presence across both digital and print media.
+
+  <section class="gallery" aria-label="Logos Gallery">
+    <img src="project11\fili1.jpg" alt="Logo design for an architecture firm" />
+  </section>
+  <section class="gallery" aria-label="Logos Gallery">
+    <img src="project11\fili2.jpg" alt="Logo design for a rug maker" />
+  </section>
+  <section class="gallery" aria-label="Logos Gallery">
+    <img src="project11\fili3.jpg" alt="Additional logo design example" />
+  </section>
+</main>
+
+<!-- Modal container -->
+<div id="modal">
+  <span id="closeBtn" title="Close">&times;</span>
+  <img id="modalImg" src="" alt="Enlarged logo" />
+</div>
+
+<footer>
+    © 2025 Bruno M. Reis | brunomiguelsantosreis@gmail.com
+</footer>
+
+<script>
+  // Dark Mode
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    // Dark mode preference
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeBtn');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
+      document.body.style.overflow = 'auto';
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

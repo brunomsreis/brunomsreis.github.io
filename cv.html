@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume – Bruno Reis</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 8px 20px;
+      font-weight: 600;
+      display: flex;
+      gap: 30px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #111;
+  padding: 8px 12px;
+  border-radius: 20px;
+  text-decoration: none; /* <-- Isto garante que não há sublinhado */
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #583030;
+  background-color: transparent; /* Remove o fundo escuro */
+}
+    .container {
+      max-width: 960px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #583030;
+      transition: color 0.3s;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+      transition: border-color 0.3s;
+    }
+    .cv-entry {
+      margin-bottom: 20px;
+    }
+    .cv-entry h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #925151;
+      transition: color 0.3s;
+    }
+    .cv-entry span {
+      display: block;
+      font-size: 0.95rem;
+      color: #666;
+      transition: color 0.3s;
+    }
+    .cv-entry p {
+      font-size: 1rem;
+      margin-top: 8px;
+      color: #444;
+      transition: color 0.3s;
+    }
+    ul { padding-left: 20px; }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .links a {
+      display: inline-block;
+      margin: 4px 10px;
+      font-size: 0.95rem;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    /* --- DARK MODE --- */
+    .dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+    .dark-mode nav {
+      background: rgba(30, 30, 30, 0.85);
+    }
+    .dark-mode nav a {
+      color: #ccc;
+    }
+    .dark-mode nav a:hover,
+    .dark-mode nav a.active {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+    .dark-mode h1 {
+      color: #ffb3b3;
+    }
+    .dark-mode h2 {
+      border-color: #333;
+    }
+    .dark-mode .cv-entry h3 {
+      color: #ffb3b3;
+    }
+    .dark-mode .cv-entry span {
+      color: #aaa;
+    }
+    .dark-mode .cv-entry p {
+      color: #ccc;
+    }
+    .dark-mode .links a {
+      color: #eee;
+    }
+    .dark-mode footer {
+      color: #bbb;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
+    @media (max-width: 600px) {
+      nav {
+        top: 10px;
+        right: 10px;
+        gap: 15px;
+        padding: 6px 14px;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+      }
+      .dark-toggle {
+        top: 10px;
+        left: 10px;
+        font-size: 0.85rem;
+        padding: 7px 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="cv.html" class="active" aria-current="page">Resume</a>
+</nav>
+
+<div class="container">
+  <h1>Bruno Reis</h1>
+
+  <section>
+    <h2>Summary</h2>
+    <p>I’m a multimedia communicator with a background in geography — a unique combo that helps me think spatially and creatively. Recently certified as a full stack web developer, I bring design, UX/UI, and coding together to build experiences that matter. Fluent in Portuguese, English, and Spanish. I love team collaboration and purposeful creation.</p>
+  </section>
+
+  <section>
+    <h2>Contacts</h2>
+    <div class="links">
+      <a href="mailto:brunomiguelsantosreis@gmail.com">📧 Email</a>
+      <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">🔗 LinkedIn</a>
+      <a href="https://behance.net/brunomsreis" target="_blank">🎨 Behance</a>
+      <a href="https://github.com/brunomsreis" target="_blank">💻 GitHub</a>
+      <a href="https://instagram.com/bru_no_reis" target="_blank">📷 Instagram</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+    <div class="cv-entry">
+      <h3>Multimedia & Instructional Designer – ebankIT</h3>
+      <span>Aug 2021 – Jul 2024</span>
+      <p>Created digital learning content, both static and animated. Contributed to UX/UI improvements and cross-departmental design consistency.</p>
+    </div>
+    <div class="cv-entry">
+      <h3>Multimedia Designer (Trainee) – INESC TEC</h3>
+      <span>Jan 2020 – Jun 2020</span>
+      <p>Produced video content and multimedia materials for internal and external communication channels.</p>
+    </div>
+    <div class="cv-entry">
+      <h3>Strategy & Operations – ORM (Oporto Rental Management)</h3>
+      <span>Nov 2016 – Sep 2020</span>
+      <p>Managed digital listings, optimized pricing and bookings, produced reports, and created customer-facing content.</p>
+    </div>
+    <div class="cv-entry">
+      <h3>Geographer – Mobilidade PT</h3>
+      <span>Nov 2015 – May 2016</span>
+      <p>Collected and analyzed geographic data, produced maps and infographics, and contributed to urban planning research.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="cv-entry">
+      <h3>Full Stack Web Developer – EDIT</h3>
+      <span>Sep 2023 – Mar 2024</span>
+      <p>HTML5, CSS3, JavaScript, React, TypeScript, Python, back-end fundamentals.</p>
+    </div>
+    <div class="cv-entry">
+      <h3>BA in Communication Sciences – University of Porto (FLUP)</h3>
+      <span>Sep 2017 – Jun 2020</span>
+      <p>Specialization in journalism, marketing, graphic and motion design, UX/UI and web development.</p>
+    </div>
+    <div class="cv-entry">
+      <h3>BA in Geography – University of Porto (FLUP)</h3>
+      <span>Sep 2009 – Jun 2013</span>
+      <p>Focused on human and physical geography, GIS, cartography, and environmental/urban planning.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>Graphic Design, UX/UI, Motion Design</li>
+      <li>Digital Marketing, Copy writting, Social Media</li>
+      <li>HTML, CSS, JavaScript, React, TypeScript, Python</li>
+      <li>Adobe Creative Cloud, Figma, e-learning tools</li>
+      <li>GIS, Cartography, Video Production</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li>Portuguese – Native</li>
+      <li>English – Fluent</li>
+      <li>Spanish – Intermediate</li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  © 2025 Bruno M. Reis | brunomiguelsantosreis@gmail.com
+</footer>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+});
+</script>
+
+</body>
+</html>

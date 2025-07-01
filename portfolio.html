@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bruno M. Reis – Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 8px 20px;
+      font-weight: 600;
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #000;
+      color: #fff;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 100px 20px 120px 20px;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      cursor: pointer;
+      user-select: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      background: #eee;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #444;
+      transition: background-color 0.3s, color 0.3s;
+      border: none;
+      outline: none;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: #000;
+      color: #fff;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .portfolio-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.20);
+    }
+    .portfolio-image {
+  aspect-ratio: 4 / 3; /* Ensures uniform shape for all thumbnails */
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This crops and scales to fill */
+  transition: transform 0.5s ease;
+}
+
+.portfolio-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    .portfolio-item:hover .portfolio-image img {
+      transform: scale(1.07);
+    }
+    .portfolio-info {
+      padding: 20px 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .portfolio-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      font-weight: 700;
+      color: #111;
+    }
+    .portfolio-info p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-top: 0;
+    }
+
+    .portfolio-image iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.portfolio-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: #111;
+    } 
+    @media (max-width: 600px) {
+      nav {
+        top: 10px;
+        right: 10px;
+        gap: 15px;
+        padding: 6px 14px;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+      }
+      .filter-bar {
+        gap: 12px;
+      }
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* --- DARK MODE --- */
+.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode nav {
+  background: rgba(30, 30, 30, 0.85);
+}
+
+.dark-mode nav a {
+  color: #ccc;
+}
+
+.dark-mode nav a:hover,
+.dark-mode nav a.active {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.dark-mode .filter-bar {
+  background: transparent;
+}
+
+.dark-mode .filter-btn {
+  background: #222;
+  color: #eee;
+}
+
+.dark-mode .filter-btn:hover,
+.dark-mode .filter-btn.active {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.dark-mode .portfolio-item {
+  background: #232323;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+}
+
+.dark-mode .portfolio-info h3 {
+  color: #f0f0f0;
+}
+
+.dark-mode .portfolio-info p {
+  color: #bbb;
+}
+
+ .dark-mode .social-links a {
+      color: #ccc;
+    }
+
+    .dark-mode footer {
+      color: #aaa;
+    }
+
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode .dark-toggle {
+  background: #eee;
+  color: #111;
+}
+
+.sort-btn {
+  position: fixed;
+  left: 30px;
+  top: 60px;
+  background: #eee;
+  color: #111;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s, color 0.3s;
+}
+.sort-btn.active {
+  background: #000;
+  color: #fff;
+}
+.dark-mode .sort-btn { background: #222; color: #eee; }
+.dark-mode .sort-btn.active { background: #ffb3b3; color: #000; }
+
+.order-status {
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 600;
+  color: #444;
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 8px 0;
+  letter-spacing: 0.04em;
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode .order-status {
+  background: #232323;
+  color: #ffb3b3;
+}
+.order-status.active {
+  background: #d0f7e9;
+  color: #0b7c59;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
+  <a href="cv.html">Resume</a>
+</nav>
+
+<div class="container">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="video">Video</button>
+    <button class="filter-btn" data-filter="motion-graphics">Motion Graphics</button>
+    <button class="filter-btn" data-filter="design">Design</button>
+    <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+    <button class="filter-btn" data-filter="photography">Photography</button>
+  </div>
+
+<button class="sort-btn" id="sortBtn" onclick="toggleSort()">
+  <span id="sortIcon">🔀</span> <span id="sortText">Shuffle mode</span>
+</button>
+
+
+  <script>
+  // Função para randomizar projetos
+  function shufflePortfolio() {
+    const grid = document.getElementById('portfolioGrid');
+    const items = Array.from(grid.children);
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.appendChild(items[j]);
+      items.splice(j, 1);
+    }
+  }
+
+  // Filtro de categorias
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  function setupFilters() {
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  
+
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Dark mode preference
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    shufflePortfolio();
+    setupFilters();
+  });
+</script>
+
+<div id="order-status" class="order-status">Projects in random order</div>
+
+
+  <div class="portfolio-grid" id="portfolioGrid">
+    <a href="project1.html" class="portfolio-item" data-category="design" aria-label="graphic design" data-year="2025-05-30">
+      <div class="portfolio-image">
+        <img src="project1\355b56160021199.63c8153d63e13.jpg" alt="graphic design" />
+      </div>
+      <div class="portfolio-info">
+        <h3>🎨 Graphic design @ ebankIT</h3>
+        <p>Developed a cohesive suite of visual assets to strengthen eBankIT’s brand identity across multiple channels.</p>
+      </div>
+    </a>
+
+    <a href="project2.html" class="portfolio-item" data-category="motion-graphics" aria-label="motion graphics" data-year="2025-05-29">
+        <div class="portfolio-image">
+          <iframe
+      src="https://archive.org/embed/academia_202506?autoplay=1&loop=1"
+  class="archive-iframe"
+  title="Archive.org video player"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+    </iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>🎞️ Motion Graphics @ ebankIT</h3>
+          <p>Dynamic animations and graphic storytelling for brand promotion on social media and website.</p>
+        </div>
+      </a>
+
+    <a href="project3.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2022-07-29">
+      <div class="portfolio-image">
+        <img src="project3\9fa63d117447971.6075fc9cd2933.png" alt="photography" />
+      </div>
+      <div class="portfolio-info">
+        <h3>📸 Photography @ Kehpry Shoes</h3>
+        <p>Working with Kehpry Shoes, the goal was to visually reflect the brand’s identity through bold, stylish imagery.</p>
+      </div>
+    </a>
+
+    <a href="project4.html" class="portfolio-item" data-category="video" aria-label="video editing/ production"data-year="2020-07-29">
+        <div class="portfolio-image">
+           <iframe
+      src="https://archive.org/embed/promo_202506?autoplay=1&loop=1"
+  class="archive-iframe"
+  title="Archive.org video player"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+    </iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>🎬 Video @ INESC TEC</h3>
+          <p>During my internship at INESC TEC, I worked closely with the marketing team to create content from the ground up mostly video-focused.  </p>
+        </div>
+      </a>
+
+    <a href="project5.html" class="portfolio-item" data-category="video" aria-label="video editing/ production" data-year="2023-07-29">
+       <div class="portfolio-image">
+           <iframe
+      src="https://archive.org/embed/vermelho?autoplay=1&loop=1"
+  class="archive-iframe"
+  title="Archive.org video player"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+    </iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>🎬 Video @ personal projects</h3>
+          <p>These personal projects reflect my passion for capturing moments and exploring creative video production.
+
+ </p>
+        </div>
+      </a>
+
+      <a href="project6.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2018-07-29">
+        <div class="portfolio-image">
+          <img src="project6\ede2a7108409373.5fbd26c4f2f83.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸Photography @ Fraga Jewelry</h3>
+          <p>This shoot for Fraga was all about blending artful elegance with street style edge.</p>
+        </div>
+      </a>
+
+      <a href="project7.html" class="portfolio-item" data-category="design" aria-label="design"data-year="2025-01-01">
+        <div class="portfolio-image">
+          <img src="project7\posters_rua.png" alt="design" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🎨 Graphic design @ university and personal projects</h3>
+          <p>Outside of client work, I’m always experimenting — creating posters, visual studies, and other pieces that explore color, type, motion, and mood. These personal projects are where I get to play, break rules, and test ideas that push my creative limits.</p>
+        </div>
+      </a>
+
+      <a href="project8.html" class="portfolio-item" data-category="design" aria-label="design" data-year="2023-05-29">
+        <div class="portfolio-image">
+          <img src="project8\mockup_clubteatro.png" alt="design" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🎨 Graphic design @ Clube de teatro de Gaia</h3>
+          <p>This project involved designing a series of posters to promote various events hosted by the Gaia Theatre Club.</p>
+        </div>
+      </a>
+
+      <a href="project13.html" class="portfolio-item" data-category="ux-ui" aria-label="ux/ui" data-year="2024-03-29">
+        <div class="portfolio-image">
+          <img src="project13\6.jpg" alt="ux/ui" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🧠🖌️ UX/UI @ Verda</h3>
+          <p>Verda is a modern, eco-conscious fashion brand that blends sustainability with style. </p>
+        </div>
+      </a>
+
+      <a href="project9.html" class="portfolio-item" data-category="design" aria-label="graphic design" data-year="2022-03-29">
+        <div class="portfolio-image">
+          <img src="project9\2.png" alt="graphic design" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🎨 Logos</h3>
+          <p>This freelance logo design project showcases a variety of custom logos created for different clients.</p>
+        </div>
+      </a>
+
+      <a href="project14.html" class="portfolio-item" data-category="design" aria-label="brand design" data-year="2024-02-29">
+        <div class="portfolio-image">
+          <img src="project14\Coffee_Cup_Mockup_3.png" alt="brand design" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🎨Lumos Café – Complete Visual Identity</h3>
+          <p>The "Lumos Café" project involved creating a complete visual identity for a premium coffee brand with a warm and magical concept. The goal was to design a logo that conveys sophistication, coziness, and a touch of fantasy, ensuring versatility across different applications and communication materials.</p>
+        </div>
+      </a>
+
+<a href="project10.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2015-07-29">
+        <div class="portfolio-image">
+          <img src="project10\portolis.png" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Portolis</h3>
+          <p>For this project with Portolis, a jewelry brand, I was responsible for capturing their latest collection through a mix of product and lifestyle photography.</p>
+        </div>
+      </a>
+
+      <a href="project11.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2016-07-29">
+        <div class="portfolio-image">
+          <img src="project11\logo_filijoia.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ FiliJoia</h3>
+          <p>In collaboration with Filijoia, a jewelry brand, I photographed their latest collection using a blend of product and lifestyle imagery. </p>
+        </div>
+      </a>
+
+
+
+      <a href="project15.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2024-03-29">
+        <div class="portfolio-image">
+          <img src="project15\0a41b7108351587.5fbc0202be481.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📷 People & Portraits</h3>
+          <p>I’m drawn to capturing people — their energy, expression, and the quiet moments in between. My portrait work focuses on creating a natural connection between subject and lens, whether it’s candid or carefully styled.</p>
+        </div>
+      </a>
+
+      <a href="project17.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2024-02-16">
+        <div class="portfolio-image">
+          <img src="project17\bf21fb108359249.5fbc1f6c7cafe.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Wandered Spaces – A Landscape & Place Photography Series</h3>
+          <p>"Wandered Spaces" is an ongoing photography series that captures the emotional resonance of places</p>
+        </div>
+      </a>
+
+      <a href="project18.html" class="portfolio-item" data-category="ux-ui" aria-label="ux-ui" data-year="2024-07-01">
+        <div class="portfolio-image">
+          <img src="project18\focusflow.png" alt="ux-ui" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🧠🖌️ UX/UI @ FocusFlow</h3>
+          <p>Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks. </p>
+        </div>
+      </a>
+
+      <a href="project19.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2024-02-01">
+        <div class="portfolio-image">
+          <img src="project19\IMG_7432.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Black & White Series</h3>
+          <p>This project is an exploration of light, contrast, and emotion — stripped of color to focus purely on form and feeling.</p>
+        </div>
+      </a>
+
+      <a href="project20.html" class="portfolio-item" data-category="motion-graphics" aria-label="motion-graphics" data-year="2025-04-29">
+        <div class="portfolio-image">
+          <iframe
+      src="https://archive.org/embed/jta_anim?autoplay=1&loop=1"
+  class="archive-iframe"
+  title="Archive.org video player"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+    </iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>🎞️ Motion Graphics and 3D animation</h3>
+          <p>I’ve developed motion graphics for a range of projects</p>
+        </div>
+      </a>
+
+      <a href="project21.html" class="portfolio-item" data-category="ux-ui" aria-label="ux-ui" data-year="2024-05-29">
+        <div class="portfolio-image">
+          <img src="project21\qook_mockup.png" alt="ux-ui" />
+        </div>
+        <div class="portfolio-info">
+          <h3> 🧠🖌️Qook – Food Delivery App UX/UI Design</h3>
+          <p>Designed the UX/UI for Qook, a food delivery app, focusing on an intuitive user experience and a clean, modern interface.</p>
+        </div>
+      </a>
+
+      <a href="project22.html" class="portfolio-item" data-category="ux-ui" aria-label="ux-ui" data-year="2020-02-29">
+        <div class="portfolio-image">
+          <img src="project22\hand holding smartphone mockup.png" alt="ux-ui" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🧠🖌️ UX/UI @ Porto Desconhecido – Educational App UX/UI Design</h3>
+          <p>Developed as part of the Ergonomics of Multimedia Applications course during my Communication Sciences degree, Porto Desconhecido is a mobile app concept created for CLIA ANILUPA.</p>
+        </div>
+      </a>
+
+      <a href="project24.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="2020-04-29">
+        <div class="portfolio-image">
+          <img src="project24\67e5fa108280193.5fba87d69b9ac.jpg" alt="Photography Project" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ LIGHT.COLOR.ACTION</h3>
+          <p>Created for the Photography unit at university, this project explores the emotional language of light and color in visual storytelling. </p>
+        </div>
+      </a>
+
+      <a href="project25.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="2020-08-29">
+        <div class="portfolio-image">
+          <img src="project25\7ee4c334281661.5fbacab80f63f.jpg" alt="Photography Project" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Boutique Prata</h3>
+          <p>A jewelry product project designed for Boutique Prata, created as part of a university assignment. </p>
+        </div>
+      </a>
+
+      <a href="project26.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="2018-10-29">
+        <div class="portfolio-image">
+          <img src="project26\a1eba0108124565.5fb69b4992680.jpg" alt="Photography Project" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ ORM- Oporto Rental Managment Apartments</h3>
+          <p>Created for the Photography unit at university, this project explores the emotional language of light and color in visual storytelling. </p>
+        </div>
+      </a>
+
+      <a href="project27.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="202-12-29">
+        <div class="portfolio-image">
+          <img src="project27\186b39108130713.5fb6b17117a08.jpg" alt="Photography Project" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Architecture Photography @ Local Guesthouse</h3>
+          <p>A freelance project focused on photographing a local guesthouse for use on platforms like Airbnb, Booking, and Tripadvisor. </p>
+        </div>
+      </a>
+
+
+      <a href="project28.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="2021-07-29">
+        <div class="portfolio-image">
+          <img src="project28\bd561f122897833.60e3737c5c583.png" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Açores</h3>
+          <p>A personal photography project captured during a trip to the Azores. </p>
+        </div>
+      </a>
+
+      <a href="project29.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2023-10-29">
+        <div class="portfolio-image">
+          <img src="project29\IMG_8336.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Random moments</h3>
+          <p> A visual diary made up of spontaneous moments captured during travels, quiet mornings, late nights, and everything in between.  </p>
+        </div>
+      </a>
+
+      <a href="project30.html" class="portfolio-item" data-category="photography" aria-label="Open Photography Project" data-year="2024-06-17">
+        <div class="portfolio-image">
+          <img src="project30\8b16f5209701605.6704554302a38.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Camino de Santiago</h3>
+          <p>Created for the Photography unit at university, this project explores the emotional language of light and color in visual storytelling. </p>
+        </div>
+      </a>
+
+      <a href="project31.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2022-02-22">
+        <div class="portfolio-image">
+          <img src="project31\0fc31e117447397.6075fabf86896.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Photography @ Book Club Project</h3>
+          <p>A freelance photography project for a local book club, focused on capturing images to be used in their communication materials.  </p>
+        </div>
+      </a>
+
+      <a href="project32.html" class="portfolio-item" data-category="design" aria-label="design" data-year="2024-01-15">
+        <div class="portfolio-image">
+          <img src="project32\apresentação.png" alt="design" />
+        </div>
+        <div class="portfolio-info">
+          <h3>🎨 Freelance Graphic Design</h3>
+          <p>As a freelance graphic designer, I’ve worked on a variety of small-scale projects for different clients, 
+            tailoring visual solutions to meet their communication needs. These include banners, social media visuals, and infographics </p>
+        </div>
+      </a>
+
+      <a href="project33.html" class="portfolio-item" data-category="photography" aria-label="photography" data-year="2023-03-03">
+        <div class="portfolio-image">
+          <img src="project33\IMG_7196.jpg" alt="photography" />
+        </div>
+        <div class="portfolio-info">
+          <h3>📸 Polaroid Style Photo Editing Project</h3>
+          <p>A creative photo editing project where I designed and applied Polaroid-inspired frames to images,
+             giving them a nostalgic and vintage feel. A personal exploration of combining photography and graphic design. </p>
+        </div>
+      </a>
+  </div>
+</div>
+
+<footer>
+  © 2025 Bruno Reis
+  <div class="social-links">
+    <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">LinkedIn</a> |
+    <a href="https://behance.net/brunomsreis" target="_blank">Behance</a> |
+    <a href="https://github.com/brunomsreis" target="_blank">GitHub</a> |
+    <a href="https://instagram.com/bru_no_reis" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filter = button.getAttribute('data-filter');
+
+      portfolioItems.forEach(item => {
+        if(filter === 'all') {
+          item.style.display = '';
+        } else {
+          const categories = item.getAttribute('data-category').split(' ');
+          if(categories.includes(filter)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+  function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+});
+
+
+let sorted = false;
+function sortPortfolio() {
+  const grid = document.getElementById('portfolioGrid');
+  const items = Array.from(grid.children);
+  items.sort((a, b) => {
+    const dateA = a.getAttribute('data-year') || '';
+    const dateB = b.getAttribute('data-year') || '';
+    return dateB.localeCompare(dateA); // mais recente primeiro
+  });
+  items.forEach(item => grid.appendChild(item));
+}
+function shufflePortfolio() {
+  const grid = document.getElementById('portfolioGrid');
+  const items = Array.from(grid.children);
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    grid.appendChild(items[j]);
+    items.splice(j, 1);
+  }
+}
+function toggleSort() {
+  const btn = document.getElementById('sortBtn');
+  const icon = document.getElementById('sortIcon');
+  const text = document.getElementById('sortText');
+  const status = document.getElementById('order-status');
+
+  if (!sorted) {
+    sortPortfolio();
+    btn.classList.add('active');
+    icon.textContent = "📅";
+    text.textContent = "Sorted by date";
+    status.textContent = "Projects sorted by date (newest first)";
+    status.classList.add('active');
+    sorted = true;
+  } else {
+    shufflePortfolio();
+    btn.classList.remove('active');
+    icon.textContent = "🔀";
+    text.textContent = "Shuffle mode";
+    status.textContent = "Projects in random order";
+    status.classList.remove('active');
+    sorted = false;
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+  shufflePortfolio();
+  setupFilters();
+});
+
+</script>
+
+
+
+
+
+</body>
+</html>

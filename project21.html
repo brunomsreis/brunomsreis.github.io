@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photography</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: #111;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { text-decoration: none; color: inherit; }
+  nav {
+    position: fixed; top: 20px; right: 30px;
+    background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
+    border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000; padding: 8px 20px; font-weight: 600; display: flex; gap: 30px;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav a {
+    font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #111;
+    padding: 8px 12px; border-radius: 20px; transition: background-color 0.3s, color 0.3s;
+  }
+  nav a:hover, nav a.active { background-color: #000; color: #fff; }
+  .dark-toggle {
+    position: fixed; left: 30px; top: 20px; z-index: 1001;
+    background: #111; color: #fff; border: none; border-radius: 30px;
+    font-size: 0.9rem; padding: 8px 16px; cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  .dark-mode .dark-toggle { background: #eee; color: #111; }
+  main { max-width: 900px; margin: 100px auto 120px; padding: 0 20px; }
+  h1 {
+    font-weight: 700; font-size: 2.8rem; margin-bottom: 15px;
+    color: #00000011; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s;
+  }
+  .description { font-size: 1.2rem; color: #555; margin-bottom: 40px; line-height: 1.5; }
+  .gallery {
+    display: flex; flex-direction: column; gap: 30px;
+  }
+  .gallery img {
+    width: 100%; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .gallery img:hover { transform: scale(1.04); box-shadow: 0 16px 40px rgba(0,0,0,0.18);}
+  footer {
+    text-align: center; padding: 40px 20px 20px; font-size: 0.9rem;
+    color: #888; font-weight: 500; user-select: none;
+    transition: color 0.3s;
+  }
+  /* --- DARK MODE --- */
+  .dark-mode { background: #181818; color: #f0f0f0; }
+  .dark-mode nav { background: rgba(30, 30, 30, 0.85); }
+  .dark-mode nav a { color: #ccc; }
+  .dark-mode nav a:hover, .dark-mode nav a.active { background-color: #f0f0f0; color: #000; }
+  .dark-mode h1 { color: #ffb3b3; }
+  .dark-mode .description { color: #bbb; }
+  .dark-mode .gallery img { box-shadow: 0 10px 30px rgba(255,179,179,0.12); }
+  .dark-mode footer { color: #bbb; }
+  /* Lightbox styles */
+  .lightbox {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center;
+    z-index: 2000; visibility: hidden; opacity: 0; transition: opacity 0.3s;
+  }
+  .lightbox.show { visibility: visible; opacity: 1; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5); transition: box-shadow 0.3s;
+  }
+  .lightbox:after {
+    content: "×"; position: absolute; top: 30px; right: 40px;
+    font-size: 2.5rem; color: #fff; cursor: pointer; transition: color 0.3s;
+  }
+  .dark-mode .lightbox { background: rgba(20,20,20,0.93); }
+  .dark-mode .lightbox img { box-shadow: 0 0 30px rgba(255,179,179,0.2); }
+  .dark-mode .lightbox:after { color: #ffb3b3; }
+  @media (max-width: 600px){
+    nav { top: 10px; right: 10px; gap: 15px; padding: 6px 14px; }
+    nav a { font-size: 0.9rem; padding: 6px 10px; }
+    .dark-toggle { left: 10px; top: 10px; font-size: 0.85rem; padding: 7px 13px; }
+    main { margin: 70px auto 60px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="cv.html">CV</a>
+</nav>
+
+<main>
+  <h1>Qook – Food Delivery App UX/UI Design </h1>
+  <p class="description">Designed the UX/UI for Qook, a food delivery app, focusing on an intuitive user experience and a clean, modern interface. The project involved creating user flows, wireframes, and high-fidelity mockups in Figma, ensuring seamless navigation from food selection to checkout.</p>
+
+  <section class="gallery" aria-label="Motion Graphics Gallery">
+    <img src="project21/Captura de ecrã 2025-02-20 215208.png" alt="Motion graphics animation showing dynamic shapes and colors" />
+    <img src="project21/mockup1_food.png" alt="Food app mockup 1" />
+    <img src="project21/mockup2_food.png" alt="Food app mockup 2" />
+    <img src="project21/mockup3_food.png" alt="Food app mockup 3" />
+    <img src="project21/qook_mockup.png" alt="Food app main mockup" />
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Zoomed image" />
+</div>
+
+<footer>
+    © 2025 Bruno Reis | brunomiguelsantosreis@gmail.com
+</footer>
+
+<script>
+  // Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+  // Set theme on load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    // Lightbox logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    // Close modal on click outside image or on ×
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    // Close modal on ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    // Close modal on clicking the × (using :after pseudo-element)
+    lightbox.addEventListener('click', function(e) {
+      const rect = lightbox.getBoundingClientRect();
+      if (e.clientX > rect.right - 80 && e.clientY < rect.top + 80) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
