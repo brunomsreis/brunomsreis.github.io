@@ -296,6 +296,28 @@
   color: #0b7c59;
 }
 
+.video-alert {
+  display: inline-block;
+  background: #ffe08a;
+  color: #a67c00;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 12px 28px;
+  margin: 0 auto 32px auto;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+  letter-spacing: 0.02em;
+  border: none;
+}
+
+.dark-mode .video-alert {
+  background: #333019;
+  color: #ffe08a;
+}
+
+
 
 
 
@@ -375,7 +397,10 @@
 </script>
 
 <div id="order-status" class="order-status">Projects in random order</div>
-
+<div class="video-alert">
+  <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br>
+  <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
+</div>
 
   <div class="portfolio-grid" id="portfolioGrid">
     <a href="project1.html" class="portfolio-item" data-category="design" aria-label="graphic design" data-year="2025-05-30">
