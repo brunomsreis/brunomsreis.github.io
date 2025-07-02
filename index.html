@@ -234,87 +234,132 @@
     }
 
     /* --- RESPONSIVE --- */
-    @media (max-width: 600px) {
-      .dark-toggle {
-        position: static;
-        margin: 10px auto 8px auto;
-        display: block;
-        left: auto;
-        top: auto;
-        font-size: 0.95rem;
-        z-index: 1001;
-        background: #111;
-        color: #fff;
-      }
-      .dark-mode .dark-toggle {
-        background: #eee;
-        color: #111;
-      }
-      nav {
-        position: static;
-        margin: 0 auto 10px auto;
-        top: auto;
-        right: auto;
-        left: auto;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        padding: 6px 0;
-        border-radius: 18px;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100vw;
-        max-width: 100vw;
-        gap: 0;
-      }
-      .menu-links {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 0;
-        width: 100vw;
-        max-width: 100vw;
-      }
-      nav a {
-        font-size: 1rem;
-        padding: 10px 0;
-        flex: 1 1 0;
-        text-align: center;
-        border-radius: 0;
-        background: none;
-      }
-      .container {
-        padding: 70px 3vw 30px;
-        margin-top: 0;
-      }
-      .intro { font-size: 1rem; }
-      .work-text h2 { font-size: 1.1rem; }
-      .work-image, .portfolio-image {
-        max-width: 100vw;
-        border-radius: 8px;
-      }
-      li.work-item,
-      li.work-item:nth-child(even) {
-        flex-direction: column !important;
-        gap: 8px !important;
-        padding-bottom: 10px;
-      }
-      li.work-item::before {
-        position: static;
-        display: block;
-        margin-bottom: 8px;
-        left: 0;
-        font-size: 1.2rem;
-        text-align: left;
-      }
-      nav a.active {
-    background: #fff;
-    color: #000;
-    border-radius: 16px; /* Ou o valor de arredondamento que preferires */
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .dark-toggle {
+    position: static;
+    margin: 10px auto 8px auto;
+    display: block;
+    left: auto;
+    top: auto;
+    font-size: 0.95rem;
+    z-index: 1001;
+    background: #111;
+    color: #fff;
+  }
+  .dark-mode .dark-toggle {
+    background: #eee;
+    color: #111;
+  }
+  nav {
+    position: static;
+    margin: 0 auto 10px auto;
+    top: auto;
+    right: auto;
+    left: auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    /* Opcional: aumenta o contraste do ativo */
+    padding: 6px 0;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 0;
+  }
+  .menu-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 10px 0;
+    flex: 1 1 0;
+    text-align: center;
+    border-radius: 0;
+    background: none;
+  }
+  .container {
+    padding: 70px 3vw 30px;
+    margin-top: 0;
+  }
+  .intro { font-size: 1rem; }
+  .work-text h2 { font-size: 1.1rem; }
+
+ ul.work-list {
+    gap: 60px !important; /* espaço entre projetos */
+  }
+  li.work-item,
+  li.work-item:nth-child(even) {
+    flex-direction: column !important;
+    gap: 0 !important; /* remove gap para compatibilidade */
+    padding-bottom: 0 !important;
+    align-items: stretch !important;
+  }
+  .work-text {
+    margin-bottom: 16px !important; /* controla o espaço entre texto e imagem */
+  }
+  .work-image,
+  .portfolio-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .work-text {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .work-image,
+  .portfolio-image {
+    border-radius: 8px;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .work-image img,
+  .portfolio-image img,
+  .portfolio-image iframe {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    border-radius: 8px;
   }
 
-    }
+  /* Vídeo responsivo e visível na totalidade */
+  .portfolio-image {
+    aspect-ratio: unset !important;
+    min-width: 0;
+    min-height: 0;
+  }
+  .portfolio-image iframe {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: 56vw !important; /* 16:9 ratio */
+    min-height: 180px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  li.work-item::before {
+    display: none !important;
+  }
+  .fixed-index {
+    display: none !important;
+  }
+  nav a.active {
+    background: #fff;
+    color: #000;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -347,31 +392,31 @@
         <a href="project1.html">
           <h2>🎨 Graphic design @ ebankIT</h2>
           <p>Developed a cohesive suite of visual assets to strengthen eBankIT’s brand identity across multiple channels.</p>
-        </a>
-      </div>
-      <div class="work-image">
+           <div class="work-image">
         <img src="project1/355b56160021199.63c8153d63e13.jpg" alt="Motion Graphics Project" />
       </div>
+        </a>
+      </div>
+     
     </li>
     <li class="work-item">
       <div class="work-text">
         <a href="project18.html">
           <h2>🧠🖌️Focus Flow – Personal Time Management & Task Sharing App</h2>
           <p>Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks.</p>
-        </a>
-      </div>
-      <div class="work-image">
+          <div class="work-image">
         <img src="project18/focusflow.png" alt="INESC TEC project" />
       </div>
+        </a>
+      </div>
+      
     </li>
     <li class="work-item">
       <div class="work-text">
         <a href="project2.html">
           <h2>🎞️ Motion Graphics @ ebankIT</h2>
           <p>Dynamic animations and graphic storytelling for brand promotion on social media and website.</p>
-        </a>
-      </div>
-      <div class="portfolio-image">
+          <div class="portfolio-image">
         <iframe
           src="https://archive.org/embed/academia_202506?autoplay=1&loop=1"
           class="archive-iframe"
@@ -381,17 +426,21 @@
           allowfullscreen>
         </iframe>
       </div>
+        </a>
+      </div>
+      
     </li>
     <li class="work-item">
       <div class="work-text">
         <a href="project19.html">
           <h2>📸 Black & White Series</h2>
           <p>This project is an exploration of light, contrast, and emotion, stripped of color to focus purely on form and feeling.</p>
-        </a>
-      </div>
-      <div class="work-image">
+           <div class="work-image">
         <img src="project19/IMG_7432.jpg" alt="Bootcamp project" />
       </div>
+        </a>
+      </div>
+     
     </li>
   </ul>
 </div>
