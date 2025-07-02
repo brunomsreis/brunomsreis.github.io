@@ -13,6 +13,24 @@
       color: #000;
       transition: background 0.3s, color 0.3s;
     }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1100;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
     nav {
       position: fixed;
       top: 20px;
@@ -26,24 +44,29 @@
       font-weight: 600;
       display: flex;
       gap: 30px;
+      align-items: center;
       transition: background 0.3s, color 0.3s;
     }
+    .menu-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
     nav a {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #111;
-  padding: 8px 12px;
-  border-radius: 20px;
-  text-decoration: none; /* <-- Isto garante que não há sublinhado */
-  transition: color 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-  color: #583030;
-  background-color: transparent; /* Remove o fundo escuro */
-}
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: #583030;
+      background-color: transparent;
+    }
     .container {
       max-width: 960px;
       margin: 120px auto 60px;
@@ -142,52 +165,102 @@ nav a.active {
     .dark-mode footer {
       color: #bbb;
     }
-    .dark-toggle {
-      position: fixed;
-      top: 20px;
-      left: 30px;
-      background: #111;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      z-index: 1001;
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark-mode .dark-toggle {
-      background: #eee;
-      color: #111;
-    }
+
+    /* --- RESPONSIVE --- */
     @media (max-width: 600px) {
+      .dark-toggle {
+        position: static;
+        margin: 10px auto 8px auto;
+        display: block;
+        left: auto;
+        top: auto;
+        font-size: 0.95rem;
+        z-index: 1001;
+        background: #111;
+        color: #fff;
+      }
+      .dark-mode .dark-toggle {
+        background: #eee;
+        color: #111;
+      }
       nav {
-        top: 10px;
-        right: 10px;
-        gap: 15px;
-        padding: 6px 14px;
+        position: static;
+        margin: 0 auto 10px auto;
+        top: auto;
+        right: auto;
+        left: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 6px 0;
+        border-radius: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100vw;
+        max-width: 100vw;
+        gap: 0;
+      }
+      .menu-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        width: 100vw;
+        max-width: 100vw;
       }
       nav a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
+        font-size: 1rem;
+        padding: 10px 0;
+        flex: 1 1 0;
+        text-align: center;
+        border-radius: 0;
+        background: none;
       }
-      .dark-toggle {
-        top: 10px;
-        left: 10px;
-        font-size: 0.85rem;
-        padding: 7px 13px;
+      .container {
+        margin: 70px auto 30px;
+        padding: 0 8px;
       }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+        padding-bottom: 4px;
+      }
+      .cv-entry h3 {
+        font-size: 1rem;
+      }
+      .cv-entry span, .cv-entry p, .links a, ul li {
+        font-size: 0.95rem;
+      }
+      footer {
+        padding: 18px 8px;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 600px) {
+  nav a.active {
+    background: #fff;
+    color: #000;
+    border-radius: 16px; /* Ou o valor de arredondamento que preferires */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    /* Opcional: aumenta o contraste do ativo */
+  }
+}
     }
   </style>
 </head>
 <body>
 
+<!-- O botão está fora do nav, mas será reposicionado por CSS em mobile -->
 <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="cv.html" class="active" aria-current="page">Resume</a>
+  <div class="menu-links">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="cv.html" class="active" aria-current="page">Resume</a>
+  </div>
 </nav>
 
 <div class="container">

@@ -28,6 +28,7 @@
       font-weight: 600;
       display: flex;
       gap: 30px;
+      align-items: center;
     }
     nav a {
       font-size: 1rem;
@@ -93,24 +94,21 @@
       box-shadow: 0 18px 44px rgba(0,0,0,0.20);
     }
     .portfolio-image {
-  aspect-ratio: 4 / 3; /* Ensures uniform shape for all thumbnails */
-  overflow: hidden;
-}
-
-.portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This crops and scales to fill */
-  transition: transform 0.5s ease;
-}
-
-.portfolio-image video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-image video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .portfolio-item:hover .portfolio-image img {
       transform: scale(1.07);
     }
@@ -133,19 +131,16 @@
       line-height: 1.4;
       margin-top: 0;
     }
-
     .portfolio-image iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
-
-.portfolio-image {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+    .portfolio-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -158,179 +153,279 @@
       margin: 0 10px;
       font-size: 1rem;
       color: #111;
-    } 
-    @media (max-width: 600px) {
-      nav {
-        top: 10px;
-        right: 10px;
-        gap: 15px;
-        padding: 6px 14px;
-      }
-      nav a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-      }
-      .filter-bar {
-        gap: 12px;
-      }
-      .filter-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-      }
     }
-
-    /* --- DARK MODE --- */
-.dark-mode {
-  background: #121212;
-  color: #f0f0f0;
-}
-
-.dark-mode nav {
-  background: rgba(30, 30, 30, 0.85);
-}
-
-.dark-mode nav a {
-  color: #ccc;
-}
-
-.dark-mode nav a:hover,
-.dark-mode nav a.active {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-.dark-mode .filter-bar {
-  background: transparent;
-}
-
-.dark-mode .filter-btn {
-  background: #222;
-  color: #eee;
-}
-
-.dark-mode .filter-btn:hover,
-.dark-mode .filter-btn.active {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-.dark-mode .portfolio-item {
-  background: #232323;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.28);
-}
-
-.dark-mode .portfolio-info h3 {
-  color: #f0f0f0;
-}
-
-.dark-mode .portfolio-info p {
-  color: #bbb;
-}
-
- .dark-mode .social-links a {
+    .dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+    .dark-mode nav {
+      background: rgba(30, 30, 30, 0.85);
+    }
+    .dark-mode nav a {
       color: #ccc;
     }
-
+    .dark-mode nav a:hover,
+    .dark-mode nav a.active {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+    .dark-mode .filter-bar {
+      background: transparent;
+    }
+    .dark-mode .filter-btn {
+      background: #222;
+      color: #eee;
+    }
+    .dark-mode .filter-btn:hover,
+    .dark-mode .filter-btn.active {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+    .dark-mode .portfolio-item {
+      background: #232323;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+    }
+    .dark-mode .portfolio-info h3 {
+      color: #f0f0f0;
+    }
+    .dark-mode .portfolio-info p {
+      color: #bbb;
+    }
+    .dark-mode .social-links a {
+      color: #ccc;
+    }
     .dark-mode footer {
       color: #aaa;
     }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
+    .sort-btn {
+      position: fixed;
+      left: 30px;
+      top: 60px;
+      background: #eee;
+      color: #111;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.3s, color 0.3s;
+    }
+    .sort-btn.active {
+      background: #000;
+      color: #fff;
+    }
+    .dark-mode .sort-btn { background: #222; color: #eee; }
+    .dark-mode .sort-btn.active { background: #ffb3b3; color: #000; }
+    .order-status {
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #444;
+      background: #f6f6f6;
+      border-radius: 8px;
+      padding: 8px 0;
+      letter-spacing: 0.04em;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .order-status {
+      background: #232323;
+      color: #ffb3b3;
+    }
+    .order-status.active {
+      background: #d0f7e9;
+      color: #0b7c59;
+    }
+    .video-alert {
+      display: inline-block;
+      background: #ffe08a;
+      color: #a67c00;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      border-radius: 25px;
+      padding: 12px 28px;
+      margin: 0 auto 32px auto;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      text-align: center;
+      letter-spacing: 0.02em;
+      border: none;
+    }
+    .dark-mode .video-alert {
+      background: #333019;
+      color: #ffe08a;
+    }
 
-.dark-toggle {
-  position: fixed;
-  top: 20px;
-  left: 30px;
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  z-index: 1001;
-  transition: background 0.3s, color 0.3s;
-}
+    /* --- MOBILE ONLY --- */
+    @media (max-width: 600px) {
+      nav {
+        position: static;
+        top: auto;
+        right: auto;
+        left: auto;
+        margin: 0 auto 10px auto;
+        border-radius: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        width: 100vw;
+        max-width: 100vw;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0 4px 0;
+        gap: 0;
+      }
+      .mobile-menu-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin: 0 0 6px 0;
+      }
+      .dark-toggle, .sort-btn {
+        position: static !important;
+        width: 90vw;
+        max-width: 98vw;
+        font-size: 1rem;
+        margin: 0 auto 0 auto;
+        display: block;
+        left: auto;
+        top: auto;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0;
+      }
+      nav a {
+        font-size: 1rem;
+        padding: 10px 0;
+        border-radius: 0;
+        background: none;
+        flex: 1 1 0;
+        text-align: center;
+      }
+    }
 
-.dark-mode .dark-toggle {
-  background: #eee;
-  color: #111;
+    /* MOBILE MENU BOTÕES */
+.mobile-menu-actions {
+  display: none;
 }
-
-.sort-btn {
-  position: fixed;
-  left: 30px;
-  top: 60px;
-  background: #eee;
-  color: #111;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  z-index: 1001;
-  transition: background 0.3s, color 0.3s;
-}
-.sort-btn.active {
-  background: #000;
-  color: #fff;
-}
-.dark-mode .sort-btn { background: #222; color: #eee; }
-.dark-mode .sort-btn.active { background: #ffb3b3; color: #000; }
-
-.order-status {
-  text-align: center;
-  margin-bottom: 18px;
-  font-weight: 600;
-  color: #444;
-  background: #f6f6f6;
-  border-radius: 8px;
-  padding: 8px 0;
-  letter-spacing: 0.04em;
-  transition: background 0.3s, color 0.3s;
-}
-.dark-mode .order-status {
-  background: #232323;
-  color: #ffb3b3;
-}
-.order-status.active {
-  background: #d0f7e9;
-  color: #0b7c59;
-}
-
-.video-alert {
+.desktop-only {
   display: inline-block;
-  background: #ffe08a;
-  color: #a67c00;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  border-radius: 25px;
-  padding: 12px 28px;
-  margin: 0 auto 32px auto;
-  font-size: 1.05rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  text-align: center;
-  letter-spacing: 0.02em;
-  border: none;
 }
 
-.dark-mode .video-alert {
-  background: #333019;
-  color: #ffe08a;
+@media (max-width: 600px) {
+  nav {
+    position: static;
+    margin: 0 auto;
+    top: auto;
+    right: auto;
+    left: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 6px 0;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 0;
+  }
+  .menu-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 10px 0;
+    flex: 1 1 0;
+    text-align: center;
+    border-radius: 0;
+    background: none;
+  }
+
+  @media (max-width: 600px) {
+  nav a.active {
+    background: #fff;
+    color: #000;
+    border-radius: 16px; /* Ou o valor de arredondamento que preferires */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    /* Opcional: aumenta o contraste do ativo */
+  }
 }
-
-
-
-
-
+  .mobile-menu-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 10px 0 0 0;
+  }
+  .mobile-menu-actions .dark-toggle,
+  .mobile-menu-actions .sort-btn {
+    position: static !important;
+    width: 90vw;
+    max-width: 98vw;
+    font-size: 1rem;
+    margin: 0 auto 0 auto;
+    display: block;
+    left: auto;
+    top: auto;
+    z-index: 1001;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .container {
+    padding: 70px 3vw 30px;
+    margin-top: 0;
+  }
+}
   </style>
 </head>
 <body>
-<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+<!-- BOTÕES MOBILE (apenas visíveis em mobile) -->
+<div class="mobile-menu-actions">
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+  <button class="sort-btn" id="sortBtn" onclick="toggleSort()">
+    <span id="sortIcon">🔀</span> <span id="sortText">Shuffle mode</span>
+  </button>
+</div>
+<!-- BOTÕES FIXOS DESKTOP -->
+<button class="dark-toggle desktop-only" onclick="toggleDarkMode()">🌓 Mode</button>
+<button class="sort-btn desktop-only" id="sortBtn-desktop" onclick="toggleSort()">
+  <span id="sortIcon-desktop">🔀</span> <span id="sortText-desktop">Shuffle mode</span>
+</button>
 <nav>
-  <a href="index.html">Home</a>
-  <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
-  <a href="cv.html">Resume</a>
+  <div class="menu-links">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
+    <a href="cv.html">Resume</a>
+  </div>
 </nav>
-
 <div class="container">
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
@@ -340,67 +435,11 @@
     <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
     <button class="filter-btn" data-filter="photography">Photography</button>
   </div>
-
-<button class="sort-btn" id="sortBtn" onclick="toggleSort()">
-  <span id="sortIcon">🔀</span> <span id="sortText">Shuffle mode</span>
-</button>
-
-
-  <script>
-  // Função para randomizar projetos
-  function shufflePortfolio() {
-    const grid = document.getElementById('portfolioGrid');
-    const items = Array.from(grid.children);
-    for (let i = items.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      grid.appendChild(items[j]);
-      items.splice(j, 1);
-    }
-  }
-
-  // Filtro de categorias
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  function setupFilters() {
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        portfolioItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  
-
-  // Dark Mode Toggle
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    // Dark mode preference
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-    }
-    shufflePortfolio();
-    setupFilters();
-  });
-</script>
-
-<div id="order-status" class="order-status">Projects in random order</div>
-<div class="video-alert">
-  <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br>
-  <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
-</div>
+  <div id="order-status" class="order-status">Projects in random order</div>
+  <div class="video-alert">
+    <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br>
+    <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
+  </div>
 
   <div class="portfolio-grid" id="portfolioGrid">
     <a href="project1.html" class="portfolio-item" data-category="design" aria-label="graphic design" data-year="2025-05-30">
