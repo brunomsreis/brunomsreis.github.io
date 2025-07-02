@@ -15,35 +15,41 @@
       scroll-behavior: smooth;
     }
     a { text-decoration: none; color: inherit; }
-    nav {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(8px);
-      border-radius: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 8px 20px;
-      font-weight: 600;
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-    nav a {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #111;
-      padding: 8px 12px;
-      border-radius: 20px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    nav a:hover,
-    nav a.active {
-      background-color: #000;
-      color: #fff;
-    }
+  nav {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 8px 20px;         /* igual à referência */
+  font-weight: 600;
+  display: flex;
+  gap: 30px;                 /* igual à referência */
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+}
+.menu-links {
+  display: flex;
+  gap: 30px;                 /* igual à referência */
+  align-items: center;
+}
+nav a {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #111;
+  padding: 8px 12px;         /* igual à referência */
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+nav a:hover,
+nav a.active {
+  background-color: #000;
+  color: #fff;
+}
     .container {
       max-width: 960px;
       margin: 0 auto;
