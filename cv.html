@@ -13,7 +13,6 @@
     gtag('config', 'G-PHVY6HBTV6');
   </script>
 
-
   <title>Resume – Bruno Reis</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -99,13 +98,18 @@
       margin-bottom: 20px;
       border-bottom: 2px solid #eee;
       padding-bottom: 8px;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, transform 0.5s ease;
+      /* Transition para o slide */
     }
 
-  
-  section p {
-    margin-bottom: 1.5em;
-  }
+    /* Animação slide para a direita */
+    h2.slide-right {
+      transform: translateX(30px);
+    }
+
+    section p {
+      margin-bottom: 1.5em;
+    }
 
     .cv-entry {
       margin-bottom: 20px;
@@ -256,14 +260,14 @@
         font-size: 0.8rem;
       }
       @media (max-width: 600px) {
-  nav a.active {
-    background: #fff;
-    color: #000;
-    border-radius: 16px; /* Ou o valor de arredondamento que preferires */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    /* Opcional: aumenta o contraste do ativo */
-  }
-}
+        nav a.active {
+          background: #fff;
+          color: #000;
+          border-radius: 16px; /* Ou o valor de arredondamento que preferires */
+          box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+          /* Opcional: aumenta o contraste do ativo */
+        }
+      }
     }
   </style>
 </head>
@@ -284,16 +288,16 @@
   <h1>Bruno Reis</h1>
 
   <section>
-  <h2>About me</h2>
+    <h2>About me</h2>
 
-  <p>I’m a multimedia communicator with a twist. My background in Geography gives me a spatial mindset that blends surprisingly well with design and digital thinking.</p>
+    <p>I’m a multimedia communicator with a twist. My background in Geography gives me a spatial mindset that blends surprisingly well with design and digital thinking.</p>
 
-  <p>Recently certified as a Full Stack Web Developer, I combine front-end development (HTML, CSS, JavaScript, React), UX/UI design, and storytelling to build digital experiences that work and feel right.</p>
+    <p>Recently certified as a Full Stack Web Developer, I combine front-end development (HTML, CSS, JavaScript, React), UX/UI design, and storytelling to build digital experiences that work and feel right.</p>
 
-  <p>Fluent in Portuguese, English and Spanish, I thrive in collaborative environments where creative ideas turn into real solutions. I’ve designed everything from animated content and e-learning materials to intuitive interfaces and performance reports.</p>
+    <p>Fluent in Portuguese, English and Spanish, I thrive in collaborative environments where creative ideas turn into real solutions. I’ve designed everything from animated content and e-learning materials to intuitive interfaces and performance reports.</p>
 
-  <p>What drives me is purposeful design, clean code and creating digital products that make a difference.</p>
-</section>
+    <p>What drives me is purposeful design, clean code and creating digital products that make a difference.</p>
+  </section>
 
   <section>
     <h2>Contacts</h2>
@@ -335,55 +339,50 @@
     <div class="cv-entry">
       <h3>Full Stack Web Developer – EDIT</h3>
       <span>Sep 2023 – Mar 2024</span>
-      <p>HTML5, CSS3, JavaScript, React, TypeScript, Python, back-end fundamentals.</p>
+      <p>HTML, CSS, JavaScript, React, Redux, Node.js, Express, PostgreSQL, MongoDB, and more.</p>
     </div>
     <div class="cv-entry">
-      <h3>BA in Communication Sciences – University of Porto (FLUP)</h3>
-      <span>Sep 2017 – Jun 2020</span>
-      <p>Specialization in journalism, marketing, graphic and motion design, UX/UI and web development.</p>
+      <h3>Bachelor’s Degree in Geography – University of Porto</h3>
+      <span>Sep 2012 – Jun 2016</span>
+      <p>Focused on GIS, spatial analysis, and environmental geography.</p>
     </div>
-    <div class="cv-entry">
-      <h3>BA in Geography – University of Porto (FLUP)</h3>
-      <span>Sep 2009 – Jun 2013</span>
-      <p>Focused on human and physical geography, GIS, cartography, and environmental/urban planning.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Graphic Design, UX/UI, Motion Design</li>
-      <li>Digital Marketing, Copy writting, Social Media</li>
-      <li>HTML, CSS, JavaScript, React, TypeScript, Python</li>
-      <li>Adobe Creative Cloud, Figma, e-learning tools</li>
-      <li>GIS, Cartography, Video Production</li>
-    </ul>
   </section>
 
   <section>
     <h2>Languages</h2>
     <ul>
-      <li>Portuguese – Native</li>
-      <li>English – Fluent</li>
-      <li>Spanish – Intermediate</li>
+      <li>Portuguese (native)</li>
+      <li>English (fluent)</li>
+      <li>Spanish (fluent)</li>
     </ul>
   </section>
 </div>
 
 <footer>
-  © 2025 Bruno M. Reis | brunomiguelsantosreis@gmail.com
+  <p>© 2024 Bruno Reis</p>
 </footer>
 
 <script>
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-}
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
+  // Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
   }
-});
+
+  // Slide titles on scroll down/up
+  let lastScrollTop = 0;
+  const headers = document.querySelectorAll('section h2');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Scroll descendo
+      headers.forEach(h2 => h2.classList.add('slide-right'));
+    } else {
+      // Scroll subindo
+      headers.forEach(h2 => h2.classList.remove('slide-right'));
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // evita valores negativos
+  }, { passive: true });
 </script>
 
 </body>
