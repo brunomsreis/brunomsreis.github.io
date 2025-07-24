@@ -467,12 +467,15 @@
 </footer>
 
 <script>
-  const introText = `Hey, I’m Bruno 👋 I’m a digital creative who thinks in visuals, stories, and systems.
-I started with geography 🗺️, which shaped how I see the world. Now, I bring that perspective into everything I do — multimedia design, web development, motion graphics, photography 📸, and social content. I make things that feel thoughtful, expressive, and easy to connect with.
-I’m also into writing ✍️ and a bit of a social media nerd 🤓 If it’s creative and digital, I’m probably already on it.
-Let’s make something that sticks 💡
-
-This page features some of my work, but you can check out all my projects on the Portfolio page or see my CV on the Resume page.`;
+  const introText = `Hi, I’m Bruno. I connect dots, pixels and ideas
+With one foot in creativity and the other in analysis, I move between worlds that don’t usually meet. 
+Geography and design. Code and storytelling. UX and motion graphics.
+My background gives me a unique lens. I think in systems, I see in layers, and I build with purpose.
+ Whether it's designing intuitive user experiences, editing video content, crafting clean front-end code 
+ or mapping out complex ideas, I’m all in.
+I'm fluent in three languages — Portuguese, English and Spanish — and equally fluent in tools like 
+React, Figma, Adobe Creative Suite and Python. I love working with people, solving real problems and making digital things that feel human.
+If it’s meaningful, visual and interactive, I probably want to build it.`;
 
   const introElement = document.getElementById('intro');
   let index = 0;
@@ -481,7 +484,7 @@ This page features some of my work, but you can check out all my projects on the
     if (index < introText.length) {
       introElement.textContent += introText.charAt(index);
       index++;
-      setTimeout(typeIntro, 35);
+      setTimeout(typeIntro, 60);
     }
   }
 
