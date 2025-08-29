@@ -28,6 +28,21 @@
     }
     a { text-decoration: none; color: inherit; }
 
+  /* Net Background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px),
+                  repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+
     nav {
       position: fixed;
       top: 20px;
@@ -243,6 +258,8 @@
       background: #333019;
       color: #ffe08a;
     }
+
+    
 
     /* --- RESPONSIVE --- */
 /* --- RESPONSIVE --- */
