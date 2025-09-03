@@ -428,12 +428,12 @@
     </li>
     <li class="work-item">
       <div class="work-text">
-        <a href="project2.html">
-          <h2>🎞️ Motion Graphics @ ebankIT</h2>
-          <p>Dynamic animations and graphic storytelling for brand promotion on social media and website.</p>
+        <a href="project12.html">
+          <h2>🎞️ Visual Reel</h2>
+          <p>A reel of my work in video editing, filmmaking and motion graphics — blending storytelling with design and rhythm</p>
           <div class="portfolio-image">
         <iframe
-          src="https://archive.org/embed/academia_202506?autoplay=1&loop=1"
+          src="https://archive.org/embed/visualreel?autoplay=1&loop=1"
           class="archive-iframe"
           title="Archive.org video player"
           frameborder="0"
@@ -471,30 +471,19 @@
 </footer>
 
 <script>
-  const introText =`Hi, I’m Bruno. I connect dots, pixels and ideas
-With one foot in creativity and the other in analysis, I move between worlds that don’t usually meet. 
-Geography and design. Code and storytelling. UX and motion graphics.
-My background gives me a unique lens. I think in systems, I see in layers, and I build with purpose.
- Whether it's designing intuitive user experiences, editing video content, crafting clean front-end code 
- or mapping out complex ideas, I’m all in.
-I'm fluent in three languages — Portuguese, English and Spanish — and equally fluent in tools like 
-React, Figma, Adobe Creative Suite and Python. I love working with people, solving real problems and making digital things that feel human.
-If it’s meaningful, visual and interactive, I probably want to build it.`;
+  const introText = `Hi, I’m Bruno — I connect <b>creativity</b> with <b>analysis</b>.<br>
+I move between <b>design & geography</b>, <b>code & storytelling</b>, <b>UX & motion graphics</b>.<br>
+I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean front-end code</b> and map <b>complex ideas</b>.`;
 
   const introElement = document.getElementById('intro');
-  let index = 0;
+  let i = 0;
 
   function typeIntro() {
-    if (index < introText.length) {
-      introElement.textContent += introText.charAt(index);
-      index++;
-      setTimeout(typeIntro, 5);
-    }
+    introElement.innerHTML = introText.slice(0, i); // re-parse valid HTML each frame
+    if (i++ <= introText.length) setTimeout(typeIntro, 5);
   }
 
-  window.onload = () => {
-    typeIntro();
-  };
+  window.addEventListener('load', typeIntro);
 
   const fixedIndex = document.getElementById('fixedIndex');
   const workItems = document.querySelectorAll('li.work-item');
