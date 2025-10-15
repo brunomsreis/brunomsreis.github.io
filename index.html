@@ -117,7 +117,9 @@
       display: flex;
       flex-direction: column;
       gap: 100px;
+        margin-top: -100px;
     }
+    
     li.work-item {
       counter-increment: work-counter;
       display: flex;
@@ -226,21 +228,26 @@
     .dark-mode footer {
       color: #aaa;
     }
-    .video-alert {
-      display: inline-block;
-      background: #ffe08a;
-      color: #a67c00;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      border-radius: 25px;
-      padding: 12px 28px;
-      margin: 0 auto 32px auto;
-      font-size: 1.05rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      text-align: center;
-      letter-spacing: 0.02em;
-      border: none;
-    }
+  .video-alert {
+  display: inline-block;
+  background: #ffe08a;
+  color: #a67c00;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 12px 32px; /* antes 28px — ligeiramente mais largo */
+  margin: -30px auto 28px auto; /* sobe 10px e ajusta espaço inferior */
+  font-size: 1.05rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: justify; /* justifica o texto */
+  letter-spacing: 0.02em;
+  border: none;
+  max-width: 95%; /* opcional: impede que alargue demais */
+  position: relative;
+  top: -200px;
+}
+
+
     .dark-mode .video-alert {
       background: #333019;
       color: #ffe08a;
@@ -397,8 +404,10 @@
   </div>
 
   <div class="video-alert">
-    <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br>
-    <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
+    Hi, I’m Bruno 👋  I connect <b>creativity</b> with <b>analysis</b>.<br>
+I move between <b>design & geography</b>, <b>code & storytelling</b>, <b>UX & motion graphics</b>.<br>
+I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean front-end code</b> and map <b>complex ideas</b>.
+    
   </div>
 
   <ul class="work-list" id="workList">
@@ -468,6 +477,9 @@
 I move between <b>design & geography</b>, <b>code & storytelling</b>, <b>UX & motion graphics</b>.<br>
 I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean front-end code</b> and map <b>complex ideas</b>.`;
 
+
+
+/*
   const introElement = document.getElementById('intro');
   let i = 0;
 
@@ -477,7 +489,7 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
   }
 
   window.addEventListener('load', typeIntro);
-
+*/
   const fixedIndex = document.getElementById('fixedIndex');
   const workItems = document.querySelectorAll('li.work-item');
 
