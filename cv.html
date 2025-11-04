@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Bruno Reis - Full Stack Web Developer, Multimedia Designer & UX/UI specialist. Portfolio showcasing web development, digital design, and creative communication projects." />
+  <meta name="keywords" content="Bruno Reis, Full Stack Developer, Web Developer, Multimedia Designer, UX UI Designer, React, JavaScript, Portfolio, Porto" />
+  <meta name="author" content="Bruno Reis" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Bruno Reis - Full Stack Developer & Multimedia Designer" />
+  <meta property="og:description" content="Multimedia communicator and Full Stack Web Developer combining design, code, and storytelling to create meaningful digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourwebsite.com/cv.html" />
+  <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bruno Reis - Full Stack Developer & Multimedia Designer" />
+  <meta name="twitter:description" content="Portfolio and resume of Bruno Reis - Web Developer & Designer" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourwebsite.com/cv.html" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"></script>
@@ -13,9 +35,9 @@
     gtag('config', 'G-PHVY6HBTV6');
   </script>
 
-  <title>Resume – Bruno Reis</title>
+  <title>Bruno Reis – Multimedia Creative| Resume</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -90,49 +112,126 @@
       color: #583030;
       transition: color 0.3s;
     }
-    section {
-      margin-bottom: 50px;
-    }
-    h2 {
-      font-size: 1.5rem;
+    
+    /* Accordion Styles */
+    .accordion-section {
       margin-bottom: 20px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-      transition: border-color 0.3s, transform 0.5s ease;
-      /* Transition para o slide */
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-
-    /* Animação slide para a direita */
-    h2.slide-right {
-      transform: translateX(30px);
+    
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background: #f9f9f9;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
     }
-
-    section p {
+    
+    .accordion-header:hover {
+      background: #f0f0f0;
+    }
+    
+    .accordion-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      border: none;
+      padding: 0;
+      color: #583030;
+      transition: color 0.3s;
+    }
+    
+    .accordion-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      color: #583030;
+    }
+    
+    .accordion-section.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 24px;
+    }
+    
+    .accordion-section.active .accordion-content {
+      max-height: 5000px;
+      padding: 24px;
+    }
+    
+    .accordion-content p {
       margin-bottom: 1.5em;
+      line-height: 1.6;
+    }
+
+    .skill-category {
+      margin-bottom: 30px;
+    }
+    
+    .skill-category h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #925151;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+    
+    .skills-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .skills-list li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.7;
+    }
+    
+    .skills-list li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #583030;
+      font-weight: bold;
     }
 
     .cv-entry {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .cv-entry h3 {
       font-size: 1.2rem;
       font-weight: 600;
       color: #925151;
       transition: color 0.3s;
+      margin-bottom: 8px;
     }
     .cv-entry span {
       display: block;
       font-size: 0.95rem;
       color: #666;
       transition: color 0.3s;
+      margin-bottom: 8px;
     }
     .cv-entry p {
       font-size: 1rem;
-      margin-top: 8px;
       color: #444;
       transition: color 0.3s;
+      line-height: 1.6;
     }
-    ul { padding-left: 20px; }
+    ul { 
+      padding-left: 20px;
+      line-height: 1.8;
+    }
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -141,12 +240,26 @@
       font-weight: 500;
       transition: color 0.3s;
     }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
     .links a {
       display: inline-block;
-      margin: 4px 10px;
+      padding: 8px 16px;
       font-size: 0.95rem;
       color: #333;
-      transition: color 0.3s;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    .links a:hover {
+      background: #583030;
+      color: #fff;
+      border-color: #583030;
     }
 
     /* --- DARK MODE --- */
@@ -168,20 +281,42 @@
     .dark-mode h1 {
       color: #ffb3b3;
     }
-    .dark-mode h2 {
+    .dark-mode .accordion-section {
       border-color: #333;
     }
-    .dark-mode .cv-entry h3 {
+    .dark-mode .accordion-header {
+      background: #1a1a1a;
+    }
+    .dark-mode .accordion-header:hover {
+      background: #222;
+    }
+    .dark-mode .accordion-header h2,
+    .dark-mode .accordion-icon {
+      color: #ffb3b3;
+    }
+    .dark-mode .cv-entry h3,
+    .dark-mode .skill-category h3 {
       color: #ffb3b3;
     }
     .dark-mode .cv-entry span {
       color: #aaa;
     }
-    .dark-mode .cv-entry p {
+    .dark-mode .cv-entry p,
+    .dark-mode .accordion-content p,
+    .dark-mode .skills-list li {
       color: #ccc;
+    }
+    .dark-mode .skills-list li:before {
+      color: #ffb3b3;
     }
     .dark-mode .links a {
       color: #eee;
+      border-color: #444;
+    }
+    .dark-mode .links a:hover {
+      background: #ffb3b3;
+      color: #111;
+      border-color: #ffb3b3;
     }
     .dark-mode footer {
       color: #bbb;
@@ -236,21 +371,34 @@
         border-radius: 0;
         background: none;
       }
+      nav a.active {
+        background: #fff;
+        color: #000;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      }
       .container {
         margin: 70px auto 30px;
-        padding: 0 8px;
+        padding: 0 12px;
       }
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-bottom: 24px;
       }
-      h2 {
-        font-size: 1.1rem;
-        margin-bottom: 14px;
-        padding-bottom: 4px;
+      .accordion-header h2 {
+        font-size: 1.2rem;
+      }
+      .accordion-header,
+      .accordion-content {
+        padding: 0 12px !important; /* reduzir padding lateral */
+    overflow: hidden;
+      }
+      .accordion-section.active .accordion-content {
+       max-height: none !important; /* remove limite para expandir completamente */
+    padding: 12px; /* padding interno confortável */
       }
       .cv-entry h3 {
-        font-size: 1rem;
+        font-size: 1.05rem;
       }
       .cv-entry span, .cv-entry p, .links a, ul li {
         font-size: 0.95rem;
@@ -259,24 +407,21 @@
         padding: 18px 8px;
         font-size: 0.8rem;
       }
-      @media (max-width: 600px) {
-        nav a.active {
-          background: #fff;
-          color: #000;
-          border-radius: 16px; /* Ou o valor de arredondamento que preferires */
-          box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-          /* Opcional: aumenta o contraste do ativo */
-        }
+      .links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .links a {
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- O botão está fora do nav, mas será reposicionado por CSS em mobile -->
-<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+<button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓 Mode</button>
 
-<nav>
+<nav role="navigation" aria-label="Main navigation">
   <div class="menu-links">
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
@@ -284,212 +429,276 @@
   </div>
 </nav>
 
-<div class="container">
+<main class="container">
   <h1>Bruno Reis</h1>
 
-  <section>
-    <h2>About me</h2>
-
-    <p>I’m a multimedia communicator with a twist. My background in Geography gives me a spatial mindset that blends surprisingly well with design and digital thinking.</p>
-
-    <p>Recently certified as a Full Stack Web Developer, I combine front-end development (HTML, CSS, JavaScript, React), UX/UI design, and storytelling to build digital experiences that work and feel right.</p>
-
-    <p>Fluent in Portuguese, English and Spanish, I thrive in collaborative environments where creative ideas turn into real solutions. I’ve designed everything from animated content and e-learning materials to intuitive interfaces and performance reports.</p>
-
-    <p>What drives me is purposeful design, clean code and creating digital products that make a difference.</p>
-  </section>
-
-  <section>
-    <h2>Contacts</h2>
-    <div class="links">
-      <a href="mailto:brunomiguelsantosreis@gmail.com">📧 Email</a>
-      <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">🔗 LinkedIn</a>
-      <a href="https://behance.net/brunomsreis" target="_blank">🎨 Behance</a>
-      <a href="https://github.com/brunomsreis" target="_blank">💻 GitHub</a>
-      <a href="https://instagram.com/bru_no_reis" target="_blank">📷 Instagram</a>
+  <!-- About Me Section -->
+  <section class="accordion-section active" aria-labelledby="about-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="true">
+      <h2 id="about-heading">About me</h2>
+      <span class="accordion-icon">▼</span>
     </div>
-  <section><br><br>
-
-  <h2>Professional Experience</h2>
-  
-
-  <div class="cv-entry">
-    <h3>Social Media Manager – Freelancing</h3>
-    <span>Jul 2023 – Present</span>
-    <p>Develop digital communication strategies and manage social media accounts for small brands and creative projects. 
-    Create and edit multimedia content (graphics, motion, and video) to support brand storytelling and audience growth. 
-    Plan and execute social campaigns aligned with each client’s tone of voice and visual identity. 
-    Monitor engagement metrics and optimize performance based on insights and trends.</p>
-  </div>
-
-  <div class="cv-entry">
-    <h3>Customer Support Representative – Essentiel Outsourcing</h3>
-    <span>Feb 2025 – Jul 2025</span>
-    <p>Delivered multichannel customer support (phone, email, chat) using CRM platforms such as Salesforce, HubSpot, Zoho, and Zendesk. 
-    Managed inquiries, service requests, and complaints with efficiency and empathy, ensuring customer satisfaction and loyalty. 
-    Collaborated with internal teams to streamline support processes and improve overall communication workflows. 
-    Developed documentation and visual guides to facilitate client interactions and product understanding.</p>
-  </div>
-
-  <div class="cv-entry">
-    <h3>Multimedia & Instructional Designer – ebankIT</h3>
-    <span>Aug 2021 – Jul 2024</span>
-    <p>Led the design and production of digital learning materials, marketing assets, and communication content for internal and external audiences. 
-    Produced multimedia content (videos, motion graphics, static visuals) to support corporate presentations, e-learning modules, social media, and event promotions. 
-    Collaborated directly with the Marketing Department, contributing to the company’s digital communication strategy, content planning, and brand storytelling across multiple channels. 
-    Acted as both designer and social media manager, ensuring creative consistency and engagement through visuals and tone of communication. 
-    Supported UX/UI design initiatives by improving the usability and aesthetics of internal platforms and learning tools. 
-    Contributed to the modernization of the company’s visual identity, developing templates and motion-based guidelines for brand communication. 
-    Worked closely with cross-functional teams (marketing, HR, training, and R&D) to align visual content with business goals and strategic messaging.</p>
-  </div>
-
-  <div class="cv-entry">
-    <h3>Multimedia Designer (Trainee) – INESC TEC</h3>
-    <span>Jan 2020 – Jun 2020</span>
-    <p>Produced and edited video content for internal and external communication, including institutional presentations, research showcases, and promotional campaigns. 
-    Designed motion graphics, animations, and visual materials for social media and marketing initiatives. 
-    Collaborated with communication and research teams to ensure the accuracy and clarity of visual storytelling. 
-    Supported post-production processes such as color correction, sound design, and visual consistency across deliverables.</p>
-  </div>
-
-  <div class="cv-entry">
-    <h3>Strategy & Operations – ORM (Oporto Rental Management)</h3>
-    <span>Nov 2016 – Sep 2020</span>
-    <p>Managed digital listings and pricing strategies across major booking platforms (Airbnb, Booking.com, Expedia). 
-    Created digital content to enhance brand visibility and user engagement. 
-    Handled communication with international guests and local vendors, providing exceptional customer service. 
-    Produced operational and financial reports and contributed to business growth through data-driven decision-making. 
-    This experience strengthened communication, organization, and creative problem-solving skills in dynamic, multicultural environments.</p>
-  </div>
-
-  <div class="cv-entry">
-    <h3>Geographer – Mobilidade PT</h3>
-    <span>Nov 2015 – May 2016</span>
-    <p>Collected and analyzed geographic data using GIS tools, maps, and satellite imagery. 
-    Produced cartographic materials, infographics, and visual reports to support urban planning and environmental research projects. 
-    Collaborated with technical and academic teams to translate complex data into accessible visual information for public and institutional use.</p>
-  </div>
-</section>
-
-
-  <section>
-    <h2>Education</h2>
-
- <div class="cv-entry">
-      <h3>Phyton Workshop – EDIT</h3>
-      <span>March 2025 – April 2025</span>
-      <p>An introductory course in Python programming. During the training, I learned the 
-        fundamentals of the language, including its syntax, data types (such as numbers, strings, and booleans), 
-        and how to work with conditional statements and loops.
-      We also explored key data structures like lists, dictionaries, tuples, 
-      and sets, as well as how to create and use functions, including concepts like arguments and recursion.
-      The course emphasized writing clean and readable code following best practices, 
-      especially the PEP8 style guide. To reinforce the concepts, we applied everything through practical exercises and problem-solving.</p>
-    </div>
-
-    <div class="cv-entry">
-      <h3>Full Stack Web Developer – EDIT</h3>
-      <span>Sep 2023 – Mar 2024</span>
-      <p>This comprehensive program provided both theoretical and hands-on training for aspiring front-end and back-end developers,
-         covering essential technologies and tools to build interactive websites and applications. 
-         The curriculum encompassed everything from fundamental web development to best practices in UX/UI design
-          and version control with Git.
-          This comprehensive program provided both theoretical and hands-on training for aspiring 
-          front-end and back-end developers, covering essential technologies and tools to build interactive websites and applications. 
-          The curriculum encompassed everything from fundamental web development to best practices in UX/UI design and version control with Git.<br><br>
-          <strong>GitHub · User Interface Design · Full Stack Development · React.js · Figma (Software)</strong>
-    </div>
-    <div class="cv-entry">
-      <h3>Bachelor of Arts - BA in Communication Sciences-  Journalism | Multimedia | Strategic Communication - Major in Multimedia – University of Porto</h3>
-      <span>Sep 2017 – Jun 2020</span>
-      <p>This multidisciplinary degree provided a comprehensive education in Communication Sciences, 
-        combining Social Sciences with practical training in multimedia, journalism, 
-        and strategic communication. The program focused on developing strong analytical, 
-        creative, and technical skills, offering students the opportunity to specialize in 
-        Multimedia, Journalism, or Strategic Communication after a common core curriculum in the first four semesters.
-        Specialization: Multimedia
-        Selected in the fifth semester, this track emphasized multimedia production, 
-        digital communication, and design, preparing students to work in content creation, audiovisual media, and interactive platforms.<br><br>
-
-<strong>Key Tools:</strong> Adobe Creative Suite (Photoshop, Premiere, After Effects), Audacity, Blender, basic web tools, and project management tools.</strong>
-Adobe Creative Suite (Photoshop, Premiere, After Effects), Audacity, Blender, basic web tools, and project management tools.<br><br>
-
-<strong>Marketing · Video Editing · Journalism · Web Design · Web Development · Graphic Design · Communication · Front-End Development · 3D Modeling</strong>
-    </div>
-    <div class="cv-entry">
-      <h3>Bachelor’s Degree in Geography – University of Porto</h3>
-      <span>Sep 2012 – Jun 2016</span>
-      <p>This degree provided a robust interdisciplinary education in both physical and human geography, 
-        equipping students with the necessary skills to analyze territorial issues, manage natural resources, 
-        and contribute to regional and urban planning. The program emphasized theoretical knowledge as well as 
-        practical skills in Geographic Information Systems (GIS), cartography, and environmental/social analytics.
-        Key Tools & Technologies:
-        GIS Software: ArcGIS, QGIS
-        Data Analysis Tools: Microsoft Excel, SPSS
-        Cartographic Tools: AutoCAD, CorelDRAW
-        Fieldwork Equipment: GPS, topographic instruments~
-
-        Professional Skills Acquired:
-        Strong analytical and problem-solving skills in territorial management
-        Communication and teamwork, developed through group projects and presentations
-        Adaptability to diverse tasks, from cartographic design to environmental assessments
-        Practical experience with interdisciplinary research and real-world geographic applications
-        This degree provided a robust interdisciplinary education in both physical and human geography, 
-        equipping students with the necessary skills to analyze territorial issues, manage natural resources, 
-        and contribute to regional and urban planning. The program emphasized theoretical knowledge as well as 
-        practical skills in Geographic Information Systems (GIS), cartography, and environmental/social analytics. <br><br>
-        Key Tools & Technologies: GIS Software: ArcGIS, QGIS Data Analysis Tools: Microsoft Excel, SPSS Cartographic 
-        Tools: AutoCAD, CorelDRAW Fieldwork Equipment: GPS, topographic instruments<br><br>
-        Professional Skills Acquired: 
-        Strong analytical and problem-solving skills in territorial management Communication and teamwork, developed 
-        through group projects and presentations Adaptability to diverse tasks, from cartographic design to environmental 
-        assessments Practical experience with interdisciplinary research and real-world geographic applications<br><br>
-<strong>Urban Planning · GIS (Geographic Information Systems) · Geography · ArcGIS · SPSS</strong>
+    <div class="accordion-content">
+      <p>I'm a multimedia communicator with a twist. My background in Geography gives me a spatial mindset that blends surprisingly well with design and digital thinking.</p>
+      <p>Recently certified as a Full Stack Web Developer, I combine front-end development (HTML, CSS, JavaScript, React), UX/UI design, and storytelling to build digital experiences that work and feel right.</p>
+      <p>Fluent in Portuguese, English and Spanish, I thrive in collaborative environments where creative ideas turn into real solutions. I've designed everything from animated content and e-learning materials to intuitive interfaces and performance reports.</p>
+      <p>What drives me is purposeful design, clean code and creating digital products that make a difference.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Languages</h2>
-    <ul>
-      <li>Portuguese (native)</li>
-      <li>English (fluent)</li>
-      <li>Spanish (fluent)</li>
-      <li>French (basic)</li>
-
-    </ul>
+  <!-- Contacts Section -->
+  <section class="accordion-section" aria-labelledby="contacts-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false">
+      <h2 id="contacts-heading">Contacts</h2>
+      <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+      <div class="links">
+        <a href="mailto:brunomiguelsantosreis@gmail.com" aria-label="Email Bruno Reis">📧 Email</a>
+        <a href="https://linkedin.com/in/brunomiguelreis" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">🔗 LinkedIn</a>
+        <a href="https://behance.net/brunomsreis" target="_blank" rel="noopener noreferrer" aria-label="Behance portfolio">🎨 Behance</a>
+        <a href="https://github.com/brunomsreis" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">💻 GitHub</a>
+        <a href="https://instagram.com/bru_no_reis" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">📷 Instagram</a>
+      </div>
+    </div>
   </section>
-</div>
+
+  <!-- Professional Experience Section -->
+  <section class="accordion-section" aria-labelledby="experience-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false">
+      <h2 id="experience-heading">Professional Experience</h2>
+      <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+      
+      <article class="cv-entry">
+        <h3>Social Media Manager – Freelancing</h3>
+        <span>Jul 2023 – Present</span>
+        <p>Develop digital communication strategies and manage social media accounts for small brands and creative projects. Create and edit multimedia content (graphics, motion, and video) to support brand storytelling and audience growth. Plan and execute social campaigns aligned with each client's tone of voice and visual identity. Monitor engagement metrics and optimize performance based on insights and trends.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Customer Support Representative – Essentiel Outsourcing</h3>
+        <span>Feb 2025 – Jul 2025</span>
+        <p>Delivered multichannel customer support (phone, email, chat) using CRM platforms such as Salesforce, HubSpot, Zoho, and Zendesk. Managed inquiries, service requests, and complaints with efficiency and empathy, ensuring customer satisfaction and loyalty. Collaborated with internal teams to streamline support processes and improve overall communication workflows. Developed documentation and visual guides to facilitate client interactions and product understanding.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Multimedia & Instructional Designer – ebankIT</h3>
+        <span>Aug 2021 – Jul 2024</span>
+        <p>Led the design and production of digital learning materials, marketing assets, and communication content for internal and external audiences. Produced multimedia content (videos, motion graphics, static visuals) to support corporate presentations, e-learning modules, social media, and event promotions. Collaborated directly with the Marketing Department, contributing to the company's digital communication strategy, content planning, and brand storytelling across multiple channels. Acted as both designer and social media manager, ensuring creative consistency and engagement through visuals and tone of communication. Supported UX/UI design initiatives by improving the usability and aesthetics of internal platforms and learning tools. Contributed to the modernization of the company's visual identity, developing templates and motion-based guidelines for brand communication. Worked closely with cross-functional teams (marketing, HR, training, and R&D) to align visual content with business goals and strategic messaging.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Multimedia Designer (Trainee) – INESC TEC</h3>
+        <span>Jan 2020 – Jun 2020</span>
+        <p>Produced and edited video content for internal and external communication, including institutional presentations, research showcases, and promotional campaigns. Designed motion graphics, animations, and visual materials for social media and marketing initiatives. Collaborated with communication and research teams to ensure the accuracy and clarity of visual storytelling. Supported post-production processes such as color correction, sound design, and visual consistency across deliverables.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Strategy & Operations – ORM (Oporto Rental Management)</h3>
+        <span>Nov 2016 – Sep 2020</span>
+        <p>Managed digital listings and pricing strategies across major booking platforms (Airbnb, Booking.com, Expedia). Created digital content to enhance brand visibility and user engagement. Handled communication with international guests and local vendors, providing exceptional customer service. Produced operational and financial reports and contributed to business growth through data-driven decision-making. This experience strengthened communication, organization, and creative problem-solving skills in dynamic, multicultural environments.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Geographer – Mobilidade PT</h3>
+        <span>Nov 2015 – May 2016</span>
+        <p>Collected and analyzed geographic data using GIS tools, maps, and satellite imagery. Produced cartographic materials, infographics, and visual reports to support urban planning and environmental research projects. Collaborated with technical and academic teams to translate complex data into accessible visual information for public and institutional use.</p>
+      </article>
+      
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="accordion-section" aria-labelledby="education-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false">
+      <h2 id="education-heading">Education</h2>
+      <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+
+      <article class="cv-entry">
+        <h3>Python Workshop – EDIT</h3>
+        <span>March 2025 – April 2025</span>
+        <p>An introductory course in Python programming. During the training, I learned the fundamentals of the language, including its syntax, data types (such as numbers, strings, and booleans), and how to work with conditional statements and loops. We also explored key data structures like lists, dictionaries, tuples, and sets, as well as how to create and use functions, including concepts like arguments and recursion. The course emphasized writing clean and readable code following best practices, especially the PEP8 style guide. To reinforce the concepts, we applied everything through practical exercises and problem-solving.</p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Full Stack Web Developer – EDIT</h3>
+        <span>Sep 2023 – Mar 2024</span>
+        <p>This comprehensive program provided both theoretical and hands-on training for aspiring front-end and back-end developers, covering essential technologies and tools to build interactive websites and applications. The curriculum encompassed everything from fundamental web development to best practices in UX/UI design and version control with Git.<br><br>
+        <strong>GitHub · User Interface Design · Full Stack Development · React.js · Figma (Software)</strong></p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Bachelor of Arts - BA in Communication Sciences - Journalism | Multimedia | Strategic Communication - Major in Multimedia – University of Porto</h3>
+        <span>Sep 2017 – Jun 2020</span>
+        <p>This multidisciplinary degree provided a comprehensive education in Communication Sciences, combining Social Sciences with practical training in multimedia, journalism, and strategic communication. The program focused on developing strong analytical, creative, and technical skills, offering students the opportunity to specialize in Multimedia, Journalism, or Strategic Communication after a common core curriculum in the first four semesters. Specialization: Multimedia. Selected in the fifth semester, this track emphasized multimedia production, digital communication, and design, preparing students to work in content creation, audiovisual media, and interactive platforms.<br><br>
+        <strong>Key Tools:</strong> Adobe Creative Suite (Photoshop, Premiere, After Effects), Audacity, Blender, basic web tools, and project management tools.<br><br>
+        <strong>Marketing · Video Editing · Journalism · Web Design · Web Development · Graphic Design · Communication · Front-End Development · 3D Modeling</strong></p>
+      </article>
+
+      <article class="cv-entry">
+        <h3>Bachelor's Degree in Geography – University of Porto</h3>
+        <span>Sep 2012 – Jun 2016</span>
+        <p>This degree provided a robust interdisciplinary education in both physical and human geography, equipping students with the necessary skills to analyze territorial issues, manage natural resources, and contribute to regional and urban planning. The program emphasized theoretical knowledge as well as practical skills in Geographic Information Systems (GIS), cartography, and environmental/social analytics.<br><br>
+        <strong>Key Tools & Technologies:</strong> GIS Software: ArcGIS, QGIS | Data Analysis Tools: Microsoft Excel, SPSS | Cartographic Tools: AutoCAD, CorelDRAW | Fieldwork Equipment: GPS, topographic instruments<br><br>
+        <strong>Professional Skills Acquired:</strong> Strong analytical and problem-solving skills in territorial management | Communication and teamwork, developed through group projects and presentations | Adaptability to diverse tasks, from cartographic design to environmental assessments | Practical experience with interdisciplinary research and real-world geographic applications<br><br>
+        <strong>Urban Planning · GIS (Geographic Information Systems) · Geography · ArcGIS · SPSS</strong></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="accordion-section" aria-labelledby="skills-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false">
+      <h2 id="skills-heading">Skills & Competencies</h2>
+      <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+      
+      <article class="skill-category">
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript, React.js, TypeScript, Responsive Design</li>
+          <li><strong>Programming:</strong> Python, SQL (basic), Version Control (Git/GitHub)</li>
+          <li><strong>Design Tools:</strong> Adobe Creative Suite (Photoshop, Illustrator, Premiere Pro, After Effects), Figma, Blender (3D)</li>
+          <li><strong>CMS & Platforms:</strong> WordPress, Content Management Systems</li>
+          <li><strong>Data & Analytics:</strong> Google Analytics, Google Data Studio, Excel (Advanced), Data Visualization</li>
+          <li><strong>CRM Systems:</strong> Salesforce, HubSpot, Zoho, Zendesk</li>
+          <li><strong>GIS & Mapping:</strong> ArcGIS, QGIS, AutoCAD, CorelDRAW, Cartography</li>
+          <li><strong>Audio/Video:</strong> Audacity, Video Editing, Motion Graphics, Sound Design</li>
+        </ul>
+      </article>
+
+      <article class="skill-category">
+        <h3>Digital Marketing & Communication</h3>
+        <ul class="skills-list">
+          <li>Social Media Management & Strategy</li>
+          <li>Content Creation & Copywriting</li>
+          <li>Brand Storytelling & Visual Identity</li>
+          <li>Digital Campaign Planning & Execution</li>
+          <li>SEO & Performance Optimization</li>
+          <li>Email Marketing & Newsletter Design</li>
+          <li>Engagement Metrics & Analytics</li>
+        </ul>
+      </article>
+
+      <article class="skill-category">
+        <h3>UX/UI & Design</h3>
+        <ul class="skills-list">
+          <li>User Interface Design & Prototyping</li>
+          <li>User Experience Research & Testing</li>
+          <li>Wireframing & Information Architecture</li>
+          <li>Visual Design & Layout Consistency</li>
+          <li>Design Systems & Style Guides</li>
+          <li>Accessibility Standards (WCAG)</li>
+          <li>Responsive & Mobile-First Design</li>
+        </ul>
+      </article>
+
+      <article class="skill-category">
+        <h3>Data & Analytics</h3>
+        <ul class="skills-list">
+          <li>Data Quality Analysis & Reporting</li>
+          <li>Database Management & Data Consistency</li>
+          <li>Process Automation & Optimization</li>
+          <li>Dashboard Creation & Metrics Tracking</li>
+          <li>Statistical Analysis (SPSS)</li>
+          <li>Data Visualization & Infographics</li>
+          <li>Information Structuring & Governance</li>
+        </ul>
+      </article>
+
+      <article class="skill-category">
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Problem-Solving & Critical Thinking</li>
+          <li>Analytical & Strategic Thinking</li>
+          <li>Attention to Detail & Precision</li>
+          <li>Clear Communication (written & verbal)</li>
+          <li>Collaboration & Teamwork</li>
+          <li>Adaptability & Flexibility</li>
+          <li>Proactivity & Self-Management</li>
+          <li>Time Management & Organization</li>
+          <li>Empathy & Customer Focus</li>
+          <li>Continuous Learning & Growth Mindset</li>
+        </ul>
+      </article>
+
+      <article class="skill-category">
+        <h3>Project & Process Management</h3>
+        <ul class="skills-list">
+          <li>Digital Project Coordination</li>
+          <li>Cross-Functional Collaboration</li>
+          <li>Workflow Optimization</li>
+          <li>Documentation & Knowledge Sharing</li>
+          <li>Agile Methodologies (basic)</li>
+          <li>Quality Control & Testing</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="accordion-section" aria-labelledby="languages-heading">
+    <div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false">
+      <h2 id="languages-heading">Languages</h2>
+      <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+      <ul class="skills-list">
+        <li><strong>Portuguese</strong> – Native</li>
+        <li><strong>English</strong> – Fluent (C1)</li>
+        <li><strong>Spanish</strong> – Fluent</li>
+        <li><strong>French</strong> – Basic</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <p>© 2024 Bruno Reis</p>
+  <p>© 2025 Bruno Reis. All rights reserved.</p>
 </footer>
 
 <script>
   // Dark mode toggle
   function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
   }
 
-  // Automatically enable dark mode on page load
+  // Load dark mode preference
   window.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('dark-mode');
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'true' || darkMode === null) {
+      document.body.classList.add('dark-mode');
+    }
   });
 
-  // Slide titles on scroll down/up
-  let lastScrollTop = 0;
-  const headers = document.querySelectorAll('section h2');
+  // Accordion toggle function
+  function toggleAccordion(header) {
+    const section = header.parentElement;
+    const isActive = section.classList.contains('active');
+    
+    // Toggle current section
+    section.classList.toggle('active');
+    header.setAttribute('aria-expanded', !isActive);
+  }
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      // Scrolling down
-      headers.forEach(h2 => h2.classList.add('slide-right'));
-    } else {
-      // Scrolling up
-      headers.forEach(h2 => h2.classList.remove('slide-right'));
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // prevent negative values
-  }, { passive: true });
+  // Keyboard accessibility for accordion
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleAccordion(header);
+      }
+    });
+  });
 </script>
 
 </body>

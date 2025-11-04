@@ -2,64 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Bruno Reis – Multimedia Creative</title>
+  <meta name="description" content="Portfolio completo de Bruno Reis — design gráfico, motion, UX/UI, fotografia e vídeos." />
+  <meta name="keywords" content="portfolio, design, motion graphics, ux/ui, fotografia, vídeo, Bruno Reis, projetos criativos" />
+  <link rel="canonical" href="https://brunoreis.work/portfolio.html" />
+  <meta property="og:title" content="Bruno Reis – Portfolio" />
+  <meta property="og:description" content="Portfolio de design, motion graphics, UX/UI, fotografia e vídeo por Bruno Reis." />
+  <meta property="og:url" content="https://brunoreis.work/portfolio.html" />
+  <meta property="og:image" content="https://brunoreis.work/imagem-destaque.jpg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PHVY6HBTV6');
-  </script>
-
-  <title>Bruno M. Reis – Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #fff;
+      background: #e4e4e4;
       color: #000;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    a { text-decoration: none; color: inherit; }
-  nav {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 1000;
-  padding: 8px 20px;         /* igual à referência */
-  font-weight: 600;
-  display: flex;
-  gap: 30px;                 /* igual à referência */
-  align-items: center;
-  transition: background 0.3s, color 0.3s;
-}
-.menu-links {
-  display: flex;
-  gap: 30px;                 /* igual à referência */
-  align-items: center;
-}
-nav a {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #111;
-  padding: 8px 12px;         /* igual à referência */
-  border-radius: 20px;
-  transition: background-color 0.3s, color 0.3s;
-}
-nav a:hover,
-nav a.active {
-  background-color: #000;
-  color: #fff;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 8px 20px;
+      font-weight: 600;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .menu-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    nav a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1100;
+      transition: background 0.3s, color 0.3s;
+      }
+
+      .sort-btn {
+      position: fixed;
+      top: 70px;
+      left: 30px;
+      background: #3b3b3b;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1100;
+      transition: background 0.3s, color 0.3s;
+    }
+
     .container {
       max-width: 960px;
       margin: 0 auto;
@@ -81,14 +115,14 @@ nav a.active {
       font-weight: 600;
       font-size: 1rem;
       color: #444;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.18s;
       border: none;
       outline: none;
     }
-    .filter-btn:hover,
-    .filter-btn.active {
+    .filter-btn:hover, .filter-btn.active {
       background-color: #000;
       color: #fff;
+      box-shadow: 0 2px 8px #ffe08a;
     }
     .portfolio-grid {
       display: grid;
@@ -100,30 +134,34 @@ nav a.active {
       overflow: hidden;
       box-shadow: 0 14px 36px rgba(0,0,0,0.12);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background .5s;
       background: #fff;
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+    }
+    .portfolio-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .portfolio-item:hover {
-      transform: translateY(-6px);
+      transform: translateY(-6px) scale(1.02);
       box-shadow: 0 18px 44px rgba(0,0,0,0.20);
+      background: linear-gradient(120deg, #ffe08a 0%, #ffd6d6 100%);
     }
     .portfolio-image {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
     }
-    .portfolio-image img {
+    .portfolio-image img, .portfolio-image video, .portfolio-image iframe {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .portfolio-image video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      border: none;
       display: block;
+      transition: transform 0.5s ease;
     }
     .portfolio-item:hover .portfolio-image img {
       transform: scale(1.07);
@@ -147,41 +185,201 @@ nav a.active {
       line-height: 1.4;
       margin-top: 0;
     }
-    .portfolio-image iframe {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .card-year-badge {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: #ffb3b3;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      z-index: 2;
+    }
+    .order-status {
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #444;
+      background: #f6f6f6;
+      border-radius: 8px;
+      padding: 8px 0;
+      letter-spacing: 0.04em;
+      transition: background 0.3s, color 0.3s;
+    }
+    .order-status.active {
+      background: #d0f7e9;
+      color: #0b7c59;
+    }
+    .video-alert {
+      display: inline-block;
+      background: #ffe08a;
+      color: #a67c00;
+      font-weight: 600;
+      border-radius: 25px;
+      padding: 12px 28px;
+      margin: 0 auto 32px auto;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      text-align: center;
       border: none;
     }
-    .portfolio-image {
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-    }
-    footer {
+    .cta-section {
       text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #888;
-      font-weight: 500;
+      padding: 38px 10px 20px 10px;
+      background: #f5f5fd;
+      border-radius: 24px;
+      margin: 38px auto 0 auto;
+      box-shadow: 0 2px 12px rgba(0,0,0,.03);
     }
-    .social-links a {
+    .cta-btn {
+      background: #2785ff;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 18px;
+      padding: 9px 23px;
+      margin-top: 10px;
       display: inline-block;
-      margin: 0 10px;
-      font-size: 1rem;
-      color: #111;
+      transition: 0.23s;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .cta-btn:hover {
+      background: #194d9a;
+    }
+    /* Back to top */
+    .back-to-top {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      background: #222;
+      color: #fff;
+      border-radius: 20px;
+      padding: 8px 18px;
+      z-index: 500;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.27);
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .back-to-top {
+        display: block;
+      }
+    }
+    /* Mobile */
+    @media (max-width:600px) {
+       .container {
+        position: static;
+        max-width: 100vw;
+      }
+      nav {
+    position: static;
+    margin: 0 auto 10px auto;
+    top: auto;
+    right: auto;
+    left: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 6px 0;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 0;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 10px 0;
+    flex: 1 1 0;
+    text-align: center;
+   
+    background: none;
+  }
+   .dark-toggle {
+    position: static;
+    margin: 10px auto 8px auto;
+    display: block;
+    left: auto;
+    top: auto;
+    font-size: 0.95rem;
+    z-index: 1001;
+    background: #111;
+    color: #fff;
+  }
+  .dark-mode .dark-toggle {
+    background: #eee;
+    color: #111;
+  }
+      .sort-btn {
+        position: static;
+    margin: 10px auto 8px auto;
+    display: block;
+    left: auto;
+    top: auto;
+    font-size: 0.95rem;
+    z-index: 1001;
+    background: #111;
+    color: #fff;
+      }
+      .sort-btn.active {
+        background: #000 !important;
+        color: #fff !important;
+      }
+      .dark-mode .sort-btn.active {
+        background: #ffb3b3 !important;
+        color: #000 !important;
+      }
+    }
+    .menu-actions {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1001;
+    }
+  
+
+    
+  
+
+    .dark-toggle:hover, .sort-btn:hover {
+      background: #333;
+    }
+    .sort-btn.active {
+      background: #555454 !important;
+      color: #fff !important;
+    }
+    .dark-mode .sort-btn.active {
+      background: #ffb3b3 !important;
+      color: #000 !important;
     }
     .dark-mode {
       background: #121212;
       color: #f0f0f0;
     }
+ .dark-mode .dark-toggle {
+      background: #eee;
+      color: #111;
+    }
+
+     .dark-mode .sort-btn
+     {
+      background: #eee;
+      color: #111;
+    }
+    
     .dark-mode nav {
-      background: rgba(30, 30, 30, 0.85);
+      background: rgba(30,30,30,0.85);
     }
     .dark-mode nav a {
       color: #ccc;
     }
-    .dark-mode nav a:hover,
-    .dark-mode nav a.active {
+    .dark-mode nav a:hover, .dark-mode nav a.active {
       background-color: #f0f0f0;
       color: #000;
     }
@@ -192,10 +390,23 @@ nav a.active {
       background: #222;
       color: #eee;
     }
-    .dark-mode .filter-btn:hover,
-    .dark-mode .filter-btn.active {
-      background-color: #f0f0f0;
-      color: #000;
+    .dark-mode .filter-btn:hover, .dark-mode .filter-btn.active {
+      background: linear-gradient(90deg, #3b297e 0%, #9139da 100%);
+      color: #fff;
+      box-shadow: 0 2px 8px #9139da;
+    }
+
+    .dark-mode .cta-section {
+  background: #232323;
+  color: #ffd700;
+}
+
+.dark-mode .cta-btn {
+  background: #ffd700;
+  color: #1a1a1a;
+}
+    .dark-mode .portfolio-item:hover {
+      background: linear-gradient(120deg, #9139da 0%, #3b297e 100%);
     }
     .dark-mode .portfolio-item {
       background: #232323;
@@ -211,315 +422,71 @@ nav a.active {
       color: #ccc;
     }
     .dark-mode footer {
-      color: #aaa;
+      color: #bbb;
     }
-    .dark-toggle {
-      position: fixed;
-      top: 20px;
-      left: 30px;
-      background: #111;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      z-index: 1001;
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark-mode .dark-toggle {
-      background: #eee;
-      color: #111;
-    }
-    .sort-btn {
-      position: fixed;
-      left: 30px;
-      top: 60px;
-      background: #eee;
-      color: #111;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      z-index: 1001;
-      transition: background 0.3s, color 0.3s;
-    }
-    .sort-btn.active {
-      background: #000;
-      color: #fff;
-    }
-    .dark-mode .sort-btn { background: #222; color: #eee; }
-    .dark-mode .sort-btn.active { background: #ffb3b3; color: #000; }
-    .order-status {
+    footer {
       text-align: center;
-      margin-bottom: 18px;
-      font-weight: 600;
-      color: #444;
-      background: #f6f6f6;
-      border-radius: 8px;
-      padding: 8px 0;
-      letter-spacing: 0.04em;
-      transition: background 0.3s, color 0.3s;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .dark-mode .order-status {
-      background: #232323;
-      color: #ffb3b3;
+    footer .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
     }
-    .order-status.active {
-      background: #d0f7e9;
-      color: #0b7c59;
+    footer .social-links a {
+      color: #888;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
     }
-    .video-alert {
-      display: inline-block;
-      background: #ffe08a;
-      color: #a67c00;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      border-radius: 25px;
-      padding: 12px 28px;
-      margin: 0 auto 32px auto;
-      font-size: 1.05rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      text-align: center;
-      letter-spacing: 0.02em;
-      border: none;
+    footer .social-links a:hover {
+      color: #fff;
+      background-color: #583030;
+      border-color: #583030;
     }
-    .dark-mode .video-alert {
-      background: #333019;
-      color: #ffe08a;
-    }
-
-    /* --- MOBILE ONLY --- */
-    @media (max-width: 600px) {
-      nav {
-        position: static;
-        top: auto;
-        right: auto;
-        left: auto;
-        margin: 0 auto 10px auto;
-        border-radius: 18px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        width: 100vw;
-        max-width: 100vw;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0 4px 0;
-        gap: 0;
-      }
-      .mobile-menu-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        margin: 0 0 6px 0;
-      }
-      .dark-toggle, .sort-btn {
-        position: static !important;
-        width: 90vw;
-        max-width: 98vw;
-        font-size: 1rem;
-        margin: 0 auto 0 auto;
-        display: block;
-        left: auto;
-        top: auto;
-      }
-      nav {
-        flex-direction: column;
-        gap: 0;
-      }
-      nav a {
-        font-size: 1rem;
-        padding: 10px 0;
-        border-radius: 0;
-        background: none;
-        flex: 1 1 0;
-        text-align: center;
-      }
-    }
-
-    /* MOBILE MENU BOTÕES */
-.mobile-menu-actions {
-  display: none;
-}
-.desktop-only {
-  display: inline-block;
-}
-
-@media (max-width: 600px) {
-  nav {
-    position: static;
-    margin: 0 auto;
-    top: auto;
-    right: auto;
-    left: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 6px 0;
-    border-radius: 18px;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100vw;
-    max-width: 100vw;
-    gap: 0;
-  }
-  .menu-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    width: 100vw;
-    max-width: 100vw;
-  }
-  nav a {
-    font-size: 1rem;
-    padding: 10px 0;
-    flex: 1 1 0;
-    text-align: center;
-    border-radius: 0;
-    background: none;
-  }
-
-  @media (max-width: 600px) {
-  nav a.active {
-    background: #fff;
-    color: #000;
-    border-radius: 16px; /* Ou o valor de arredondamento que preferires */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    /* Opcional: aumenta o contraste do ativo */
-  }
-}
-  .mobile-menu-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100vw;
-    max-width: 100vw;
-    margin: 10px 0 0 0;
-  }
-  .mobile-menu-actions .dark-toggle,
-  .mobile-menu-actions .sort-btn {
-    position: static !important;
-    width: 90vw;
-    max-width: 98vw;
-    font-size: 1rem;
-    margin: 0 auto 0 auto;
-    display: block;
-    left: auto;
-    top: auto;
-    z-index: 1001;
-  }
-  .desktop-only {
-    display: none !important;
-  }
-  .container {
-    padding: 70px 3vw 30px;
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .mobile-menu-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100vw;
-    max-width: 100vw;
-    margin: 10px 0 0 0;
-  }
-  .mobile-menu-actions .dark-toggle,
-  .mobile-menu-actions .sort-btn {
-    position: static !important;
-    width: auto;              /* <-- largura automática, igual à do CV */
-    min-width: 0;             /* <-- remove min-width */
-    max-width: 95vw;
-    font-size: 0.95rem;       /* igual à CV */
-    padding: 8px 16px;        /* igual à CV */
-    margin: 0 auto 0 auto;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-  }
-  nav {
-    position: static;
-    margin: 22px auto 10px auto; /* MAIS ESPAÇO entre botões e menu */
-    top: auto;
-    right: auto;
-    left: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 6px 0;
-    border-radius: 18px;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100vw;
-    max-width: 100vw;
-    gap: 0;
-  }
-  .menu-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    width: 100vw;
-    max-width: 100vw;
-  }
-  nav a {
-    font-size: 1rem;
-    padding: 10px 0;
-    flex: 1 1 0;
-    text-align: center;
-    border-radius: 0;
-    background: none;
-  }
-}
-
   </style>
 </head>
 <body>
-<!-- BOTÕES MOBILE (apenas visíveis em mobile) -->
-<div class="mobile-menu-actions">
-  <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
-  <button class="sort-btn" id="sortBtn" onclick="toggleSort()">
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓 Mode</button>
+  <button id="sortBtn" class="sort-btn" onclick="toggleSort()" aria-label="Shuffle mode">
     <span id="sortIcon">🔀</span> <span id="sortText">Shuffle mode</span>
   </button>
-</div>
-<!-- BOTÕES FIXOS DESKTOP -->
-<button class="dark-toggle desktop-only" onclick="toggleDarkMode()">🌓 Mode</button>
-<button class="sort-btn desktop-only" id="sortBtn-desktop" onclick="toggleSort()">
-  <span id="sortIcon-desktop">🔀</span> <span id="sortText-desktop">Shuffle mode</span>
-</button>
-<nav>
-  <div class="menu-links">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
-    <a href="cv.html">Resume</a>
-  </div>
-</nav>
-<div class="container">
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="video">Video</button>
-    <button class="filter-btn" data-filter="motion-graphics">Motion Graphics</button>
-    <button class="filter-btn" data-filter="design">Design</button>
-    <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
-    <button class="filter-btn" data-filter="photography">Photography</button>
-  </div>
-  <div id="order-status" class="order-status">Projects in random order</div>
-  <div class="video-alert">
-    <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br>
-    <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
-  </div>
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Top</button>
+  <nav>
+    <div class="menu-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
+      <a href="cv.html">Resume</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="video">🎬 Video</button>
+      <button class="filter-btn" data-filter="motion-graphics">Motion Graphics</button>
+      <button class="filter-btn" data-filter="design">🎨 Design</button>
+      <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+    </div>
+    <div id="order-status" class="order-status">Projects in random order</div>
+    <div class="video-alert">
+      <strong>Note:</strong> Archive.org videos do not replay automatically. When a video ends, <b>click inside the video area</b> to watch it again.<br />
+      <strong>Audio:</strong> These videos cannot be muted automatically. Please <b>mute the video manually</b> if you do not want sound.
+    </div>
+    <div id="loading-indicator" style="display:none;">Loading...</div>
 
   <div class="portfolio-grid" id="portfolioGrid">
     <a href="project1.html" class="portfolio-item" data-category="design" aria-label="graphic design" data-year="2025-05-30">
       <div class="portfolio-image">
-        <img src="project1\355b56160021199.63c8153d63e13.jpg" alt="graphic design" />
+        <img src="project1\355b56160021199.63c8153d63e13.jpg" loading="lazy"alt="graphic design" />
       </div>
       <div class="portfolio-info">
         <h3>🎨 Graphic design @ ebankIT</h3>
@@ -895,7 +862,7 @@ nav a.active {
 
       <a href="project39.html" class="portfolio-item" data-category="ux-ui" aria-label="ux-ui" data-year="2025-10-13">
         <div class="portfolio-image">
-          <img src="project39\2.png" alt="product design" />
+          <img src="project39\2.png" loading="lazy" alt="product design" />
         </div>
         <div class="portfolio-info">
           <h3>coHabit App</h3>
@@ -928,111 +895,138 @@ nav a.active {
   </div>
 </div>
 
-<footer>
-  © 2025 Bruno Reis
-  <div class="social-links">
-    <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">LinkedIn</a> |
-    <a href="https://behance.net/brunomsreis" target="_blank">Behance</a> |
-    <a href="https://github.com/brunomsreis" target="_blank">GitHub</a> |
-    <a href="https://instagram.com/bru_no_reis" target="_blank">Instagram</a>
-  </div>
-</footer>
+<section class="cta-section">
+    <h2>Want to work with me?</h2>
+    <p>Contact me for projects, partnerships or any doubt!</p>
+    <a href="mailto:brunomiguelsantosreis@gmail.com" class="cta-btn">Contact</a>
+  </section>
+  <footer>
+    © 2025 Bruno Reis
+    <div class="social-links">
+      <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">LinkedIn</a> |
+      <a href="https://behance.net/brunomsreis" target="_blank">Behance</a> |
+      <a href="https://github.com/brunomsreis" target="_blank">GitHub</a> |
+      <a href="https://instagram.com/bru_no_reis" target="_blank">Instagram</a>
+    </div>
+  </footer>
 
-<script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  <script>
+    // Toggle Dark Mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+    // Shuffle / Sort
+    let sorted = false;
+    function sortPortfolio() {
+      const grid = document.getElementById('portfolioGrid');
+      const items = Array.from(grid.children);
+      items.sort((a, b) => {
+        const dateA = a.getAttribute('data-year') || '';
+        const dateB = b.getAttribute('data-year') || '';
+        return dateB.localeCompare(dateA);
+      });
+      items.forEach(item => grid.appendChild(item));
+    }
+    function shufflePortfolio() {
+      const grid = document.getElementById('portfolioGrid');
+      const items = Array.from(grid.children);
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        grid.appendChild(items[j]);
+        items.splice(j, 1);
+      }
+    }
+    function toggleSort() {
+      const btn = document.getElementById('sortBtn');
+      const icon = document.getElementById('sortIcon');
+      const text = document.getElementById('sortText');
+      const status = document.getElementById('order-status');
 
-      const filter = button.getAttribute('data-filter');
+      if(!sorted) {
+        sortPortfolio();
+        btn.classList.add('active');
+        icon.textContent = "📅";
+        text.textContent = "Sorted by date";
+        status.textContent = "Projects sorted by date (newest first)";
+        status.classList.add('active');
+        sorted = true;
+      } else {
+        shufflePortfolio();
+        btn.classList.remove('active');
+        icon.textContent = "🔀";
+        text.textContent = "Shuffle mode";
+        status.textContent = "Projects in random order";
+        status.classList.remove('active');
+        sorted = false;
+      }
+    }
 
-      portfolioItems.forEach(item => {
-        if(filter === 'all') {
-          item.style.display = '';
-        } else {
-          const categories = item.getAttribute('data-category').split(' ');
-          if(categories.includes(filter)) {
+    // Filters
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.getAttribute('data-filter');
+        portfolioItems.forEach(item => {
+          if(filter === 'all') {
             item.style.display = '';
           } else {
-            item.style.display = 'none';
+            const categories = item.getAttribute('data-category').split(' ');
+            if(categories.includes(filter)) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
           }
+        });
+      });
+      button.addEventListener('keydown', e => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
         }
       });
     });
-  });
-  function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-}
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-});
+    // Loading indicator helper
+    const loading = document.getElementById('loading-indicator');
+    function showLoading() { loading.style.display = 'block'; }
+    function hideLoading() { loading.style.display = 'none'; }
 
+    // Scroll animation observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.1});
+    document.querySelectorAll('.portfolio-item').forEach(item => observer.observe(item));
 
-let sorted = false;
-function sortPortfolio() {
-  const grid = document.getElementById('portfolioGrid');
-  const items = Array.from(grid.children);
-  items.sort((a, b) => {
-    const dateA = a.getAttribute('data-year') || '';
-    const dateB = b.getAttribute('data-year') || '';
-    return dateB.localeCompare(dateA); // mais recente primeiro
-  });
-  items.forEach(item => grid.appendChild(item));
-}
-function shufflePortfolio() {
-  const grid = document.getElementById('portfolioGrid');
-  const items = Array.from(grid.children);
-  for (let i = items.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    grid.appendChild(items[j]);
-    items.splice(j, 1);
-  }
-}
-function toggleSort() {
-  const btn = document.getElementById('sortBtn');
-  const icon = document.getElementById('sortIcon');
-  const text = document.getElementById('sortText');
-  const status = document.getElementById('order-status');
+    // On load
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+      shufflePortfolio();
+    });
 
-  if (!sorted) {
-    sortPortfolio();
-    btn.classList.add('active');
-    icon.textContent = "📅";
-    text.textContent = "Sorted by date";
-    status.textContent = "Projects sorted by date (newest first)";
-    status.classList.add('active');
-    sorted = true;
-  } else {
-    shufflePortfolio();
-    btn.classList.remove('active');
-    icon.textContent = "🔀";
-    text.textContent = "Shuffle mode";
-    status.textContent = "Projects in random order";
-    status.classList.remove('active');
-    sorted = false;
-  }
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-  shufflePortfolio();
-  setupFilters();
-});
-
-</script>
-
-
-
-
-
+    // Google Analytics events
+    portfolioItems.forEach(item => {
+      item.addEventListener('click', function() {
+        gtag('event', 'project_click', { 'event_category': 'Portfolio', 'event_label': item.querySelector('h3').textContent });
+      });
+    });
+    let startTime = Date.now();
+    window.addEventListener('beforeunload', () => {
+      let timeSpent = Math.round((Date.now() - startTime) / 1000);
+      gtag('event', 'time_on_page', { 'event_category': 'Engagement', 'event_label': 'Portfolio', 'value': timeSpent });
+    });
+  </script>
 </body>
 </html>
