@@ -88,16 +88,12 @@
         transition: color 0.3s;
       }
       .gallery {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
       }
       .gallery img {
         width: 100%;
-        border-radius: 14px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        transition: transform 0.4s ease;
-        cursor: pointer;
       }
       .gallery img:hover {
         transform: scale(1.04);
@@ -232,16 +228,24 @@
     <main>
       <h1>Graphic design @ university and personal projects</h1>
       <p class="description">
-        Outside of client work, I’m always experimenting with creating posters,
-        visual studies, and other pieces that explore color, type, motion, and
-        mood. These personal projects are where I get to play, break rules, and
-        test ideas that push my creative limits. Each piece is a reflection of
-        whatever’s inspiring me at the moment, music, culture, tech, or just a
-        good font combo. Whether it’s static or animated, I design with
-        intention and always keep the vibe sharp and expressive.
+        I’m always experimenting with creating posters, visual studies, and
+        other pieces that explore color, type, motion, and mood. These personal
+        projects are where I get to play, break rules, and test ideas that push
+        my creative limits. Each piece is a reflection of whatever’s inspiring
+        me at the moment, music, culture, tech, or just a good font combo.
+        Whether it’s static or animated, I design with intention and always keep
+        the vibe sharp and expressive.
       </p>
 
       <section class="gallery" aria-label="Motion Graphics Gallery">
+        <img src="project7/9Trindade.png" alt="Cinema Trindade 9º year" />
+        <img src="project7/BLOOMposter.png" alt="bloom poster" />
+        <img src="project7/CHERRY_POSTER.png" alt="cherry poster" />
+        <img src="project7/LycorisPoster.png" alt="Lycoris poster" />
+        <img src="project7/poster_bloom.png" alt="bloom 2 poster" />
+        <img src="project7/poster_Breathe.png" alt="breath poster" />
+        <img src="project7/poster_jellyfish.png" alt="jellyfish poster" />
+
         <img src="project7/posters.png" alt="posters" />
         <img src="project7/perfumead.png" alt="visual pink perfume ad" />
         <img src="project7/waveposter.png" alt="wave poster" />
