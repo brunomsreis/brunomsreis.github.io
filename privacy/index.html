@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script src="/assets/consent.js"></script>
+
+    <title>Privacy &amp; Cookies | Bruno Reis</title>
+    <meta
+      name="description"
+      content="How brunoreis.work handles analytics cookies, third-party content and your personal data."
+    />
+    <link rel="canonical" href="https://www.brunoreis.work/privacy/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Privacy &amp; Cookies | Bruno Reis" />
+    <meta
+      property="og:description"
+      content="How brunoreis.work handles analytics cookies, third-party content and your personal data."
+    />
+    <meta property="og:url" content="https://www.brunoreis.work/privacy/" />
+    <meta
+      property="og:image"
+      content="https://www.brunoreis.work/assets/og-image.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --bg: #fff;
+        --fg: #111;
+        --muted: #555;
+        --accent: #ffed00;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #000;
+          --fg: #f2f2f2;
+          --muted: #b5b5b5;
+        }
+      }
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        line-height: 1.65;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px 16px;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      nav a {
+        color: var(--fg);
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 3px solid var(--accent);
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 16px 16px 48px;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 12px 0 8px;
+      }
+      h2 {
+        font-size: 1.2rem;
+        margin: 32px 0 8px;
+      }
+      p,
+      li {
+        margin-bottom: 10px;
+      }
+      ul {
+        padding-left: 22px;
+      }
+      a {
+        color: var(--fg);
+      }
+      .updated {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      button.linklike {
+        font: inherit;
+        color: var(--fg);
+        background: none;
+        border: 0;
+        padding: 0;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      footer {
+        text-align: center;
+        padding: 24px 16px 40px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/cv/">CV</a>
+    </nav>
+
+    <main>
+      <h1>Privacy &amp; Cookies</h1>
+      <p class="updated">Last updated: November 2026</p>
+
+      <h2>Who is responsible</h2>
+      <p>
+        This is the personal portfolio website of Bruno Reis. For any question
+        about your data, write to
+        <a href="mailto:brunomiguelsantosreis@gmail.com"
+          >brunomiguelsantosreis@gmail.com</a
+        >.
+      </p>
+
+      <h2>What this site collects</h2>
+      <p>
+        The site has no forms, accounts or comments, so it does not ask you for
+        personal data. The only thing it can measure is how it is used, and only
+        if you agree.
+      </p>
+      <ul>
+        <li>
+          <strong>Analytics (only if you accept):</strong> Google Analytics 4
+          records page views, clicks on projects and time spent on a page. It
+          sets the cookies <code>_ga</code> and <code>_ga_*</code> and uses
+          anonymised IP addresses. Nothing is loaded from Google Analytics until
+          you click "Accept".
+        </li>
+        <li>
+          <strong>Your choice:</strong> it is stored in your browser
+          (<code>localStorage</code>, key <code>cookie-consent</code>), not in a
+          cookie. The light/dark mode preference is stored the same way. Neither
+          is sent to me.
+        </li>
+      </ul>
+
+      <h2>Third-party content loaded by the site</h2>
+      <p>
+        Some content is served by other companies, so your browser contacts
+        their servers (and your IP address reaches them) when a page loads,
+        independently of the analytics choice:
+      </p>
+      <ul>
+        <li>
+          <strong>Google Fonts</strong> (fonts.googleapis.com) for the
+          typography.
+        </li>
+        <li>
+          <strong>Archive.org</strong> for the videos embedded in some project
+          pages.
+        </li>
+        <li>
+          <strong>GitHub Pages</strong>, which hosts the site and keeps standard
+          server logs.
+        </li>
+      </ul>
+      <p>
+        Links to LinkedIn, Behance, GitHub and Instagram only leave this site
+        when you click them.
+      </p>
+
+      <h2>Your choices and rights</h2>
+      <ul>
+        <li>
+          You can accept or decline analytics at any time:
+          <button type="button" class="linklike" id="open-cc">
+            Cookie settings
+          </button>
+          . Declining removes the Google Analytics cookies from this site.
+        </li>
+        <li>
+          Under the GDPR you can ask for access, correction or deletion of your
+          data, and withdraw consent at any time. You can also complain to the
+          Portuguese data protection authority, the
+          <a href="https://www.cnpd.pt" rel="noopener">CNPD</a>.
+        </li>
+      </ul>
+    </main>
+
+    <footer>© 2026 Bruno Reis</footer>
+
+    <script>
+      document.getElementById("open-cc").addEventListener("click", function () {
+        var b = document.querySelector(".cc-footer-link button");
+        if (b) b.click();
+      });
+    </script>
+  </body>
+</html>

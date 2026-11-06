@@ -6,19 +6,8 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-PHVY6HBTV6");
-    </script>
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
 
     <title>coHabit App — UX/UI Design | Bruno Reis</title>
     <meta name="description" content="coHabit is a roommate-finding and home-sharing app that focuses on compatibility, trust, and community — helping you feel at home from the very first match." />
@@ -223,6 +212,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/case-study.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -238,6 +228,37 @@
       <p class="description">
         coHabit is a roommate-finding and home-sharing app that focuses on compatibility, trust, and community — helping you feel at home from the very first match.
       </p>
+
+      <section class="case-study">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Mobile app concept (UX/UI and branding)</dd></div>
+          <div><dt>Scope</dt><dd>User research, problem definition, branding, wireframes and UI design</dd></div>
+          <div><dt>Timeline</dt><dd>9 weeks, in 5 phases</dd></div>
+          <div><dt>Focus</dt><dd>Emotion-driven, accessible interfaces</dd></div>
+        </dl>
+        <h2>The problem</h2>
+        <p>Finding a compatible flatmate is often stressful and unreliable. Existing platforms focus mainly on price and location and ignore the human side of co-living: personality, habits and lifestyle. The result is mismatched expectations and uncomfortable living situations.</p>
+        <h2>The solution</h2>
+        <p>coHabit helps people find flatmates who truly fit their lifestyle. It matches users on shared values, routines and preferences, not just on rent or location, and combines smart matching and verified profiles with a warm visual design to turn the flatmate search into a more comfortable, human-centred journey.</p>
+        <h2>Process</h2>
+        <ol>
+          <li><strong>Research</strong> (1 week)</li>
+          <li><strong>Sketch</strong> (2 weeks)</li>
+          <li><strong>Wireframe</strong> (1 week)</li>
+          <li><strong>UX/UI design</strong> (4 weeks)</li>
+          <li><strong>Close study</strong> (1 week)</li>
+        </ol>
+        <h2>How it works</h2>
+        <p>People log in or sign up and choose a role, depending on whether they are offering a room or looking for one, and fill in a profile. Those offering a room create a listing, browse matches and chat; those searching browse listings and get matched. Both paths end the same way: a match, a conversation and the confirmation of a flatmate.</p>
+        <p>Profiles show a compatibility score (for example 93%), and the app includes filters, with price range among them, and a map view of available rooms.</p>
+        <h2>Visual identity</h2>
+        <ul>
+          <li><strong>Typography:</strong> Nunito Sans for headlines, buttons and key navigation labels, chosen for its rounded terminals that give a friendly, trustworthy and modern look, paired with Lato for descriptions and body text, which is legible and neutral yet warm.</li>
+          <li><strong>Colour and layout:</strong> deep blue, coral and mint accents on dark interface screens, built on a 4-column grid with 16 px side margins.</li>
+          <li><strong>Brand applications:</strong> logo, app icon and an outdoor poster (“New city? New people?”).</li>
+        </ul>
+      </section>
+
 
       <section class="gallery" aria-label="coHabit app case study panels">
         <img src="project39\1.png" alt="coHabit introduction: a roommate and home-sharing app design to connect people looking for flatmates" />

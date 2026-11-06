@@ -6,19 +6,8 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-PHVY6HBTV6");
-    </script>
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
 
     <title>Qook – Food Delivery App | Bruno Reis</title>
     <meta name="description" content="Qook, a food delivery app, focusing on an intuitive user experience and a clean, modern interface." />
@@ -235,6 +224,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/case-study.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -248,13 +238,29 @@
     <main>
       <h1>🎨📲 Qook – Food Delivery App</h1>
       <p class="description">
-        Qook, a food delivery app, focusing on an intuitive user experience and
-        a clean, modern interface. The project involved creating user flows,
-        wireframes, and high-fidelity mockups in Figma, ensuring seamless
-        navigation from food selection to checkout.
+        Qook, a food delivery app, focusing on an intuitive user experience and a clean, modern interface.
       </p>
 
-      <section class="gallery" aria-label="Motion Graphics Gallery">
+      <section class="case-study">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Food delivery app concept</dd></div>
+          <div><dt>Scope</dt><dd>User flows, wireframes, high-fidelity mockups</dd></div>
+          <div><dt>Tools</dt><dd>Figma</dd></div>
+          <div><dt>Focus</dt><dd>Intuitive UX, clean modern interface</dd></div>
+        </dl>
+        <h2>Process</h2>
+        <p>The project involved creating user flows, wireframes and high-fidelity mockups in Figma, ensuring seamless navigation from food selection to checkout.</p>
+        <ol>
+          <li><strong>User flows</strong> to map the path from food selection to checkout</li>
+          <li><strong>Wireframes</strong> to define the structure of each screen</li>
+          <li><strong>High-fidelity mockups</strong> to set the final look and feel</li>
+        </ol>
+        <h2>From wireframe to final UI</h2>
+        <p>The gallery shows three screens taken from low-fidelity wireframe to final design: a welcome screen (“The fastest food delivery service”), a sign-up screen with email and password, and a category screen for browsing food by type, such as vegetables, fish, meat, bowls and desserts.</p>
+      </section>
+
+
+      <section class="gallery" aria-label="Qook app wireframes and mockups">
         <img
           src="project21/Captura de ecrã 2025-02-20 215208.png"
           alt="Motion graphics animation showing dynamic shapes and colors"
