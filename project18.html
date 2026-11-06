@@ -6,21 +6,18 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-PHVY6HBTV6");
-    </script>
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
 
-    <title>FocusFlow</title>
+    <title>FocusFlow | Bruno Reis</title>
+    <meta name="description" content="Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks." />
+    <link rel="canonical" href="https://www.brunoreis.work/project18.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FocusFlow | Bruno Reis" />
+    <meta property="og:description" content="Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks." />
+    <meta property="og:url" content="https://www.brunoreis.work/project18.html" />
+    <meta property="og:image" content="https://www.brunoreis.work/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
       * {
@@ -215,6 +212,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/case-study.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -228,24 +226,35 @@
     <main>
       <h1>📱🎨FocusFlow</h1>
       <p class="description">
-        Focus Flow is a personal time management app designed as a kind of
-        agency for organizing and sharing tasks. The app includes features such
-        as task sharing and a graphical representation of the progress and
-        status of completed tasks. Developed primarily for mobile devices, Focus
-        Flow was created using Figma after researching similar applications in
-        the market. This project is entirely personal. I designed the branding,
-        UX, and UI myself. It was born out of my own need for an alternative to
-        traditional tools like Google Calendar, offering more interaction and
-        engagement through gamification and integration with other users. Focus
-        Flow aims to enhance productivity by combining efficient task management
-        with social and interactive elements.
+        Focus Flow is a personal time management app designed as a kind of agency for organizing and sharing tasks.
       </p>
-      <section class="gallery" aria-label="Motion Graphics Gallery">
+
+      <section class="case-study">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Personal project, mobile app</dd></div>
+          <div><dt>Role</dt><dd>Branding, UX and UI design</dd></div>
+          <div><dt>Tools</dt><dd>Figma</dd></div>
+          <div><dt>Platform</dt><dd>Designed primarily for mobile</dd></div>
+        </dl>
+        <h2>Why I built it</h2>
+        <p>It was born out of my own need for an alternative to traditional tools like Google Calendar, offering more interaction and engagement through gamification and integration with other users.</p>
+        <h2>What it does</h2>
+        <ul>
+          <li>Lets people share tasks with other users.</li>
+          <li>Shows a graphical representation of the progress and status of completed tasks.</li>
+          <li>Uses gamification and interaction with other users to keep people engaged.</li>
+        </ul>
+        <p>The aim is to enhance productivity by combining efficient task management with social and interactive elements.</p>
+        <h2>How I made it</h2>
+        <p>I started by researching similar applications on the market, then designed the branding, UX and UI myself in Figma. The project is entirely personal.</p>
+      </section>
+
+      <section class="gallery" aria-label="FocusFlow app screens">
         <img
           src="project18/focusflow.png"
           alt="Focus Flow app design preview"
         />
-        <section class="gallery" aria-label="Motion Graphics Gallery">
+        <section class="gallery" aria-label="FocusFlow prototype video">
           <video controls muted autoplay loop>
             <source src="project18/focusflow2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -259,7 +268,7 @@
       <img src="" alt="Expanded view" />
     </div>
 
-    <footer>© 2025 Bruno Reis</footer>
+    <footer>© 2026 Bruno Reis</footer>
 
     <script>
       // Dark Mode

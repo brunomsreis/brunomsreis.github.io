@@ -6,21 +6,18 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHVY6HBTV6"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-PHVY6HBTV6");
-    </script>
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
 
-    <title>Porto Desconhecido App</title>
+    <title>Porto Desconhecido – Educational App Design | Bruno Reis</title>
+    <meta name="description" content="Developed as part of the Ergonomics of Multimedia Applications course during my Communication Sciences degree, Porto Desconhecido is a mobile app concept…" />
+    <link rel="canonical" href="https://www.brunoreis.work/project22.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Porto Desconhecido – Educational App Design | Bruno Reis" />
+    <meta property="og:description" content="Developed as part of the Ergonomics of Multimedia Applications course during my Communication Sciences degree, Porto Desconhecido is a mobile app concept…" />
+    <meta property="og:url" content="https://www.brunoreis.work/project22.html" />
+    <meta property="og:image" content="https://www.brunoreis.work/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
@@ -222,6 +219,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/case-study.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -235,26 +233,32 @@
     <main>
       <h1>🎨📲 Porto Desconhecido – Educational App Design</h1>
       <p class="description">
-        Developed as part of the Ergonomics of Multimedia Applications course
-        during my Communication Sciences degree, Porto Desconhecido is a mobile
-        app concept created for CLIA ANILUPA, an educational and cultural centre
-        of Associação de Ludotecas do Porto, known for its work in animation and
-        creative learning. The project aimed to design an engaging and
-        accessible digital experience that supports CLIA ANILUPA’s mission of
-        fostering creativity and education through animated activities. The app
-        invites children and educators to explore the hidden stories of Porto
-        through interactive challenges and educational content. We followed a
-        complete UX/UI process, including: User Research: Investigated the needs
-        of children, parents, and educators Personas & User Journeys: Built
-        detailed profiles and mapped experiences Wireframing & Prototyping:
-        Created low-fidelity and high-fidelity prototypes in Figma Usability
-        Testing: Conducted user tests with interactive prototypes to gather
-        feedback Agile Workflow: Applied agile methodologies to iterate and
-        improve designs based on real user input The result is a playful and
-        intuitive educational tool designed to blend learning with exploration,
-        tailored for both classroom use and independent discovery.
+        Porto Desconhecido is a mobile app concept created for CLIA ANILUPA, an educational and cultural centre of Associação de Ludotecas do Porto, known for its work in animation and creative learning.
       </p>
-      <section class="gallery" aria-label="Motion Graphics Gallery">
+
+      <section class="case-study">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Mobile app concept (UX/UI)</dd></div>
+          <div><dt>Organisation</dt><dd>CLIA ANILUPA, Associação de Ludotecas do Porto</dd></div>
+          <div><dt>Context</dt><dd>Ergonomics of Multimedia Applications course, Communication Sciences degree</dd></div>
+          <div><dt>Tools</dt><dd>Figma</dd></div>
+        </dl>
+        <h2>The goal</h2>
+        <p>The project aimed to design an engaging and accessible digital experience that supports CLIA ANILUPA’s mission of fostering creativity and education through animated activities. The app invites children and educators to explore the hidden stories of Porto through interactive challenges and educational content.</p>
+        <h2>Process</h2>
+        <p>We followed a complete UX/UI process:</p>
+        <ol>
+          <li><strong>User research:</strong> investigated the needs of children, parents and educators.</li>
+          <li><strong>Personas and user journeys:</strong> built detailed profiles and mapped experiences.</li>
+          <li><strong>Wireframing and prototyping:</strong> created low-fidelity and high-fidelity prototypes in Figma.</li>
+          <li><strong>Usability testing:</strong> conducted user tests with interactive prototypes to gather feedback.</li>
+          <li><strong>Agile workflow:</strong> applied agile methodologies to iterate and improve the designs based on real user input.</li>
+        </ol>
+        <h2>Outcome</h2>
+        <p>The result is a playful and intuitive educational tool designed to blend learning with exploration, tailored for both classroom use and independent discovery.</p>
+      </section>
+
+      <section class="gallery" aria-label="Porto Desconhecido app screens">
         <img
           src="project22/portodesconhecido.png"
           alt="Motion graphics animation"
@@ -267,7 +271,7 @@
       <img src="" alt="Zoomed image" />
     </div>
 
-    <footer>© 2025 Bruno Reis</footer>
+    <footer>© 2026 Bruno Reis</footer>
 
     <script>
       // Dark Mode

@@ -1,0 +1,85 @@
+/* Case study blocks used on the UX / branding project pages */
+.case-study {
+  margin: 0 0 56px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+.case-study h2 {
+  display: inline-block;
+  margin: 40px 0 12px;
+  padding-bottom: 2px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111;
+  border-bottom: 4px solid #ffed00;
+}
+.case-study p {
+  margin: 0 0 14px;
+  color: #444;
+}
+.case-study ul,
+.case-study ol {
+  margin: 0 0 14px;
+  padding-left: 1.4em;
+  color: #444;
+}
+.case-study li {
+  margin-bottom: 8px;
+}
+.case-study strong {
+  color: #111;
+}
+.case-study .facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px 28px;
+  margin: 0 0 8px;
+  padding: 20px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+.case-study .facts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #777;
+}
+.case-study .facts dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #111;
+}
+
+/* dark mode (the pages toggle a .dark-mode class on <body>) */
+.dark-mode .case-study {
+  color: #ddd;
+}
+.dark-mode .case-study h2,
+.dark-mode .case-study strong,
+.dark-mode .case-study .facts dd {
+  color: #f0f0f0;
+}
+.dark-mode .case-study p,
+.dark-mode .case-study ul,
+.dark-mode .case-study ol {
+  color: #ccc;
+}
+.dark-mode .case-study .facts {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.dark-mode .case-study .facts dt {
+  color: #aaa;
+}
+
+@media (max-width: 600px) {
+  .case-study {
+    font-size: 1rem;
+  }
+  .case-study h2 {
+    font-size: 1.25rem;
+  }
+}
