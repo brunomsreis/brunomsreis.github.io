@@ -130,7 +130,7 @@
       transform: translateY(-50%);
       font-weight: 700;
       font-size: 4rem;
-      color: #eaeaea;
+      color: #c45ac0;
       user-select: none;
       pointer-events: none;
       letter-spacing: 0.15em;
@@ -167,6 +167,12 @@
       z-index: 1;
       transition: left 0.3s, font-size 0.3s;
       
+    }
+    /* avoid the two numbers overlapping on narrower screens */
+    @media (max-width: 1500px) {
+      li.work-item::before {
+        display: none;
+      }
     }
     .work-text {
       flex: 1 1 300px;
@@ -247,7 +253,7 @@
       color: #2e2e2e;
     }
     .dark-mode .fixed-index {
-      color: #2e2e2e;
+      color: #f17ced;
     }
     .dark-mode .social-links a {
       color: #ccc;
