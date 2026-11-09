@@ -448,9 +448,15 @@
       }
 
       /* Download button */
+      .cv-downloads {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 20px;
+      }
       .cv-download {
         display: inline-block;
-        margin: 0 0 20px;
+        margin: 0;
         padding: 10px 20px;
         border-radius: 999px;
         background: #ffed00;
@@ -473,6 +479,7 @@
         .dark-toggle,
         nav,
         footer,
+        .cv-downloads,
         .cv-download,
         .accordion-icon {
           display: none !important;
@@ -571,7 +578,11 @@
 
     <main class="container">
       <h1>Bruno Reis</h1>
-      <a class="cv-download" href="/assets/Bruno-Reis-CV.pdf" download><span aria-hidden="true">⬇</span> Download CV (PDF)</a>
+      <div class="cv-downloads">
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_en.pdf" download hreflang="en"><span aria-hidden="true">⬇</span> CV (PDF) · English</a>
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_pt.pdf" download hreflang="pt"><span aria-hidden="true">⬇</span> CV (PDF) · Português</a>
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_es.pdf" download hreflang="es"><span aria-hidden="true">⬇</span> CV (PDF) · Español</a>
+      </div>
 
       <!-- About Me Section -->
       <section class="accordion-section active" aria-labelledby="about-heading">
