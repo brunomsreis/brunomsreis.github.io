@@ -446,6 +446,110 @@
           text-align: center;
         }
       }
+
+      /* Download button */
+      .cv-download {
+        display: inline-block;
+        margin: 0 0 20px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        background: #ffed00;
+        color: #000;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .cv-download:hover,
+      .cv-download:focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 2px;
+      }
+
+      /* Print / save as PDF: everything expanded, plain black on white */
+      @page {
+        size: A4;
+        margin: 16mm 15mm;
+      }
+      @media print {
+        .dark-toggle,
+        nav,
+        footer,
+        .cv-download,
+        .accordion-icon {
+          display: none !important;
+        }
+        *,
+        .dark-mode * {
+          background: transparent !important;
+          color: #000 !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+          animation: none !important;
+          transition: none !important;
+        }
+        body {
+          font-size: 10pt;
+          line-height: 1.4;
+        }
+        .container {
+          max-width: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        h1 {
+          font-size: 24pt !important;
+          margin: 0 0 8pt !important;
+        }
+        .accordion-section {
+          border: 0 !important;
+          margin: 0 0 10pt !important;
+          break-inside: auto;
+        }
+        .accordion-header {
+          padding: 4pt 0 !important;
+          border-bottom: 1.5pt solid #000;
+          break-after: avoid;
+        }
+        .accordion-header h2 {
+          font-size: 13pt !important;
+        }
+        .accordion-content {
+          max-height: none !important;
+          overflow: visible !important;
+          padding: 6pt 0 0 !important;
+        }
+        a {
+          text-decoration: none;
+        }
+        #cc-banner {
+          display: none !important;
+        }
+        .links {
+          display: block !important;
+        }
+        .links a {
+          display: inline-block !important;
+          border: 0 !important;
+          padding: 0 14pt 0 0 !important;
+        }
+        .links a[href^="http"]::after {
+          content: " " attr(href);
+          font-weight: 400;
+          font-size: 9pt;
+        }
+        .accordion-content ul {
+          columns: 2;
+          column-gap: 18pt;
+          line-height: 1.4;
+          padding-left: 14pt;
+        }
+        .accordion-content li {
+          margin-bottom: 2pt;
+        }
+        li,
+        p {
+          break-inside: avoid;
+        }
+      }
     </style>
   </head>
   <body>
@@ -467,6 +571,7 @@
 
     <main class="container">
       <h1>Bruno Reis</h1>
+      <a class="cv-download" href="/assets/Bruno-Reis-CV.pdf" download>⬇ Download CV (PDF)</a>
 
       <!-- About Me Section -->
       <section class="accordion-section active" aria-labelledby="about-heading">
