@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
+
+    <title>Video @ personal projects | Bruno Reis</title>
+    <meta name="description" content="A compilation of videos I created while traveling and attending various events, where I enjoyed experimenting with different filming techniques and…" />
+    <link rel="canonical" href="https://www.brunoreis.work/personal-videos.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Video @ personal projects | Bruno Reis" />
+    <meta property="og:description" content="A compilation of videos I created while traveling and attending various events, where I enjoyed experimenting with different filming techniques and…" />
+    <meta property="og:url" content="https://www.brunoreis.work/personal-videos.html" />
+    <meta property="og:image" content="https://www.brunoreis.work/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: #fff;
+        color: #111;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        transition: background 0.3s, color 0.3s;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      nav {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 8px 20px;
+        font-weight: 600;
+        display: flex;
+        gap: 30px;
+        transition: background 0.3s, color 0.3s;
+      }
+      nav a {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #111;
+        padding: 8px 12px;
+        border-radius: 20px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      nav a:hover,
+      nav a.active {
+        background-color: #000;
+        color: #fff;
+      }
+      .dark-toggle {
+        position: fixed;
+        top: 20px;
+        left: 30px;
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        z-index: 1001;
+        transition: background 0.3s, color 0.3s;
+      }
+      .dark-mode .dark-toggle {
+        background: #eee;
+        color: #111;
+      }
+      main {
+        max-width: 900px;
+        margin: 100px auto 120px;
+        padding: 0 20px;
+      }
+      h1 {
+        font-weight: 700;
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        color: #111;
+        text-shadow: none;
+        transition: color 0.3s;
+      }
+      .description {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 40px;
+        line-height: 1.5;
+        transition: color 0.3s;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .video-wrapper {
+        flex: 1 1 45%;
+        max-width: 340px; /* Ajusta para caberem dois lado a lado */
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        background: #111;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        transition: transform 0.4s ease, box-shadow 0.3s;
+        min-width: 220px;
+        min-height: 120px;
+        margin-bottom: 10px;
+      }
+
+      .video-wrapper:hover {
+        transform: scale(1.04);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      }
+      .video-wrapper iframe,
+      .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #000;
+        aspect-ratio: 16 / 9;
+      }
+      /* Força Archive.org a respeitar o tamanho */
+      .video-wrapper .archive-iframe {
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        aspect-ratio: 16 / 9;
+        display: block;
+        background: #000;
+      }
+      /* YouTube Short (vertical), loaded only after click */
+      .video-wrapper.yt-short {
+        flex: 0 1 240px;
+        max-width: 240px;
+        aspect-ratio: 9 / 16;
+      }
+      .yt-short button {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        cursor: pointer;
+        background: #111;
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+      .yt-short button .play {
+        font-size: 2.4rem;
+        line-height: 1;
+        color: #ffed00;
+      }
+      .yt-short button small {
+        font-weight: 400;
+        opacity: 0.8;
+      }
+      .yt-short button:focus-visible {
+        outline: 3px solid #ffed00;
+        outline-offset: -6px;
+      }
+      .yt-short iframe {
+        aspect-ratio: 9 / 16 !important;
+      }
+      footer {
+        text-align: center;
+        padding: 40px 20px 20px;
+        font-size: 0.9rem;
+        color: #888;
+        font-weight: 500;
+        user-select: none;
+        transition: color 0.3s;
+      }
+      /* --- DARK MODE --- */
+      .dark-mode {
+        background: #121212;
+        color: #f0f0f0;
+      }
+      .dark-mode nav {
+        background: rgba(30, 30, 30, 0.85);
+      }
+      .dark-mode nav a {
+        color: #ccc;
+      }
+      .dark-mode nav a:hover,
+      .dark-mode nav a.active {
+        background-color: #f0f0f0;
+        color: #000;
+      }
+      .dark-mode h1 {
+        color: #ffb3b3;
+      }
+      .dark-mode .description {
+        color: #bbb;
+      }
+      .dark-mode footer {
+        color: #bbb;
+      }
+      .dark-mode .video-wrapper {
+        background: #232323;
+        box-shadow: 0 10px 30px rgba(255, 179, 179, 0.12);
+      }
+
+      .video-alert {
+        display: inline-block;
+        background: #ffe08a;
+        color: #a67c00;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        border-radius: 25px;
+        padding: 12px 28px;
+        margin: 0 auto 32px auto;
+        font-size: 1.05rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        letter-spacing: 0.02em;
+        border: none;
+      }
+      .dark-mode .video-alert {
+        background: #333019;
+        color: #ffe08a;
+      }
+    </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
+  </head>
+  <body>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio/">Portfolio</a>
+      <a href="/cv/">CV</a>
+    </nav>
+
+    <main>
+      <h1><span aria-hidden="true">🎬</span> Video @ personal projects</h1>
+      <p class="description">
+        A compilation of videos I created while traveling and attending various
+        events, where I enjoyed experimenting with different filming techniques
+        and storytelling styles. These personal projects reflect my passion for
+        capturing moments and exploring creative video production.
+      </p>
+      <div class="video-alert">
+        <strong>Note:</strong> Archive.org videos do not replay automatically.
+        When a video ends, <b>click inside the video area</b> to watch it
+        again.<br />
+        <strong>Audio:</strong> These videos cannot be muted automatically.
+        Please <b>mute the video manually</b> if you do not want sound.
+      </div>
+
+      <section class="gallery" aria-label="Motion Graphics Gallery">
+        <!-- Archive.org embed, autoplay e loop -->
+        <div class="video-wrapper yt-short">
+          <button type="button" data-yt="BzSsLxFBZMY" aria-label="Play video: Resumo jantar DouroBats (loads from YouTube)">
+            <span class="play" aria-hidden="true">▶</span>
+            <span>Resumo jantar DouroBats</span>
+            <small>Plays on YouTube</small>
+          </button>
+        </div>
+
+        <div class="video-wrapper">
+          <video class="anim" data-src="project5/passoApasso.mp4" poster="project5/passoApasso.jpg" width="1600" height="900" muted loop playsinline preload="none" role="img" aria-label="Camino de Santiago video, animation 1"></video>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/all-around_202512"
+            class="archive-iframe"
+            title="End of day"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/palacio_202512"
+            class="archive-iframe"
+            title="End of day"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/color_candle"
+            class="archive-iframe"
+            title="End of day"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/todawn1"
+            class="archive-iframe"
+            title="End of day"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/25-abril_202506"
+            class="archive-iframe"
+            title="Freedom"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/drave"
+            class="archive-iframe"
+            title="Drave"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/sardenha-com-audio"
+            class="archive-iframe"
+            title="Sardinia"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/pico_20250630"
+            class="archive-iframe"
+            title="Azores"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/lisboa-eafins"
+            class="archive-iframe"
+            title="South"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/vermelho"
+            class="archive-iframe"
+            title="Red"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/vacas_202506"
+            class="archive-iframe"
+            title="Cows"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/tiedu"
+            class="archive-iframe"
+            title="Colors"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/santiago_cam"
+            class="archive-iframe"
+            title="Camino"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/kyu-55-vu-5u-x-576"
+            class="archive-iframe"
+            title="bridge"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/foz_20250701"
+            class="archive-iframe"
+            title="Foz"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/final_aranhagafanhoto"
+            class="archive-iframe"
+            title="Spider"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/fac_20250701"
+            class="archive-iframe"
+            title="Test"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe loading="lazy"
+            src="https://archive.org/embed/alex_final"
+            class="archive-iframe"
+            title="Alex"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Bruno Reis</footer>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark-mode") ? "dark" : "light"
+        );
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+      });
+    </script>
+      <script>
+      document.querySelectorAll("button[data-yt]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var f = document.createElement("iframe");
+          f.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            b.getAttribute("data-yt") +
+            "?autoplay=1&rel=0&playsinline=1";
+          f.title = "Resumo jantar DouroBats";
+          f.allow = "autoplay; encrypted-media; picture-in-picture";
+          f.allowFullscreen = true;
+          b.parentNode.replaceChild(f, b);
+        });
+      });
+    </script>
+    <script src="/assets/lazy-video.js" defer></script>
+  </body>
+</html>
