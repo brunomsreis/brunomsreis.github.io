@@ -214,7 +214,7 @@
       <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
 
     <nav>
       <a href="index.html">Home</a>
@@ -223,7 +223,7 @@
     </nav>
 
     <main>
-      <h1>🎬 Video @ personal projects</h1>
+      <h1><span aria-hidden="true">🎬</span> Video @ personal projects</h1>
       <p class="description">
         A compilation of videos I created while traveling and attending various
         events, where I enjoyed experimenting with different filming techniques
@@ -241,7 +241,7 @@
       <section class="gallery" aria-label="Motion Graphics Gallery">
         <!-- Archive.org embed, autoplay e loop -->
         <div class="video-wrapper">
-          <video class="anim" data-src="project5/passoApasso.mp4" poster="project5/passoApasso.jpg" width="1600" height="900" muted loop playsinline preload="none" role="img" aria-label="animated gif"></video>
+          <video class="anim" data-src="project5/passoApasso.mp4" poster="project5/passoApasso.jpg" width="1600" height="900" muted loop playsinline preload="none" role="img" aria-label="Camino de Santiago video, animation 1"></video>
         </div>
 
         <div class="video-wrapper">
