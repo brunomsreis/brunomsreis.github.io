@@ -18,8 +18,9 @@
     <meta property="og:url" content="https://www.brunoreis.work/work-ebankit.html" />
     <meta property="og:image" content="https://www.brunoreis.work/assets/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
       * {
         margin: 0;
         padding: 0;
@@ -75,8 +76,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -212,9 +213,10 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
 
     <nav>
       <a href="index.html">Home</a>
@@ -230,16 +232,16 @@
 
       <section class="gallery" aria-label="ebankit Design Previews">
         <!-- Example of animated GIF previews -->
-        <img src="project36\Comp 2_2.gif" alt="animated menu" />
-        <img src="project36\ebankit_new1.gif" alt="motion graphics" />
-        <img src="project36\Comp 1_3.gif" alt="presentation with videos" />
-        <img src="project36\ebankit2.gif" alt="graphic design" />
-        <img src="project36\ebankit3.gif" alt="social media" />
-        <img src="project36\ebankit3_2.gif" alt="social media" />
-        <img src="project36\ebankit4.gif" alt="story boards" />
-        <img src="project36\ebankit5_2.gif" alt="motion design" />
+        <video class="anim" data-src="project36/Comp-2_2.mp4" poster="project36/Comp-2_2.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="ebankIT multimedia design, animation 1"></video>
+        <video class="anim" data-src="project36/ebankit_new1.mp4" poster="project36/ebankit_new1.jpg" width="1400" height="400" muted loop playsinline preload="none" role="img" aria-label="motion graphics"></video>
+        <video class="anim" data-src="project36/Comp-1_3.mp4" poster="project36/Comp-1_3.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="presentation with videos"></video>
+        <video class="anim" data-src="project36/ebankit2.mp4" poster="project36/ebankit2.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="graphic design"></video>
+        <video class="anim" data-src="project36/ebankit3.mp4" poster="project36/ebankit3.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="social media"></video>
+        <video class="anim" data-src="project36/ebankit3_2.mp4" poster="project36/ebankit3_2.jpg" width="1400" height="400" muted loop playsinline preload="none" role="img" aria-label="social media"></video>
+        <video class="anim" data-src="project36/ebankit4.mp4" poster="project36/ebankit4.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="story boards"></video>
+        <video class="anim" data-src="project36/ebankit5_2.mp4" poster="project36/ebankit5_2.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="motion design"></video>
 
-        <img src="project36\ebankit6.gif" alt="e-learning design" />
+        <video class="anim" data-src="project36/ebankit6.mp4" poster="project36/ebankit6.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="e-learning design"></video>
       </section>
     </main>
 
@@ -279,5 +281,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

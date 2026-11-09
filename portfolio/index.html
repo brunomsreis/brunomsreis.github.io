@@ -41,8 +41,9 @@
 
     <!-- CSS -->
 
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
       * {
         margin: 0;
         padding: 0;
@@ -487,6 +488,7 @@
     </style>
 
     <!-- End of CSS -->
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
 
   <body>
@@ -497,7 +499,7 @@
       onclick="toggleDarkMode()"
       aria-label="Toggle dark mode"
     >
-      🌓 Mode
+      <span aria-hidden="true">🌓</span> Mode
     </button>
     <button
       id="sortBtn"
@@ -529,14 +531,14 @@
     <div class="container">
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="video">🎬 Video</button>
+        <button class="filter-btn" data-filter="video"><span aria-hidden="true">🎬</span> Video</button>
         <button class="filter-btn" data-filter="motion-graphics">
-          🎞️Motion Graphics
+          <span aria-hidden="true">🎞️</span> Motion Graphics
         </button>
-        <button class="filter-btn" data-filter="design">🎨 Design</button>
-        <button class="filter-btn" data-filter="ux-ui">🧠🖌️UX/UI</button>
+        <button class="filter-btn" data-filter="design"><span aria-hidden="true">🎨</span> Design</button>
+        <button class="filter-btn" data-filter="ux-ui"><span aria-hidden="true">🧠🖌️</span> UX/UI</button>
         <button class="filter-btn" data-filter="photography">
-          📸Photography
+          <span aria-hidden="true">📸</span> Photography
         </button>
       </div>
 
@@ -779,11 +781,7 @@
           data-year="2024-02-29"
         >
           <div class="portfolio-image">
-            <img
-              src="../project14/capa.gif"
-              loading="lazy"
-              alt="Visual identity for a coffee brand"
-            />
+            <video class="anim" data-src="../project14/capa.mp4" poster="../project14/capa.jpg" width="1104" height="816" muted loop playsinline preload="none" role="img" aria-label="Visual identity for a coffee brand"></video>
           </div>
           <div class="portfolio-info">
             <h3>Lumos Café – Complete Visual Identity</h3>
@@ -1202,11 +1200,7 @@
           data-year="2025-09-25"
         >
           <div class="portfolio-image">
-            <img
-              src="../project35/logo_revista_2.gif"
-              loading="lazy"
-              alt="WAIT Magazine Editorial Design"
-            />
+            <video class="anim" data-src="../project35/logo_revista_2.mp4" poster="../project35/logo_revista_2.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="WAIT Magazine Editorial Design"></video>
           </div>
           <div class="portfolio-info">
             <h3>WAIT Magazine — Editorial Photography</h3>
@@ -1246,11 +1240,7 @@
           data-year="2025-05-03"
         >
           <div class="portfolio-image">
-            <img
-              src="../project36/ebankit5_2.gif"
-              loading="lazy"
-              alt="Multimedia design developed while working at ebankIT"
-            />
+            <video class="anim" data-src="../project36/ebankit5_2.mp4" poster="../project36/ebankit5_2.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="Multimedia design developed while working at ebankIT"></video>
           </div>
           <div class="portfolio-info">
             <h3>Multimedia Design @ ebankIT</h3>
@@ -1268,11 +1258,7 @@
           data-year="2025-04-03"
         >
           <div class="portfolio-image">
-            <img
-              src="../project37/Comp 1_1.gif"
-              loading="lazy"
-              alt="Social media"
-            />
+            <video class="anim" data-src="../project37/Comp-1_1.mp4" poster="../project37/Comp-1_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="Social media"></video>
           </div>
           <div class="portfolio-info">
             <h3>Social Media Design</h3>
@@ -1291,7 +1277,7 @@
           data-year="2025-10-03"
         >
           <div class="portfolio-image">
-            <img src="../project38/1.gif" loading="lazy" alt="photography" />
+            <video class="anim" data-src="../project38/1.mp4" poster="../project38/1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="Portfolio project, animation 1"></video>
           </div>
           <div class="portfolio-info">
             <h3>Photography & Video</h3>
@@ -1549,5 +1535,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

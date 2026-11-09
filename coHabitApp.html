@@ -18,8 +18,9 @@
     <meta property="og:url" content="https://www.brunoreis.work/coHabitApp.html" />
     <meta property="og:image" content="https://www.brunoreis.work/assets/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
       * {
         margin: 0;
         padding: 0;
@@ -75,8 +76,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -213,9 +214,10 @@
       }
     </style>
       <link rel="stylesheet" href="/assets/case-study.css" />
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
 
     <nav>
       <a href="index.html">Home</a>
@@ -224,7 +226,7 @@
     </nav>
 
     <main>
-      <h1>📱 coHabit App — UX/UI Design</h1>
+      <h1><span aria-hidden="true">📱</span> coHabit App — UX/UI Design</h1>
       <p class="description">
         coHabit is a roommate-finding and home-sharing app that focuses on compatibility, trust, and community — helping you feel at home from the very first match.
       </p>
@@ -276,7 +278,7 @@
         <img src="project39\13.png" alt="coHabit case study, panel 13 of 17" />
         <img src="project39\14.png" alt="coHabit case study, panel 14 of 17" />
         <img src="project39\15.png" alt="coHabit case study, panel 15 of 17" />
-        <img src="project39\16.gif" alt="coHabit case study, panel 16 of 17" />
+        <video class="anim" data-src="project39/16.mp4" poster="project39/16.jpg" width="990" height="840" muted loop playsinline preload="none" role="img" aria-label="coHabit case study, panel 16 of 17"></video>
         <img src="project39\17.png" alt="coHabit case study, panel 17 of 17" />
       </section>
     </main>
@@ -317,5 +319,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>
