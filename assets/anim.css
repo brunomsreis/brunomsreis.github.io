@@ -1,0 +1,28 @@
+/* <video class="anim"> replaces former animated GIFs; :where() keeps specificity at zero
+   so each page's own image/video rules still win. */
+:where(video.anim) {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: transparent;
+}
+.work-image video.anim {
+  transition: transform 0.5s ease;
+}
+.work-image:hover video.anim {
+  transform: scale(1.05);
+}
+.video-wrapper video.anim {
+  height: auto;
+  aspect-ratio: auto;
+}
+@media (max-width: 768px) {
+  .work-image video.anim,
+  .portfolio-image video.anim {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px;
+  }
+}

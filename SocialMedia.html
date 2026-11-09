@@ -75,8 +75,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -212,6 +212,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -230,18 +231,18 @@
 
       <section class="gallery" aria-label="Social media design previews">
         <!-- Example of animated GIF previews -->
-        <img src="project37\Comp 1_1.gif" alt="animated logo" />
-        <img src="project37\Comp 2_2.gif" alt="image2" />
-        <img src="project37\Comp 3_1.gif" alt="image3" />
-        <img src="project37\Comp 3_5.gif" alt="image4" />
-        <img src="project37\Comp 4.gif" alt="image5" />
-        <img src="project37\Comp 5_3.gif" alt="image6" />
+        <video class="anim" data-src="project37/Comp-1_1.mp4" poster="project37/Comp-1_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="animated logo"></video>
+        <video class="anim" data-src="project37/Comp-2_2.mp4" poster="project37/Comp-2_2.jpg" width="1400" height="300" muted loop playsinline preload="none" role="img" aria-label="image2"></video>
+        <video class="anim" data-src="project37/Comp-3_1.mp4" poster="project37/Comp-3_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image3"></video>
+        <video class="anim" data-src="project37/Comp-3_5.mp4" poster="project37/Comp-3_5.jpg" width="1400" height="100" muted loop playsinline preload="none" role="img" aria-label="image4"></video>
+        <video class="anim" data-src="project37/Comp-4.mp4" poster="project37/Comp-4.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image5"></video>
+        <video class="anim" data-src="project37/Comp-5_3.mp4" poster="project37/Comp-5_3.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image6"></video>
 
-        <img src="project37\comp6_2.gif" alt="image7" />
-        <img src="project37\Comp 7_3.gif" alt="animated logo" />
-        <img src="project37\Comp 8_1.gif" alt="image2" />
-        <img src="project37\comp9.gif" alt="image3" />
-        <img src="project37\Comp 10_1.gif" alt="image4" />
+        <video class="anim" data-src="project37/comp6_2.mp4" poster="project37/comp6_2.jpg" width="1400" height="300" muted loop playsinline preload="none" role="img" aria-label="image7"></video>
+        <video class="anim" data-src="project37/Comp-7_3.mp4" poster="project37/Comp-7_3.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="animated logo"></video>
+        <video class="anim" data-src="project37/Comp-8_1.mp4" poster="project37/Comp-8_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image2"></video>
+        <video class="anim" data-src="project37/comp9.mp4" poster="project37/comp9.jpg" width="1400" height="300" muted loop playsinline preload="none" role="img" aria-label="image3"></video>
+        <video class="anim" data-src="project37/Comp-10_1.mp4" poster="project37/Comp-10_1.jpg" width="1400" height="100" muted loop playsinline preload="none" role="img" aria-label="image4"></video>
       </section>
     </main>
 
@@ -281,5 +282,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

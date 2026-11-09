@@ -93,8 +93,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -210,6 +210,7 @@
         color: #ffe08a;
       }
     </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -239,7 +240,7 @@
       <section class="gallery" aria-label="Motion Graphics Gallery">
         <!-- Archive.org embed, autoplay e loop -->
         <div class="video-wrapper">
-          <img src="project5\passoApasso.gif" alt="animated gif" />
+          <video class="anim" data-src="project5/passoApasso.mp4" poster="project5/passoApasso.jpg" width="1600" height="900" muted loop playsinline preload="none" role="img" aria-label="animated gif"></video>
         </div>
 
         <div class="video-wrapper">
@@ -476,5 +477,6 @@
         }
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

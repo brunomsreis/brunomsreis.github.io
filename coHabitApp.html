@@ -75,8 +75,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -213,6 +213,7 @@
       }
     </style>
       <link rel="stylesheet" href="/assets/case-study.css" />
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -276,7 +277,7 @@
         <img src="project39\13.png" alt="coHabit case study, panel 13 of 17" />
         <img src="project39\14.png" alt="coHabit case study, panel 14 of 17" />
         <img src="project39\15.png" alt="coHabit case study, panel 15 of 17" />
-        <img src="project39\16.gif" alt="coHabit case study, panel 16 of 17" />
+        <video class="anim" data-src="project39/16.mp4" poster="project39/16.jpg" width="990" height="840" muted loop playsinline preload="none" role="img" aria-label="coHabit case study, panel 16 of 17"></video>
         <img src="project39\17.png" alt="coHabit case study, panel 17 of 17" />
       </section>
     </main>
@@ -317,5 +318,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

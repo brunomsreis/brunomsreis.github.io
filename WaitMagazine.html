@@ -75,8 +75,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -212,6 +212,7 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -238,17 +239,17 @@
 
       <section class="gallery" aria-label="WAIT Magazine Previews">
         <!-- Example of animated GIF previews -->
-        <img src="project35\logo_revista_2.gif" alt="animated logo" />
-        <img src="project35\behance2_1.gif" alt="image2" />
-        <img src="project35\behance3.gif" alt="image3" />
-        <img src="project35\behance4.gif" alt="image4" />
-        <img src="project35\behance5_1.gif" alt="image5" />
-        <img src="project35\behance6_2.gif" alt="image6" />
+        <video class="anim" data-src="project35/logo_revista_2.mp4" poster="project35/logo_revista_2.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="animated logo"></video>
+        <video class="anim" data-src="project35/behance2_1.mp4" poster="project35/behance2_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image2"></video>
+        <video class="anim" data-src="project35/behance3.mp4" poster="project35/behance3.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image3"></video>
+        <video class="anim" data-src="project35/behance4.mp4" poster="project35/behance4.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="image4"></video>
+        <video class="anim" data-src="project35/behance5_1.mp4" poster="project35/behance5_1.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="image5"></video>
+        <video class="anim" data-src="project35/behance6_2.mp4" poster="project35/behance6_2.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="image6"></video>
 
-        <img src="project35\behance7_1.gif" alt="image7" />
-        <img src="project35\behance8.gif" alt="image8" />
-        <img src="project35\behance9.gif" alt="image9" />
-        <img src="project35\behance10_1.gif" alt="image10" />
+        <video class="anim" data-src="project35/behance7_1.mp4" poster="project35/behance7_1.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image7"></video>
+        <video class="anim" data-src="project35/behance8.mp4" poster="project35/behance8.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image8"></video>
+        <video class="anim" data-src="project35/behance9.mp4" poster="project35/behance9.jpg" width="1400" height="700" muted loop playsinline preload="none" role="img" aria-label="image9"></video>
+        <video class="anim" data-src="project35/behance10_1.mp4" poster="project35/behance10_1.jpg" width="1400" height="350" muted loop playsinline preload="none" role="img" aria-label="image10"></video>
       </section>
     </main>
 
@@ -288,5 +289,6 @@
         });
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>

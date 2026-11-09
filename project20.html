@@ -93,8 +93,8 @@
         font-weight: 700;
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: #00000011;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        color: #111;
+        text-shadow: none;
         transition: color 0.3s;
       }
       .description {
@@ -214,6 +214,7 @@
         color: #ffe08a;
       }
     </style>
+      <link rel="stylesheet" href="/assets/anim.css" />
   </head>
   <body>
     <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -247,23 +248,11 @@
       <section class="gallery" aria-label="Motion Graphics Gallery">
         <!-- Archive.org embed, autoplay e loop -->
 
-        <img
-          class="image"
-          src="project20\intel_motiondesign.gif"
-          alt="intel logo animation"
-        />
+        <video class="anim" data-src="project20/intel_motiondesign.mp4" poster="project20/intel_motiondesign.jpg" width="1400" height="1400" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
 
-        <img
-          class="image"
-          src="project20\circle animation logo.gif"
-          alt="intel logo animation"
-        />
+        <video class="anim" data-src="project20/circle-animation-logo.mp4" poster="project20/circle-animation-logo.jpg" width="1400" height="1400" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
         <div class="video-wrapper">
-          <img
-            class="image"
-            src="project20\sticker_BR.gif"
-            alt="intel logo animation"
-          />
+          <video class="anim" data-src="project20/sticker_BR.mp4" poster="project20/sticker_BR.jpg" width="1080" height="1920" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
         </div>
 
         <div class="video-wrapper">
@@ -356,5 +345,6 @@
         }
       });
     </script>
+      <script src="/assets/lazy-video.js" defer></script>
   </body>
 </html>
