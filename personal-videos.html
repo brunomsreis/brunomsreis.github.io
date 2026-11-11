@@ -113,6 +113,7 @@
       }
 
       .video-wrapper {
+        align-self: center;
         flex: 1 1 45%;
         max-width: 340px; /* Ajusta para caberem dois lado a lado */
         aspect-ratio: 16 / 9;
@@ -154,6 +155,7 @@
       }
       /* YouTube Short (vertical), loaded only after click */
       .video-wrapper.yt-short {
+        align-self: center;
         flex: 0 1 240px;
         max-width: 240px;
         aspect-ratio: 9 / 16;
@@ -187,6 +189,15 @@
       .yt-short button:focus-visible {
         outline: 3px solid #ffed00;
         outline-offset: -6px;
+      }
+      .video-wrapper.yt-short.yt-film {
+        align-self: center;
+        flex: 0 0 100%;
+        max-width: 700px;
+        aspect-ratio: 16 / 9;
+      }
+      .yt-short.yt-film iframe {
+        aspect-ratio: 16 / 9 !important;
       }
       .yt-short iframe {
         aspect-ratio: 9 / 16 !important;
@@ -279,6 +290,14 @@
 
       <section class="gallery" aria-label="Motion Graphics Gallery">
         <!-- Archive.org embed, autoplay e loop -->
+        <div class="video-wrapper yt-short yt-film">
+          <button type="button" data-yt="jOtw6u2vG2s" data-title="Gran Canaria, the film" aria-label="Play video: Gran Canaria, the film (loads from YouTube)">
+            <span class="play" aria-hidden="true">▶</span>
+            <span>Gran Canaria, the film</span>
+            <small>Plays on YouTube</small>
+          </button>
+        </div>
+
         <div class="video-wrapper yt-short">
           <button type="button" data-yt="BzSsLxFBZMY" aria-label="Play video: Resumo jantar DouroBats (loads from YouTube)">
             <span class="play" aria-hidden="true">▶</span>
@@ -533,7 +552,7 @@
             "https://www.youtube-nocookie.com/embed/" +
             b.getAttribute("data-yt") +
             "?autoplay=1&rel=0&playsinline=1";
-          f.title = "Resumo jantar DouroBats";
+          f.title = b.getAttribute("data-title") || "Resumo jantar DouroBats";
           f.allow = "autoplay; encrypted-media; picture-in-picture";
           f.allowFullscreen = true;
           b.parentNode.replaceChild(f, b);
