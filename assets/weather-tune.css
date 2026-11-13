@@ -1,34 +1,42 @@
-/* ===== Weather Tune: pill com tempo do Porto + música do dia ===== */
+/* ===== Weather Tune: pill fixa no topo, ao lado do botão Mode ===== */
 .wt-widget {
-  /* Cores derivadas de currentColor: acompanham Light e Dark Mode */
-  --wt-bg: color-mix(in srgb, currentColor 6%, transparent);
   --wt-line: color-mix(in srgb, currentColor 22%, transparent);
 
-  display: inline-flex;
+  position: fixed;
+  top: 20px;
+  left: 134px; /* logo a seguir ao botão Mode (left 30px + ~92px + folga) */
+  z-index: 1100;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  max-width: min(320px, 100%);
-  padding: 6px 16px 6px 6px;
-  border: 1px solid var(--wt-line);
-  border-radius: 999px;
-  background: var(--wt-bg);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  color: #333;
+  gap: 8px;
+  height: 33px; /* mesma altura do botão Mode */
+  max-width: 260px;
+  padding: 3px 14px 3px 3px;
+  border-radius: 30px;
+  /* mesmo estilo da navegação: translúcido com blur */
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #222;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 11px;
+  line-height: 1.2;
   text-align: left;
+  transition: background 0.3s, color 0.3s;
 }
-.dark-mode .wt-widget { color: #e8e8e8; }
+.dark-mode .wt-widget {
+  background: rgba(30, 30, 30, 0.85);
+  color: #e8e8e8;
+}
 .wt-widget[hidden] { display: none; }
 
 .wt-btn {
   flex: none;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 27px;
+  height: 27px;
   padding: 0;
   border: 1px solid var(--wt-line);
   border-radius: 50%;
@@ -37,19 +45,19 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.wt-btn:hover:not(:disabled) { background: var(--wt-bg); }
+.wt-btn:hover:not(:disabled) { background: color-mix(in srgb, currentColor 10%, transparent); }
 .wt-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 .wt-btn:disabled { opacity: 0.35; cursor: default; }
 
-.wt-ico { width: 16px; height: 16px; fill: currentColor; }
+.wt-ico { width: 14px; height: 14px; fill: currentColor; }
 .wt-pause { display: none; }
 .wt-btn[aria-pressed="true"] .wt-play { display: none; }
 .wt-btn[aria-pressed="true"] .wt-pause { display: block; }
 
 .wt-cover {
   flex: none;
-  width: 32px;
-  height: 32px;
+  width: 27px;
+  height: 27px;
   border-radius: 6px;
   object-fit: cover;
 }
@@ -64,11 +72,27 @@
 .wt-title { font-weight: 600; }
 .wt-title a { color: inherit; text-decoration: none; }
 .wt-title a:hover { text-decoration: underline; }
-.wt-meta { opacity: 0.7; font-size: 11px; }
+.wt-meta { opacity: 0.7; font-size: 10px; }
 
-@media (max-width: 480px) {
-  .wt-widget { max-width: 100%; }
+/* Ecrãs médios: só play + capa, para não chocar com a navegação */
+@media (max-width: 860px) {
+  .wt-text { display: none; }
+  .wt-widget { padding-right: 3px; }
 }
 
-/* Na homepage o pill fica por cima do copyright, centrado */
-footer .wt-widget { margin-bottom: 18px; }
+/* Telemóvel: o botão Mode passa a ficar no fluxo da página, centrado.
+   O widget segue-o, também no fluxo, e volta a mostrar o texto. */
+@media (max-width: 600px) {
+  .wt-widget {
+    position: static;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    margin: 0 auto 8px;
+    padding-right: 14px;
+  }
+  .wt-text { display: flex; }
+}
+
+@media print {
+  .wt-widget { display: none !important; }
+}

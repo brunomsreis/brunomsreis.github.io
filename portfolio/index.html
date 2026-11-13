@@ -489,6 +489,7 @@
 
     <!-- End of CSS -->
       <link rel="stylesheet" href="/assets/anim.css" />
+      <link rel="stylesheet" href="/assets/weather-tune.css" />
   </head>
 
   <body>
@@ -501,6 +502,14 @@
     >
       <span aria-hidden="true">🌓</span> Mode
     </button>
+    <div class="wt-widget" id="weather-tune" hidden>
+      <button class="wt-btn" type="button" aria-label="Play preview" aria-pressed="false" disabled>
+        <svg class="wt-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="wt-play" d="M8 5v14l11-7z"/><path class="wt-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+      </button>
+      <img class="wt-cover" alt="" width="26" height="26" hidden>
+      <div class="wt-text"><span class="wt-title"></span><span class="wt-meta"></span></div>
+    </div>
+
     <button
       id="sortBtn"
       class="sort-btn"
@@ -1582,5 +1591,6 @@
       });
     </script>
       <script src="/assets/lazy-video.js" defer></script>
+      <script src="/assets/weather-tune.js" defer></script>
   </body>
 </html>
