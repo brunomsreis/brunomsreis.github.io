@@ -156,6 +156,7 @@
   function render(data) {
     const mood = MOODS[data.category] || MOODS.cloudy;
     meta.textContent = `${CONFIG.place} · ${data.temp}° · ${mood.label}`;
+    root.title = ''; // preenchido abaixo com o nome da faixa
     const track = data.track;
 
     if (audio) { audio.pause(); audio = null; }
@@ -175,6 +176,7 @@
         title.textContent = label;
       }
       title.title = label;
+      root.title = `${label} · ${meta.textContent}`; // útil quando o texto está escondido
       cover.src = track.cover;
       cover.hidden = false;
       btn.disabled = false;
