@@ -53,9 +53,9 @@
       .note { font-size: .9rem; color: #555; max-width: 760px; }
 
       /* Gallery: natural proportions, masonry columns */
-      .mosaic { column-count: 3; column-gap: 12px; margin-top: 18px; }
+      .mosaic { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
       .tile {
-        display: block; width: 100%; margin: 0 0 12px; padding: 0; border: 0; break-inside: avoid;
+        display: block; width: 100%; margin: 0; padding: 0; border: 0;
         background: #ddd; overflow: hidden; cursor: zoom-in; border-radius: 12px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
       }
@@ -116,8 +116,7 @@
         .hero { grid-template-columns: 1fr; }
         .logo-panel { max-width: 300px; }
         .swatches { grid-template-columns: repeat(3, 1fr); }
-          .mosaic { column-count: 2; column-gap: 8px; }
-        .tile { margin-bottom: 8px; }
+          .mosaic { grid-template-columns: repeat(2, 1fr); gap: 8px; }
         h1 { font-size: 2.2rem; }
         .description { font-size: 1.05rem; }
         #lbPrev, #lbNext { top: auto; bottom: 18px; transform: none; }
@@ -184,46 +183,22 @@
       <p class="note">Montserrat for titles, Arial for body text. The coral is inherited from the first logo, so the new identity keeps a link to the old one.</p>
 
       <h2>Outcome</h2>
-      <p class="text">The identity was formally approved by the European Union Drugs Agency on 21 August 2026 and is now used across the conference&rsquo;s social media and web communication, as shown below.</p>
+      <p class="text">The identity was formally approved by the European Union Drugs Agency on 21 August 2026 and is now used across the conference&rsquo;s social media communication, as shown below.</p>
 
       <h2>The identity in use</h2>
-      <p class="text">Announcements, call for abstracts, co-organiser spotlights and reusable templates for the team to fill in. Tap a piece to enlarge it.</p>
+      <p class="text">Social media posts for the conference campaign. Tap a piece to enlarge it.</p>
       <section class="mosaic" aria-label="Lisbon Addictions 2027 communication pieces">
-        <button type="button" class="tile" data-index="0" aria-label="Enlarge: Main banner, 16:9">
-          <img src="lisbon-addictions-2027/12-thumb.jpg" width="720" height="405" loading="lazy" alt="Lisbon Addictions 2027 banner on a teal-to-blue gradient with the hexagon logo, the title and the text 6th European Conference on Addictive Behaviours and Dependencies, and a triangular photo of an audience at right" />
+        <button type="button" class="tile" data-index="0" aria-label="Enlarge: Theme: Addictions in times of disruption">
+          <img src="lisbon-addictions-2027/02-thumb.jpg" width="576" height="720" loading="lazy" alt="Blue and purple post with the silhouette of a researcher at a microscope and the headline Addictions in times of disruption" />
         </button>
-        <button type="button" class="tile" data-index="1" aria-label="Enlarge: Main square post">
-          <img src="lisbon-addictions-2027/11-thumb.jpg" width="720" height="720" loading="lazy" alt="Square social post with the hexagon logo, the title Lisbon Addictions 2027, a Learn more button, and MEO Arena, Lisbon, 20 to 22 October 2027" />
+        <button type="button" class="tile" data-index="1" aria-label="Enlarge: Research or implementation?">
+          <img src="lisbon-addictions-2027/03-thumb.jpg" width="576" height="720" loading="lazy" alt="Coral pink post explaining the difference between research and implementation submissions, with a triangular photo of a seminar audience" />
         </button>
-        <button type="button" class="tile" data-index="2" aria-label="Enlarge: Save the date">
-          <img src="lisbon-addictions-2027/09-thumb.jpg" width="576" height="720" loading="lazy" alt="Lavender post with the logo and the words Save the date, announcing Lisbon Addictions 2027 at MEO Arena, 20 to 22 October 2027" />
+        <button type="button" class="tile" data-index="2" aria-label="Enlarge: Indicate your preferred format">
+          <img src="lisbon-addictions-2027/04-thumb.jpg" width="576" height="720" loading="lazy" alt="Blurred conference photo under a navy overlay listing the formats: oral presentation, rapid communication, e-poster and e-short communication" />
         </button>
         <button type="button" class="tile" data-index="3" aria-label="Enlarge: Call for abstracts">
           <img src="lisbon-addictions-2027/10-thumb.jpg" width="576" height="720" loading="lazy" alt="White post with the logo announcing the call for abstracts for Track 2, Neuroscience of addiction: from mechanisms to recovery, by the International Society of Addiction Medicine" />
-        </button>
-        <button type="button" class="tile" data-index="4" aria-label="Enlarge: Theme: Addictions in times of disruption">
-          <img src="lisbon-addictions-2027/02-thumb.jpg" width="576" height="720" loading="lazy" alt="Blue and purple post with the silhouette of a researcher at a microscope and the headline Addictions in times of disruption" />
-        </button>
-        <button type="button" class="tile" data-index="5" aria-label="Enlarge: Research or implementation?">
-          <img src="lisbon-addictions-2027/03-thumb.jpg" width="576" height="720" loading="lazy" alt="Coral pink post explaining the difference between research and implementation submissions, with a triangular photo of a seminar audience" />
-        </button>
-        <button type="button" class="tile" data-index="6" aria-label="Enlarge: Indicate your preferred format">
-          <img src="lisbon-addictions-2027/04-thumb.jpg" width="576" height="720" loading="lazy" alt="Blurred conference photo under a navy overlay listing the formats: oral presentation, rapid communication, e-poster and e-short communication" />
-        </button>
-        <button type="button" class="tile" data-index="7" aria-label="Enlarge: Four co-organisers">
-          <img src="lisbon-addictions-2027/06-thumb.jpg" width="576" height="720" loading="lazy" alt="Blue gradient post reading Four co-organisers, one meeting point for addiction science, with the EUDA, ICAD, SSA and ISAJE logos" />
-        </button>
-        <button type="button" class="tile" data-index="8" aria-label="Enlarge: Meet the co-organisers">
-          <img src="lisbon-addictions-2027/05-thumb.jpg" width="576" height="720" loading="lazy" alt="Light grey post titled Meet the co-organisers presenting the ISAJE logo, with a triangular laboratory photo" />
-        </button>
-        <button type="button" class="tile" data-index="9" aria-label="Enlarge: Newsletter sign-up">
-          <img src="lisbon-addictions-2027/01-thumb.jpg" width="720" height="720" loading="lazy" alt="Square teal post with the logo and the text Subscribe to our newsletter, with a Sign up now button" />
-        </button>
-        <button type="button" class="tile" data-index="10" aria-label="Enlarge: Registration now open (template)">
-          <img src="lisbon-addictions-2027/08-thumb.jpg" width="576" height="720" loading="lazy" alt="Teal post template with the logo and the text Registration now open, with fields for the early-bird date and the registration link still to be filled in" />
-        </button>
-        <button type="button" class="tile" data-index="11" aria-label="Enlarge: Daily highlights (template)">
-          <img src="lisbon-addictions-2027/07-thumb.jpg" width="720" height="720" loading="lazy" alt="Navy quote template with the logo, a coral pull-quote and fields for speaker name and role, tagged Daily highlights" />
         </button>
       </section>
     </main>
@@ -253,66 +228,26 @@
         } catch (e) {}
 
         var photos = [
-          {
-                    "src": "lisbon-addictions-2027/12.jpg",
-                    "alt": "Lisbon Addictions 2027 banner on a teal-to-blue gradient with the hexagon logo, the title and the text 6th European Conference on Addictive Behaviours and Dependencies, and a triangular photo of an audience at right",
-                    "title": "Main banner, 16:9"
-          },
-          {
-                    "src": "lisbon-addictions-2027/11.jpg",
-                    "alt": "Square social post with the hexagon logo, the title Lisbon Addictions 2027, a Learn more button, and MEO Arena, Lisbon, 20 to 22 October 2027",
-                    "title": "Main square post"
-          },
-          {
-                    "src": "lisbon-addictions-2027/09.jpg",
-                    "alt": "Lavender post with the logo and the words Save the date, announcing Lisbon Addictions 2027 at MEO Arena, 20 to 22 October 2027",
-                    "title": "Save the date"
-          },
-          {
-                    "src": "lisbon-addictions-2027/10.jpg",
-                    "alt": "White post with the logo announcing the call for abstracts for Track 2, Neuroscience of addiction: from mechanisms to recovery, by the International Society of Addiction Medicine",
-                    "title": "Call for abstracts"
-          },
-          {
-                    "src": "lisbon-addictions-2027/02.jpg",
-                    "alt": "Blue and purple post with the silhouette of a researcher at a microscope and the headline Addictions in times of disruption",
-                    "title": "Theme: Addictions in times of disruption"
-          },
-          {
-                    "src": "lisbon-addictions-2027/03.jpg",
-                    "alt": "Coral pink post explaining the difference between research and implementation submissions, with a triangular photo of a seminar audience",
-                    "title": "Research or implementation?"
-          },
-          {
-                    "src": "lisbon-addictions-2027/04.jpg",
-                    "alt": "Blurred conference photo under a navy overlay listing the formats: oral presentation, rapid communication, e-poster and e-short communication",
-                    "title": "Indicate your preferred format"
-          },
-          {
-                    "src": "lisbon-addictions-2027/06.jpg",
-                    "alt": "Blue gradient post reading Four co-organisers, one meeting point for addiction science, with the EUDA, ICAD, SSA and ISAJE logos",
-                    "title": "Four co-organisers"
-          },
-          {
-                    "src": "lisbon-addictions-2027/05.jpg",
-                    "alt": "Light grey post titled Meet the co-organisers presenting the ISAJE logo, with a triangular laboratory photo",
-                    "title": "Meet the co-organisers"
-          },
-          {
-                    "src": "lisbon-addictions-2027/01.jpg",
-                    "alt": "Square teal post with the logo and the text Subscribe to our newsletter, with a Sign up now button",
-                    "title": "Newsletter sign-up"
-          },
-          {
-                    "src": "lisbon-addictions-2027/08.jpg",
-                    "alt": "Teal post template with the logo and the text Registration now open, with fields for the early-bird date and the registration link still to be filled in",
-                    "title": "Registration now open (template)"
-          },
-          {
-                    "src": "lisbon-addictions-2027/07.jpg",
-                    "alt": "Navy quote template with the logo, a coral pull-quote and fields for speaker name and role, tagged Daily highlights",
-                    "title": "Daily highlights (template)"
-          }
+  {
+    "src": "lisbon-addictions-2027/02.jpg",
+    "alt": "Blue and purple post with the silhouette of a researcher at a microscope and the headline Addictions in times of disruption",
+    "title": "Theme: Addictions in times of disruption"
+  },
+  {
+    "src": "lisbon-addictions-2027/03.jpg",
+    "alt": "Coral pink post explaining the difference between research and implementation submissions, with a triangular photo of a seminar audience",
+    "title": "Research or implementation?"
+  },
+  {
+    "src": "lisbon-addictions-2027/04.jpg",
+    "alt": "Blurred conference photo under a navy overlay listing the formats: oral presentation, rapid communication, e-poster and e-short communication",
+    "title": "Indicate your preferred format"
+  },
+  {
+    "src": "lisbon-addictions-2027/10.jpg",
+    "alt": "White post with the logo announcing the call for abstracts for Track 2, Neuroscience of addiction: from mechanisms to recovery, by the International Society of Addiction Medicine",
+    "title": "Call for abstracts"
+  }
 ];
         var tiles = [].slice.call(document.querySelectorAll(".tile"));
         var lb = document.getElementById("lightbox");
