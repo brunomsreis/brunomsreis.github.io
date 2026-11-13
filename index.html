@@ -415,6 +415,7 @@
 }
   </style>
     <link rel="stylesheet" href="/assets/anim.css" />
+    <link rel="stylesheet" href="/assets/weather-tune.css" />
   </head>
 
 
@@ -514,7 +515,14 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
 </div>
 
 <footer>
-  © 2026 Bruno Reis
+  <div class="wt-widget" id="weather-tune" hidden>
+    <button class="wt-btn" type="button" aria-label="Play preview" aria-pressed="false" disabled>
+      <svg class="wt-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="wt-play" d="M8 5v14l11-7z"/><path class="wt-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+    </button>
+    <img class="wt-cover" alt="" width="32" height="32" hidden>
+    <div class="wt-text"><span class="wt-title"></span><span class="wt-meta"></span></div>
+  </div>
+  <div class="wt-credit">© 2026 Bruno Reis</div>
   <div class="social-links">
     <a href="mailto:brunomiguelsantosreis@gmail.com">Email</a> |
     <a href="https://linkedin.com/in/brunomiguelreis" target="_blank">LinkedIn</a> |
@@ -577,5 +585,6 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
 </script>
 
     <script src="/assets/lazy-video.js" defer></script>
+    <script src="/assets/weather-tune.js" defer></script>
   </body>
 </html>
