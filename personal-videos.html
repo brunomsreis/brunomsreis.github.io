@@ -134,6 +134,10 @@
         transform: scale(1.04);
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
       }
+      /* YouTube players: no hover zoom (scaling a playing video can leave a hairline seam) */
+      .video-wrapper.yt-short:hover {
+        transform: none;
+      }
       .video-wrapper iframe,
       .video-wrapper video {
         width: 100%;
