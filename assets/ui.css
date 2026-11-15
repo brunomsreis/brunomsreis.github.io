@@ -53,7 +53,7 @@
   --mx: 50%; --my: 50%;
   position: relative; overflow: hidden; isolation: isolate;
   grid-column: span 1; min-height: 170px; padding: 22px;
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: flex-end;
   border-radius: 20px; background: #fff; color: #111;
   box-shadow: 0 8px 28px rgba(0,0,0,.08);
   transition: transform .35s ease, box-shadow .35s ease, background .3s, color .3s;
@@ -66,15 +66,10 @@
 }
 .bento-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.14); }
 .bento-tile:hover::before { opacity: 1; }
-.bento-num { font-size: .8rem; font-weight: 700; letter-spacing: .12em; color: #c45ac0; }
 .bento-tile h2 { font-size: 1.35rem; line-height: 1.15; margin: 0 0 6px; }
 .bento-tile p { font-size: .92rem; line-height: 1.5; margin: 0; color: #555; }
-.bento-tile.accent { background: #111; color: #fff; }
-.bento-tile.accent p { color: #ccc; }
 .dark-mode .bento-tile { background: #1c1c1c; color: #f0f0f0; box-shadow: 0 8px 28px rgba(0,0,0,.4); }
 .dark-mode .bento-tile p { color: #bbb; }
-.dark-mode .bento-tile.accent { background: #f0f0f0; color: #111; }
-.dark-mode .bento-tile.accent p { color: #444; }
 @media (max-width: 860px) { .bento { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) {
   .bento { grid-template-columns: 1fr; margin-bottom: 60px; }
