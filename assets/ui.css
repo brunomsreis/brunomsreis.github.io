@@ -71,10 +71,10 @@ body.dark-mode:has(.hero) { background: #121212; }
 
 .hero-photo { position: relative; margin: 0; justify-self: center; width: 100%; max-width: 360px; }
 .hero-frame {
-  aspect-ratio: 4 / 5; overflow: hidden; background: #ffd84a;
+  aspect-ratio: 4 / 5; overflow: hidden; background: #000;
   border-radius: 999px 999px 22px 22px; display: flex; align-items: flex-end;
 }
-.dark-mode .hero-frame { background: #e0b92f; }
+.dark-mode .hero-frame { box-shadow: 0 0 0 1px #3a3a3a; }
 .hero-frame img { display: block; width: 100%; height: auto; }
 .doodle { position: absolute; fill: none; stroke: #111; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .dark-mode .doodle { stroke: #f0f0f0; }
