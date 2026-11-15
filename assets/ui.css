@@ -55,7 +55,7 @@
   letter-spacing: .22em; text-transform: uppercase; color: #777;
 }
 .hero-lead {
-  max-width: 36ch; margin: 0 0 34px; font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  max-width: 46ch; margin: 0 0 34px; font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.4; color: #444; font-weight: 500;
 }
 .hero-lead b { color: #111; font-weight: 700; }
