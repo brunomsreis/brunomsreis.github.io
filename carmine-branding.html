@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
+
+    <title>CarMine Branding | Bruno Reis</title>
+    <meta name="description" content="Visual identity I designed for CarMine, a Horizon Europe project that turns end-of-life electric vehicle waste into strategic European raw materials." />
+    <link rel="canonical" href="https://www.brunoreis.work/carmine-branding.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CarMine Branding | Bruno Reis" />
+    <meta property="og:description" content="Visual identity for a Horizon Europe project on closed-loop urban mining of electric vehicle batteries and motors." />
+    <meta property="og:url" content="https://www.brunoreis.work/carmine-branding.html" />
+    <meta property="og:image" content="https://www.brunoreis.work/carmine-branding/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: "Montserrat", sans-serif; background: #fff; color: #111; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
+      a { text-decoration: none; color: inherit; }
+      nav {
+        position: fixed; top: 20px; right: 30px; background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px); border-radius: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1000; padding: 8px 20px; font-weight: 600; display: flex; gap: 30px;
+        transition: background 0.3s, color 0.3s;
+      }
+      nav a { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #111; padding: 8px 12px; border-radius: 20px; transition: background-color 0.3s, color 0.3s; }
+      nav a:hover, nav a.active { background-color: #000; color: #fff; }
+      main { max-width: 1100px; margin: 100px auto 120px; padding: 0 20px; }
+      h1 { font-weight: 700; font-size: 2.8rem; margin-bottom: 15px; color: #111; transition: color 0.3s; }
+      h2 { font-weight: 700; font-size: 1.5rem; margin: 64px 0 14px; color: #22254e; }
+      h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 10px; background: linear-gradient(90deg, #264595, #6fb62e); border-radius: 2px; }
+      p, li, dd { line-height: 1.6; }
+      .description { font-size: 1.2rem; color: #555; margin-bottom: 32px; line-height: 1.5; max-width: 760px; transition: color 0.3s; }
+      .text { font-size: 1rem; color: #333; max-width: 760px; margin-bottom: 14px; }
+
+      .hero { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: 32px; align-items: center; margin-bottom: 8px; }
+      .logo-panel { background: #fff; border: 1px solid rgba(0,0,0,.1); border-radius: 16px; padding: 28px; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+      .logo-panel img { width: 100%; height: auto; display: block; }
+      dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; font-size: 1rem; }
+      dl.facts dt { font-weight: 700; color: #22254e; }
+      dl.facts dd { color: #333; }
+
+      .swatches { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px 0 8px; }
+      .swatches li { border-radius: 12px; padding: 14px 14px 16px; min-height: 84px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 0.85rem; border: 1px solid rgba(0,0,0,.12); }
+      .swatches li strong { font-weight: 700; margin-bottom: 4px; }
+      .note { font-size: .9rem; color: #555; max-width: 760px; }
+
+      figure.fig { margin: 22px 0 0; }
+      figure.fig img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.1); }
+      figure.fig figcaption { font-size: 0.85rem; color: #555; margin-top: 8px; max-width: 760px; }
+      .skills { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+      .skills li { border: 1px solid #ddd; border-radius: 14px; padding: 18px; font-size: 0.95rem; color: #222; }
+      .skills strong { display: block; margin-bottom: 6px; color: #264595; font-size: 1rem; }
+      footer { text-align: center; padding: 40px 20px 20px; font-size: 0.9rem; color: #666; font-weight: 500; user-select: none; transition: color 0.3s; }
+      .dark-toggle { position: fixed; top: 20px; left: 30px; background: #111; color: #fff; border: none; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; cursor: pointer; z-index: 1001; transition: background 0.3s, color 0.3s; }
+      .dark-mode .dark-toggle { background: #eee; color: #111; }
+      .dark-mode { background: #121212; color: #f0f0f0; }
+      .dark-mode nav { background: rgba(30, 30, 30, 0.85); }
+      .dark-mode nav a { color: #ccc; }
+      .dark-mode nav a:hover, .dark-mode nav a.active { background-color: #f0f0f0; color: #000; }
+      .dark-mode h1 { color: #ffb3b3; }
+      .dark-mode h2 { color: #b9c9f2; }
+      .dark-mode .description, .dark-mode .note { color: #bbb; }
+      .dark-mode .text, .dark-mode dl.facts dd { color: #ddd; }
+      .dark-mode dl.facts dt { color: #b9c9f2; }
+      .dark-mode footer { color: #bbb; }
+      .dark-mode figure.fig img { border-color: #333; }
+      .dark-mode figure.fig figcaption { color: #bbb; }
+      .dark-mode .skills li { border-color: #444; color: #e6e6e6; }
+      .dark-mode .skills strong { color: #9fd36b; }
+
+      @media (max-width: 800px) {
+        .hero { grid-template-columns: 1fr; }
+        .logo-panel { max-width: 300px; }
+        .swatches { grid-template-columns: repeat(3, 1fr); }
+          h1 { font-size: 2.2rem; }
+        .description { font-size: 1.05rem; }
+      }
+      @media (max-width: 600px) {
+        .swatches { grid-template-columns: repeat(2, 1fr); }
+        nav { top: 10px; right: 10px; gap: 2px; padding: 4px 8px; }
+        nav a { font-size: 0.75rem; padding: 6px 8px; letter-spacing: 0.06em; }
+        .dark-toggle { top: 10px; left: 10px; font-size: 0.85rem; padding: 7px 13px; }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio/">Portfolio</a>
+      <a href="/cv/">CV</a>
+    </nav>
+
+    <main>
+      <h1>CarMine</h1>
+      <p class="description">Visual identity for a Horizon Europe project that turns end-of-life electric vehicle waste into strategic European raw materials.</p>
+
+      <div class="hero">
+        <div class="logo-panel"><img src="carmine-branding/logo.png" width="860" height="272" alt="CarMine logo: a circular symbol and the wordmark CarMine in a gradient from cobalt blue to green, with the tagline Recovery of Critical and Strategic Raw Materials from End-of-Life Electric Vehicles" /></div>
+        <dl class="facts">
+          <dt>Project</dt><dd>CarMine, Horizon Europe (Grant Agreement 101295553)</dd>
+          <dt>Studio</dt><dd>Magellan Circle</dd>
+          <dt>My role</dt><dd>Visual identity design and its application</dd>
+          <dt>Deliverables</dt><dd>Logo system, colour and typography, imagery guidelines, brand identity manual</dd>
+        </dl>
+      </div>
+
+      <h2>The challenge</h2>
+      <p class="text">CarMine develops industrial recycling routes for retired electric vehicle batteries and magnet motors, recovering lithium, nickel, cobalt, neodymium and dysprosium for Europe. The identity had to feel authoritative, modern, transparent and collaborative, speak to researchers, industrial pilots and policy makers alike, and avoid the usual electric-car and recycling clichés.</p>
+
+      <h2>What I did</h2>
+      <ul class="skills">
+        <li><strong>Designed a symbol with a story</strong>An abstract &lsquo;e&rsquo; interlocked with an infinity loop that evokes closed-loop recycling and electric mobility without leaning on tropes.</li>
+        <li><strong>Used colour to tell the transition</strong>A gradient from deep cobalt blue to vibrant green that moves from vehicle recovery to circular rebirth, supported by navy and sky blue.</li>
+        <li><strong>Built a flexible logo system</strong>Full colour, black and reverse versions, with and without the tagline, plus clear-space and misuse rules for covers, policy documents and presentations.</li>
+        <li><strong>Turned the symbol into a graphic device</strong>The symbol doubles as an image mask, and clear photography rules keep the imagery technical, authentic and on brand.</li>
+      </ul>
+      <figure class="fig">
+        <img src="carmine-branding/variations.jpg" width="1600" height="646" loading="lazy" alt="Six versions of the CarMine logo: full colour on white, monochrome black on white, and reverse white on navy, each with and without the tagline" />
+        <figcaption>Logo versions for light backgrounds, black and white print, and dark backgrounds.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="carmine-branding/mask.jpg" width="1600" height="406" loading="lazy" alt="Four versions of the CarMine symbol used as a photo mask, filled with images of battery cells on a conveyor, laboratory glassware, white industrial robots and a technician working on an electric motor" />
+        <figcaption>The symbol as a photo mask, filled with technical imagery of batteries, labs, robotics and motors.</figcaption>
+      </figure>
+
+      <h2>The palette</h2>
+      <ul class="swatches" aria-label="Brand colour palette">
+        <li style="background:#264595;color:#fff"><strong>Cobalt</strong><span>#264595</span></li>
+        <li style="background:#6fb62e;color:#111"><strong>Spring green</strong><span>#6FB62E</span></li>
+        <li style="background:#0a9dd5;color:#111"><strong>Sky blue</strong><span>#0A9DD5</span></li>
+        <li style="background:#22254e;color:#fff"><strong>Navy</strong><span>#22254E</span></li>
+        <li style="background:linear-gradient(90deg,#264595,#6fb62e);color:#fff"><strong>Gradient</strong><span>Cobalt to green</span></li>
+      </ul>
+      <p class="note">Montserrat for titles and key figures, Arial for body copy.</p>
+
+      <h2>Deliverable</h2>
+      <p class="text">A 22-page brand identity manual covering the logo and its versions, colours, typography, logo on photographs, imagery guidelines and the symbol image mask, so every partner in the consortium can apply the identity consistently.</p>
+    </main>
+
+    <footer>© 2026 Bruno Reis</footer>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        try {
+          localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+        } catch (e) {}
+      }
+      window.addEventListener("DOMContentLoaded", function () {
+        try {
+          if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
