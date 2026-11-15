@@ -114,14 +114,14 @@
       padding: 100px 20px 120px;
     }
     .intro {
-      margin-bottom: 80px;
+      margin-bottom: 36px;
       font-size: 1.2rem;
       line-height: 1.8;
       color: #333;
-      white-space: pre-wrap;
+      white-space: normal;
       overflow: hidden;
       max-width: 100%;
-      min-height: 8em;
+      min-height: 0;
     }
     .fixed-index {
       position: fixed;
@@ -142,7 +142,6 @@
       display: flex;
       flex-direction: column;
       gap: 100px;
-        margin-top: -100px;
     }
     
     li.work-item {
@@ -269,15 +268,13 @@
   font-weight: 600;
   border-radius: 25px;
   padding: 12px 32px; /* antes 28px — ligeiramente mais largo */
-  margin: -30px auto 28px auto; /* sobe 10px e ajusta espaço inferior */
+  margin: 0 0 56px 0;
   font-size: 1.05rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   text-align: justify; /* justifica o texto */
   letter-spacing: 0.02em;
   border: none;
   max-width: 95%; /* opcional: impede que alargue demais */
-  position: relative;
-  top: -200px;
 }
 
 
@@ -416,6 +413,8 @@
   </style>
     <link rel="stylesheet" href="/assets/anim.css" />
     <link rel="stylesheet" href="/assets/weather-tune.css" />
+    <link rel="stylesheet" href="/assets/ui.css" />
+    <script src="/assets/ui.js"></script>
   </head>
 
 
@@ -445,7 +444,8 @@
 
 <div class="container">
   <div class="intro" id="intro">
-    <!-- Texto será escrito aqui via JS -->
+    <span class="hero-kicker">Bruno Reis · Design &amp; Development</span>
+    <h1 class="hero-title">Where <em>creativity</em> meets <em>analysis</em>.</h1>
   </div>
 
   <div class="video-alert">
@@ -455,8 +455,35 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
     
   </div>
 
+  <section class="bento" aria-label="What I do">
+    <div class="bento-tile wide accent" data-reveal data-reveal-step>
+      <span class="bento-num">01</span>
+      <div><h2>Design &amp; geography</h2><p>Visual thinking and spatial analysis, working together.</p></div>
+    </div>
+    <div class="bento-tile" data-reveal data-reveal-step>
+      <span class="bento-num">02</span>
+      <div><h2>Code &amp; storytelling</h2><p>Clean front-end code with a narrative.</p></div>
+    </div>
+    <div class="bento-tile" data-reveal data-reveal-step>
+      <span class="bento-num">03</span>
+      <div><h2>UX &amp; motion graphics</h2><p>Intuitive experiences that move.</p></div>
+    </div>
+    <div class="bento-tile" data-reveal data-reveal-step>
+      <span class="bento-num">04</span>
+      <div><h2>Video content</h2><p>Editing and photography.</p></div>
+    </div>
+    <div class="bento-tile wide" data-reveal data-reveal-step>
+      <span class="bento-num">05</span>
+      <div><h2>Complex ideas, mapped</h2><p>From data and concepts to clear, usable visuals.</p></div>
+    </div>
+    <div class="bento-tile" data-reveal data-reveal-step>
+      <span class="bento-num">06</span>
+      <div><h2>Branding</h2><p>Identities and brand books.</p></div>
+    </div>
+  </section>
+
   <ul class="work-list" id="workList">
-    <li class="work-item">
+    <li class="work-item" data-reveal>
       <div class="work-text">
         <a href="work-ebankit.html">
           <h2><span aria-hidden="true">🎨</span> Multimedia Design @ ebankIT</h2>
@@ -468,7 +495,7 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
       </div>
      
     </li>
-    <li class="work-item">
+    <li class="work-item" data-reveal>
       <div class="work-text">
         <a href="SocialMedia.html">
           <h2><span aria-hidden="true">🎨</span> Social Media Design</h2>
@@ -480,7 +507,7 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
       </div>
       
     </li>
-    <li class="work-item">
+    <li class="work-item" data-reveal>
       <div class="work-text">
         <a href="Photo&Video.html">
           <h2><span aria-hidden="true">📸</span> Photography & Video</h2>
@@ -492,7 +519,7 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
       </div>
       
     </li>
-    <li class="work-item">
+    <li class="work-item" data-reveal>
       <div class="work-text">
         <a href="WaitMagazine.html">
           <h2><span aria-hidden="true">📖</span> WAIT Magazine — Editorial Photography</h2>
@@ -506,7 +533,7 @@ I create <b>intuitive experiences</b>, edit <b>video content</b>, craft <b>clean
     </li>
 
     </li>
-    <li class="work-item">
+    <li class="work-item" data-reveal>
       <div class="work-text">
         <a href="coHabitApp.html">
           <h2><span aria-hidden="true">📱</span> coHabit App</h2>
