@@ -110,6 +110,7 @@
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
+        align-items: center; /* keep 16:9 boxes at 16:9 next to the vertical video */
       }
 
       .video-wrapper {
@@ -155,6 +156,18 @@
 
       .image {
         width: 30%;
+      }
+      /* Vertical (9:16) video: show it whole instead of cropping it to 16:9 */
+      .video-wrapper.video-vertical {
+        flex: 0 1 240px;
+        max-width: 240px;
+        aspect-ratio: 9 / 16;
+      }
+      .video-wrapper.video-vertical video.anim {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9 / 16;
+        object-fit: contain;
       }
       footer {
         text-align: center;
@@ -252,7 +265,7 @@
         <video class="anim" data-src="project20/intel_motiondesign.mp4" poster="project20/intel_motiondesign.jpg" width="1400" height="1400" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
 
         <video class="anim" data-src="project20/circle-animation-logo.mp4" poster="project20/circle-animation-logo.jpg" width="1400" height="1400" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
-        <div class="video-wrapper">
+        <div class="video-wrapper video-vertical">
           <video class="anim" data-src="project20/sticker_BR.mp4" poster="project20/sticker_BR.jpg" width="1080" height="1920" muted loop playsinline preload="none" role="img" aria-label="intel logo animation"></video>
         </div>
 
