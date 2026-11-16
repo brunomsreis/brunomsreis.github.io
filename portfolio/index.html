@@ -131,6 +131,17 @@
         margin: 0 auto;
         padding: 100px 20px 120px 20px;
       }
+      .filter-bar[hidden] {
+        display: none;
+      }
+      .filter-bar.series-bar {
+        margin-top: -16px;
+        gap: 12px;
+      }
+      .series-btn {
+        padding: 7px 18px;
+        font-size: 0.9rem;
+      }
       .filter-bar {
         display: flex;
         gap: 20px;
@@ -138,7 +149,8 @@
         justify-content: center;
         flex-wrap: wrap;
       }
-      .filter-btn {
+      .filter-btn,
+      .series-btn {
         cursor: pointer;
         user-select: none;
         padding: 10px 22px;
@@ -152,7 +164,9 @@
         outline: none;
       }
       .filter-btn:hover,
-      .filter-btn.active {
+      .filter-btn.active,
+      .series-btn:hover,
+      .series-btn.active {
         background-color: #000;
         color: #fff;
         box-shadow: 0 2px 8px #ffe08a;
@@ -418,12 +432,15 @@
       .dark-mode .filter-bar {
         background: transparent;
       }
-      .dark-mode .filter-btn {
+      .dark-mode .filter-btn,
+      .dark-mode .series-btn {
         background: #222;
         color: #eee;
       }
       .dark-mode .filter-btn:hover,
-      .dark-mode .filter-btn.active {
+      .dark-mode .filter-btn.active,
+      .dark-mode .series-btn:hover,
+      .dark-mode .series-btn.active {
         background: linear-gradient(90deg, #3b297e 0%, #9139da 100%);
         color: #fff;
         box-shadow: 0 2px 8px #9139da;
@@ -551,6 +568,11 @@
         <button class="filter-btn" data-filter="photography">
           <span aria-hidden="true">📸</span> Photography
         </button>
+      </div>
+      <div class="filter-bar series-bar" id="series-bar" role="group" aria-label="Photography series" hidden>
+        <button class="series-btn active" data-series="all">All photography</button>
+        <button class="series-btn" data-series="commercial">Commercial</button>
+        <button class="series-btn" data-series="personal">Personal</button>
       </div>
 
       <div id="order-status" class="order-status">Projects in random order</div>
@@ -685,7 +707,7 @@
         <a
           href="../fraga-jewelry-photography.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="photography"
           data-year="2018-07-29"
         >
@@ -807,7 +829,7 @@
         <a
           href="../portolis.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="photography"
           data-year="2015-07-29"
         >
@@ -831,7 +853,7 @@
         <a
           href="../filijoia.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="photography"
           data-year="2016-07-29"
         >
@@ -901,7 +923,7 @@
         <a
           href="../gran-canaria.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="photography"
           data-year="2026-11-10"
         >
@@ -924,7 +946,7 @@
         <a
           href="../people-portraits.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="photography"
           data-year="2024-03-29"
         >
@@ -947,7 +969,7 @@
         <a
           href="../wandered-spaces.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="photography"
           data-year="2024-02-16"
         >
@@ -993,7 +1015,7 @@
         <a
           href="../black-and-white-series.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="photography"
           data-year="2024-02-01"
         >
@@ -1090,7 +1112,7 @@
         <a
           href="../light-color-action.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="Open Photography Project"
           data-year="2020-04-29"
         >
@@ -1114,7 +1136,7 @@
         <a
           href="../boutique-prata.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="Open Photography Project"
           data-year="2020-08-29"
         >
@@ -1137,7 +1159,7 @@
         <a
           href="../real-estate-photography-orm.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="Open Photography Project"
           data-year="2018-10-29"
         >
@@ -1161,7 +1183,7 @@
         <a
           href="../guesthouse-photography.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="Open Photography Project"
           data-year="202-12-29"
         >
@@ -1184,7 +1206,7 @@
         <a
           href="../acores.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="Photography Project"
           data-year="2021-07-29"
         >
@@ -1207,7 +1229,7 @@
         <a
           href="../random-moments.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="photography"
           data-year="2023-10-29"
         >
@@ -1230,7 +1252,7 @@
         <a
           href="../camino-de-santiago.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="personal"
           aria-label="Open Photography Project"
           data-year="2024-06-17"
         >
@@ -1252,7 +1274,7 @@
         <a
           href="../book-club.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="photography"
           data-year="2022-02-22"
         >
@@ -1352,7 +1374,7 @@
         <a
           href="../Photo&Video.html"
           class="portfolio-item"
-          data-category="photography"
+          data-category="photography" data-series="commercial"
           aria-label="photography"
           data-year="2025-10-03"
         >
@@ -1534,32 +1556,54 @@
         }
       }
 
-      // Filters
+      // Filters (main category + photography series)
       const filterButtons = document.querySelectorAll(".filter-btn");
+      const seriesButtons = document.querySelectorAll(".series-btn");
+      const seriesBar = document.getElementById("series-bar");
       const portfolioItems = document.querySelectorAll(".portfolio-item");
+      let currentFilter = "all";
+      let currentSeries = "all";
+
+      function applyFilters() {
+        portfolioItems.forEach((item) => {
+          const categories = item.getAttribute("data-category").split(" ");
+          const matchCategory =
+            currentFilter === "all" || categories.includes(currentFilter);
+          const matchSeries =
+            currentFilter !== "photography" ||
+            currentSeries === "all" ||
+            item.getAttribute("data-series") === currentSeries;
+          item.style.display = matchCategory && matchSeries ? "" : "none";
+        });
+      }
+
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
           filterButtons.forEach((btn) => btn.classList.remove("active"));
           button.classList.add("active");
-          const filter = button.getAttribute("data-filter");
-          portfolioItems.forEach((item) => {
-            if (filter === "all") {
-              item.style.display = "";
-            } else {
-              const categories = item.getAttribute("data-category").split(" ");
-              if (categories.includes(filter)) {
-                item.style.display = "";
-              } else {
-                item.style.display = "none";
-              }
-            }
-          });
+          currentFilter = button.getAttribute("data-filter");
+          // The series bar only exists for photography; reset it on every change
+          currentSeries = "all";
+          seriesButtons.forEach((b) =>
+            b.classList.toggle("active", b.getAttribute("data-series") === "all")
+          );
+          seriesBar.hidden = currentFilter !== "photography";
+          applyFilters();
         });
         button.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             button.click();
           }
+        });
+      });
+
+      seriesButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          seriesButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          currentSeries = button.getAttribute("data-series");
+          applyFilters();
         });
       });
 
