@@ -10,11 +10,11 @@
     <script src="/assets/consent.js"></script>
 
     <title>Fórum Comércio do Porto 2026 | Bruno Reis</title>
-    <meta name="description" content="Event photography and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto." />
+    <meta name="description" content="Event photography, video and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto." />
     <link rel="canonical" href="https://www.brunoreis.work/forum-comercio-porto-2026.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Fórum Comércio do Porto 2026 | Bruno Reis" />
-    <meta property="og:description" content="Event photography and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto." />
+    <meta property="og:description" content="Event photography, video and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto." />
     <meta property="og:url" content="https://www.brunoreis.work/forum-comercio-porto-2026.html" />
     <meta property="og:image" content="https://www.brunoreis.work/forum-comercio-porto-2026/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,6 +84,22 @@
       .dark-mode .skills strong { color: #c9d4ff; }
       .dark-mode .tile { background: #2a2a2a; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
 
+      /* Videos: YouTube loads only after click */
+      .videos { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 18px; }
+      .vid { border-radius: 14px; overflow: hidden; background: #0b1747; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14); }
+      .vid.wide { flex: 1 1 300px; max-width: 520px; aspect-ratio: 16 / 9; }
+      .vid.tall { flex: 0 1 240px; max-width: 240px; aspect-ratio: 9 / 16; }
+      .vid button, .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+      .vid button {
+        cursor: pointer; background: #12266e; color: #fff; font: inherit; font-weight: 700; padding: 16px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center;
+        transition: background 0.2s;
+      }
+      .vid button:hover { background: #1a3590; }
+      .vid button .play { font-size: 2.4rem; line-height: 1; color: #ffd400; }
+      .vid button small { font-weight: 400; opacity: 0.8; }
+      .vid button:focus-visible { outline: 3px solid #ffd400; outline-offset: -6px; }
+
       /* Lightbox */
       #lightbox {
         position: fixed; inset: 0; z-index: 2000; display: none;
@@ -136,15 +152,15 @@
 
     <main>
       <h1>Fórum Comércio do Porto</h1>
-      <p class="description">Event photography and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto.</p>
+      <p class="description">Event photography, video and communication design for the 3rd edition of the Fórum Comércio do Porto, a retail forum in Porto.</p>
 
       <div class="hero">
         <figure class="hero-photo"><img src="forum-comercio-porto-2026/hero.jpg" width="1400" height="933" fetchpriority="high" alt="Blue wall covered in yellow post-its under the question Como imagina o comércio do futuro?, in a hall with stone columns and charcoal murals" /></figure>
         <dl class="facts">
           <dt>Event</dt><dd>Fórum Comércio do Porto, 3rd edition</dd>
           <dt>Studio</dt><dd>Magellan Circle</dd>
-          <dt>My role</dt><dd>Event photography and communication design</dd>
-          <dt>Deliverables</dt><dd>Event photography, social media posts, MUPI panels and website banners</dd>
+          <dt>My role</dt><dd>Event photography, video and communication design</dd>
+          <dt>Deliverables</dt><dd>Event photography, videos, social media posts, MUPI panels and website banners</dd>
           <dt>Year</dt><dd>2026</dd>
           <dt>Website</dt><dd><a href="https://retailforum.porto.pt/3a-edicao/" target="_blank" rel="noopener">retailforum.porto.pt</a></dd>
         </dl>
@@ -156,9 +172,36 @@
       <h2>What I did</h2>
       <ul class="skills">
         <li><strong>Photographed the event</strong>I covered the day: the installations, the ideas written by the participants and the atmosphere of the venue.</li>
+        <li><strong>Made videos</strong>Videos of the event, published on YouTube.</li>
         <li><strong>Designed for social media</strong>Posts to announce and report on the forum, in the event&rsquo;s blue and yellow identity.</li>
         <li><strong>Designed for outdoor and web</strong>Panels for MUPIs and banners for the event website, adapted to each format.</li>
       </ul>
+
+      <h2>The event on video</h2>
+      <p class="text">Videos made for the forum. They load from YouTube only when you press play.</p>
+      <section class="videos" aria-label="Fórum Comércio do Porto videos">
+        <div class="vid wide">
+          <button type="button" data-yt="mvzeDskgekQ" data-title="Event video 1" aria-label="Play video: Event video 1 (loads from YouTube)">
+            <span class="play" aria-hidden="true">▶</span>
+            <span>Event video 1</span>
+            <small>Plays on YouTube</small>
+          </button>
+        </div>
+        <div class="vid wide">
+          <button type="button" data-yt="ZGDZev80xQ8" data-title="Event video 2" aria-label="Play video: Event video 2 (loads from YouTube)">
+            <span class="play" aria-hidden="true">▶</span>
+            <span>Event video 2</span>
+            <small>Plays on YouTube</small>
+          </button>
+        </div>
+        <div class="vid tall">
+          <button type="button" data-yt="lZcgv06M9VA" data-title="Event short" aria-label="Play video: Event short (loads from YouTube)">
+            <span class="play" aria-hidden="true">▶</span>
+            <span>Event short</span>
+            <small>Plays on YouTube</small>
+          </button>
+        </div>
+      </section>
 
       <h2>The event in pictures</h2>
       <p class="text">A selection of the photographs. Tap a photo to enlarge it.</p>
@@ -316,6 +359,18 @@
           if (x0 === null) return;
           var dx = e.changedTouches[0].clientX - x0; x0 = null;
           if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+        });
+      });
+    </script>
+    <script>
+      document.querySelectorAll("button[data-yt]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var f = document.createElement("iframe");
+          f.src = "https://www.youtube-nocookie.com/embed/" + b.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1";
+          f.title = b.getAttribute("data-title") || "Video";
+          f.allow = "autoplay; encrypted-media; picture-in-picture";
+          f.allowFullscreen = true;
+          b.parentNode.replaceChild(f, b);
         });
       });
     </script>
