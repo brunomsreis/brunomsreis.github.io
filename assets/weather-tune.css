@@ -93,6 +93,21 @@
   .wt-text { display: flex; }
 }
 
+/* Páginas de projeto no telemóvel: o botão Mode e o menu ficam fixos na mesma linha,
+   por isso o widget fica compacto (play + capa), fixo logo por baixo do botão Mode. */
+@media (max-width: 600px) {
+  .wt-widget.wt-fixed {
+    position: fixed;
+    top: 46px;
+    left: 10px;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 3px;
+  }
+  .wt-widget.wt-fixed .wt-text { display: none; }
+}
+
 @media print {
   .wt-widget { display: none !important; }
 }
