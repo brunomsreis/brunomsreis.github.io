@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Google Analytics, loaded only after cookie consent -->
+    <script src="/assets/consent.js"></script>
+
+    <title>be@t | Bruno Reis</title>
+    <meta name="description" content="be@t: a case study by Bruno Reis (coming soon)." />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://www.brunoreis.work/beat.html" />
+    <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/assets/fonts.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: "Montserrat", sans-serif; background: #fff; color: #111; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
+      a { text-decoration: none; color: inherit; }
+      nav {
+        position: fixed; top: 20px; right: 30px; background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px); border-radius: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1000; padding: 8px 20px; font-weight: 600; display: flex; gap: 30px;
+        transition: background 0.3s, color 0.3s;
+      }
+      nav a { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #111; padding: 8px 12px; border-radius: 20px; transition: background-color 0.3s, color 0.3s; }
+      nav a:hover, nav a.active { background-color: #000; color: #fff; }
+      main { max-width: 1100px; margin: 100px auto 120px; padding: 0 20px; }
+      h1 { font-weight: 700; font-size: 2.8rem; margin-bottom: 15px; color: #111; transition: color 0.3s; }
+      h2 { font-weight: 700; font-size: 1.5rem; margin: 64px 0 14px; color: #22254e; }
+      h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 10px; background: linear-gradient(90deg, #222, #c45ac0); border-radius: 2px; }
+      p, li, dd { line-height: 1.6; }
+      .description { font-size: 1.2rem; color: #555; margin-bottom: 32px; line-height: 1.5; max-width: 760px; transition: color 0.3s; }
+      .text { font-size: 1rem; color: #333; max-width: 760px; margin-bottom: 14px; }
+
+      .hero { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: 32px; align-items: center; margin-bottom: 8px; }
+      .logo-panel { background: #fff; border: 1px solid rgba(0,0,0,.1); border-radius: 16px; padding: 28px; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+      .logo-panel img { width: 100%; height: auto; display: block; }
+      dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; font-size: 1rem; }
+      dl.facts dt { font-weight: 700; color: #22254e; }
+      dl.facts dd { color: #333; }
+
+
+      .skills { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+      .skills li { border: 1px solid #ddd; border-radius: 14px; padding: 18px; font-size: 0.95rem; color: #222; }
+      .skills strong { display: block; margin-bottom: 6px; color: #222; font-size: 1rem; }
+      footer { text-align: center; padding: 40px 20px 20px; font-size: 0.9rem; color: #666; font-weight: 500; user-select: none; transition: color 0.3s; }
+      .dark-toggle { position: fixed; top: 20px; left: 30px; background: #111; color: #fff; border: none; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; cursor: pointer; z-index: 1001; transition: background 0.3s, color 0.3s; }
+      .dark-mode .dark-toggle { background: #eee; color: #111; }
+      .dark-mode { background: #121212; color: #f0f0f0; }
+      .dark-mode nav { background: rgba(30, 30, 30, 0.85); }
+      .dark-mode nav a { color: #ccc; }
+      .dark-mode nav a:hover, .dark-mode nav a.active { background-color: #f0f0f0; color: #000; }
+      .dark-mode h1 { color: #ffb3b3; }
+      .dark-mode h2 { color: #e8e8e8; }
+      .dark-mode .description { color: #bbb; }
+      .dark-mode .text, .dark-mode dl.facts dd { color: #ddd; }
+      .dark-mode dl.facts dt { color: #e8e8e8; }
+      .dark-mode footer { color: #bbb; }
+      .dark-mode .skills li { border-color: #444; color: #e6e6e6; }
+      .dark-mode .skills strong { color: #9fd36b; }
+
+      @media (max-width: 800px) {
+        .hero { grid-template-columns: 1fr; }
+        .logo-panel { max-width: 300px; }
+            h1 { font-size: 2.2rem; }
+        .description { font-size: 1.05rem; }
+      }
+      @media (max-width: 600px) {
+          nav { top: 10px; right: 10px; gap: 2px; padding: 4px 8px; }
+        nav a { font-size: 0.75rem; padding: 6px 8px; letter-spacing: 0.06em; }
+        .dark-toggle { top: 10px; left: 10px; font-size: 0.85rem; padding: 7px 13px; }
+      }
+    </style>
+      <link rel="stylesheet" href="/assets/weather-tune.css" />
+  </head>
+  <body>
+    <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
+    <div class="wt-widget wt-fixed" id="weather-tune" hidden>
+      <button class="wt-btn" type="button" aria-label="Play preview" aria-pressed="false" disabled>
+        <svg class="wt-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="wt-play" d="M8 5v14l11-7z"/><path class="wt-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+      </button>
+      <img class="wt-cover" alt="" width="26" height="26" hidden>
+      <div class="wt-text"><span class="wt-title"></span><span class="wt-meta"></span></div>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio/">Portfolio</a>
+      <a href="/cv/">CV</a>
+    </nav>
+
+    <main>
+      <h1>be@t</h1>
+      <p class="description">This case study is being prepared. Come back soon.</p>
+
+      <!-- Fill in when the files arrive (same structure as carmine-branding.html / forum-comercio-porto-2026.html):
+           1. Hero: project image + .facts list (Project, Studio, My role, Deliverables, Year, Website)
+           2. <h2>The challenge</h2> with a short paragraph
+           3. <h2>What I did</h2> with a .skills list (3 to 4 items)
+           4. Photos / videos / design pieces, if any
+           Then: remove the noindex meta, add og:* tags, add the card to portfolio/index.html and the page to sitemap.xml. -->
+    </main>
+
+    <footer>© 2026 Bruno Reis</footer>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        try {
+          localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+        } catch (e) {}
+      }
+      window.addEventListener("DOMContentLoaded", function () {
+        try {
+          if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
+        } catch (e) {}
+      });
+    </script>
+      <script src="/assets/weather-tune.js" defer></script>
+  </body>
+</html>
