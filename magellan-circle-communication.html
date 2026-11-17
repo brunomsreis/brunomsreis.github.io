@@ -44,6 +44,7 @@
       .hero-photo { margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
       .hero-photo img { width: 100%; height: auto; display: block; }
       .hero-portrait { max-width: 420px; }
+      .mosaic.mosaic-wide { grid-template-columns: repeat(2, 1fr); }
       dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; font-size: 1rem; }
       dl.facts dt { font-weight: 700; color: #444b96; }
       dl.facts dd { color: #333; }
@@ -162,14 +163,14 @@
 
     <main>
       <h1>Magellan Circle communication</h1>
-      <p class="description">Social media design for the communication of Magellan Circle, a European affairs consultancy.</p>
+      <p class="description">Social media and newsletter design for the communication of Magellan Circle, a European affairs consultancy.</p>
 
       <div class="hero">
         <figure class="hero-photo hero-portrait"><img src="magellan-circle-communication/01.jpg" width="1080" height="1350" fetchpriority="high" alt="Social media post for International Women’s Day 2026 asking who has inspired you on your journey, with greyscale portraits on a lilac, green and blue grid and the Magellan Circle logo" /></figure>
         <dl class="facts">
           <dt>Client</dt><dd>Magellan Circle (own communication)</dd>
           <dt>My role</dt><dd>Social media and communication design</dd>
-          <dt>Deliverables</dt><dd>Social media posts and a carousel for LinkedIn</dd>
+          <dt>Deliverables</dt><dd>Social media posts, a carousel and a monthly newsletter</dd>
           <dt>Year</dt><dd>2026</dd>
         </dl>
       </div>
@@ -177,11 +178,12 @@
       <h2>What I did</h2>
       <ul class="skills">
         <li><strong>Magellan Team Explains</strong>A carousel in which a consultant explains why communication in European projects went from recommendation to legal requirement. Six slides, built to be read on a phone.</li>
+        <li><strong>Alerta Mensal Bruxelas</strong>A monthly newsletter that turns dense information on funding, legislation and events into a navigable PDF, with a colour for each section.</li>
         <li><strong>International Women&rsquo;s Day</strong>A post that turns a question &mdash; who has inspired you on your journey? &mdash; into a grid of portraits.</li>
-        <li><strong>One visual language</strong>Both pieces use the Magellan Circle palette of blue, green and orange, the logo and the same rhythm of colour bars.</li>
+        <li><strong>One visual language</strong>All the pieces use the Magellan Circle palette of blue, green and orange, the logo and the same rhythm of colour bars.</li>
       </ul>
 
-      <h2>The pieces</h2>
+      <h2>Social media pieces</h2>
       <p class="text">Tap a piece to enlarge it.</p>
       <section class="mosaic" aria-label="Magellan Circle communication pieces">
         <button type="button" class="tile" data-index="0" aria-label="Enlarge: International Women’s Day 2026">
@@ -204,6 +206,35 @@
         </button>
         <button type="button" class="tile" data-index="6" aria-label="Enlarge: Closing quote">
           <img src="magellan-circle-communication/07-thumb.jpg" width="540" height="675" loading="lazy" alt="Blue closing slide with a quote from the speaker about communicating what we do, her photo and her role" />
+        </button>
+      </section>
+
+      <h2>Alerta Mensal Bruxelas</h2>
+      <p class="text">A monthly newsletter in Portuguese that summarises news, legislation, funding programmes and events from Brussels. It was made as an interactive PDF, with clickable navigation between sections. This is the July 2026 issue.</p>
+      <section class="mosaic mosaic-wide" aria-label="Alerta Mensal Bruxelas, July 2026">
+        <button type="button" class="tile" data-index="7" aria-label="Enlarge: Alerta Mensal, Cover">
+          <img src="magellan-circle-communication/a1-thumb.jpg" width="640" height="360" loading="lazy" alt="Cover of the Alerta Mensal Bruxelas newsletter for July 2026, with a green forest canopy, the title and the Magellan Circle logo" />
+        </button>
+        <button type="button" class="tile" data-index="8" aria-label="Enlarge: Alerta Mensal, Contents">
+          <img src="magellan-circle-communication/a2-thumb.jpg" width="640" height="360" loading="lazy" alt="Index slide with five clickable sections: funding opportunities, awards and other initiatives, legislation, events and news" />
+        </button>
+        <button type="button" class="tile" data-index="9" aria-label="Enlarge: Alerta Mensal, Funding opportunities">
+          <img src="magellan-circle-communication/a3-thumb.jpg" width="640" height="360" loading="lazy" alt="Funding opportunities table on a dark blue background, with name, description, recipients, consortium, budget, deadline, themes and link columns" />
+        </button>
+        <button type="button" class="tile" data-index="10" aria-label="Enlarge: Alerta Mensal, Funding opportunities (2)">
+          <img src="magellan-circle-communication/a4-thumb.jpg" width="640" height="360" loading="lazy" alt="Second funding opportunities slide, a lighter version of the table on blue" />
+        </button>
+        <button type="button" class="tile" data-index="11" aria-label="Enlarge: Alerta Mensal, Awards and initiatives">
+          <img src="magellan-circle-communication/a5-thumb.jpg" width="640" height="360" loading="lazy" alt="Awards and other initiatives table on a purple background" />
+        </button>
+        <button type="button" class="tile" data-index="12" aria-label="Enlarge: Alerta Mensal, Legislation">
+          <img src="magellan-circle-communication/a6-thumb.jpg" width="640" height="360" loading="lazy" alt="Legislation table on a light blue background" />
+        </button>
+        <button type="button" class="tile" data-index="13" aria-label="Enlarge: Alerta Mensal, Events">
+          <img src="magellan-circle-communication/a7-thumb.jpg" width="640" height="360" loading="lazy" alt="Events slide on a pale green background listing three European events" />
+        </button>
+        <button type="button" class="tile" data-index="14" aria-label="Enlarge: Alerta Mensal, News">
+          <img src="magellan-circle-communication/a8-thumb.jpg" width="640" height="360" loading="lazy" alt="News slide on a dark green background with three news items" />
         </button>
       </section>
     </main>
@@ -267,6 +298,46 @@
     "src": "magellan-circle-communication/07.jpg",
     "alt": "Blue closing slide with a quote from the speaker about communicating what we do, her photo and her role",
     "title": "Closing quote"
+  },
+  {
+    "src": "magellan-circle-communication/a1.jpg",
+    "alt": "Cover of the Alerta Mensal Bruxelas newsletter for July 2026, with a green forest canopy, the title and the Magellan Circle logo",
+    "title": "Alerta Mensal: Cover"
+  },
+  {
+    "src": "magellan-circle-communication/a2.jpg",
+    "alt": "Index slide with five clickable sections: funding opportunities, awards and other initiatives, legislation, events and news",
+    "title": "Alerta Mensal: Contents"
+  },
+  {
+    "src": "magellan-circle-communication/a3.jpg",
+    "alt": "Funding opportunities table on a dark blue background, with name, description, recipients, consortium, budget, deadline, themes and link columns",
+    "title": "Alerta Mensal: Funding opportunities"
+  },
+  {
+    "src": "magellan-circle-communication/a4.jpg",
+    "alt": "Second funding opportunities slide, a lighter version of the table on blue",
+    "title": "Alerta Mensal: Funding opportunities (2)"
+  },
+  {
+    "src": "magellan-circle-communication/a5.jpg",
+    "alt": "Awards and other initiatives table on a purple background",
+    "title": "Alerta Mensal: Awards and initiatives"
+  },
+  {
+    "src": "magellan-circle-communication/a6.jpg",
+    "alt": "Legislation table on a light blue background",
+    "title": "Alerta Mensal: Legislation"
+  },
+  {
+    "src": "magellan-circle-communication/a7.jpg",
+    "alt": "Events slide on a pale green background listing three European events",
+    "title": "Alerta Mensal: Events"
+  },
+  {
+    "src": "magellan-circle-communication/a8.jpg",
+    "alt": "News slide on a dark green background with three news items",
+    "title": "Alerta Mensal: News"
   }
 ];
         var tiles = [].slice.call(document.querySelectorAll(".tile"));
