@@ -9,10 +9,15 @@
     <!-- Google Analytics, loaded only after cookie consent -->
     <script src="/assets/consent.js"></script>
 
-    <title>Transformec | Bruno Reis</title>
-    <meta name="description" content="Transformec: a case study by Bruno Reis (coming soon)." />
-    <meta name="robots" content="noindex" />
+    <title>TransformEC green finance carousel | Bruno Reis</title>
+    <meta name="description" content="A 15-slide carousel for TransformEC that explains green finance to industrial SMEs in three chapters: understand, choose and apply." />
     <link rel="canonical" href="https://www.brunoreis.work/transformec.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TransformEC green finance carousel | Bruno Reis" />
+    <meta property="og:description" content="A 15-slide carousel for TransformEC that explains green finance to industrial SMEs in three chapters: understand, choose and apply." />
+    <meta property="og:url" content="https://www.brunoreis.work/transformec.html" />
+    <meta property="og:image" content="https://www.brunoreis.work/transformec/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/assets/fonts/montserrat-latin.woff" as="font" type="font/woff" crossorigin />
     <link rel="stylesheet" href="/assets/fonts.css" />
     <style>
@@ -29,23 +34,41 @@
       nav a:hover, nav a.active { background-color: #000; color: #fff; }
       main { max-width: 1100px; margin: 100px auto 120px; padding: 0 20px; }
       h1 { font-weight: 700; font-size: 2.8rem; margin-bottom: 15px; color: #111; transition: color 0.3s; }
-      h2 { font-weight: 700; font-size: 1.5rem; margin: 64px 0 14px; color: #22254e; }
-      h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 10px; background: linear-gradient(90deg, #222, #c45ac0); border-radius: 2px; }
+      h2 { font-weight: 700; font-size: 1.5rem; margin: 64px 0 14px; color: #1d5a6a; }
+      h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 10px; background: #35c3c4; border-radius: 2px; }
       p, li, dd { line-height: 1.6; }
       .description { font-size: 1.2rem; color: #555; margin-bottom: 32px; line-height: 1.5; max-width: 760px; transition: color 0.3s; }
       .text { font-size: 1rem; color: #333; max-width: 760px; margin-bottom: 14px; }
 
-      .hero { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: 32px; align-items: center; margin-bottom: 8px; }
-      .logo-panel { background: #fff; border: 1px solid rgba(0,0,0,.1); border-radius: 16px; padding: 28px; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
-      .logo-panel img { width: 100%; height: auto; display: block; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 8px; }
+      .hero-photo { margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+      .hero-photo img { width: 100%; height: auto; display: block; }
+      .hero-portrait { max-width: 420px; }
+      .mosaic.mosaic-wide { grid-template-columns: repeat(2, 1fr); }
+      .mosaic.mosaic-six { grid-template-columns: repeat(6, 1fr); }
+      h3 { margin: 34px 0 6px; font-size: 1.15rem; }
       dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; font-size: 1rem; }
-      dl.facts dt { font-weight: 700; color: #22254e; }
+      dl.facts dt { font-weight: 700; color: #1d5a6a; }
       dl.facts dd { color: #333; }
+      dl.facts dd a { text-decoration: underline; text-underline-offset: 3px; }
 
+      /* Gallery: natural proportions, masonry columns */
+      .mosaic { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+      .tile {
+        display: block; width: 100%; margin: 0; padding: 0; border: 0;
+        background: #ddd; overflow: hidden; cursor: zoom-in; border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+      }
+      .tile img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
+      .tile:hover img, .tile:focus-visible img { transform: scale(1.04); }
+      .tile:focus-visible { outline: 3px solid #1d5a6a; outline-offset: 3px; }
 
+      figure.fig { margin: 22px 0 0; }
+      figure.fig img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.1); }
+      figure.fig figcaption { font-size: 0.85rem; color: #555; margin-top: 8px; max-width: 760px; }
       .skills { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
       .skills li { border: 1px solid #ddd; border-radius: 14px; padding: 18px; font-size: 0.95rem; color: #222; }
-      .skills strong { display: block; margin-bottom: 6px; color: #222; font-size: 1rem; }
+      .skills strong { display: block; margin-bottom: 6px; color: #1d5a6a; font-size: 1rem; }
       footer { text-align: center; padding: 40px 20px 20px; font-size: 0.9rem; color: #666; font-weight: 500; user-select: none; transition: color 0.3s; }
       .dark-toggle { position: fixed; top: 20px; left: 30px; background: #111; color: #fff; border: none; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; cursor: pointer; z-index: 1001; transition: background 0.3s, color 0.3s; }
       .dark-mode .dark-toggle { background: #eee; color: #111; }
@@ -53,26 +76,75 @@
       .dark-mode nav { background: rgba(30, 30, 30, 0.85); }
       .dark-mode nav a { color: #ccc; }
       .dark-mode nav a:hover, .dark-mode nav a.active { background-color: #f0f0f0; color: #000; }
-      .dark-mode h1 { color: #ffb3b3; }
-      .dark-mode h2 { color: #e8e8e8; }
+      .dark-mode h1 { color: #9fe0e0; }
+      .dark-mode h2 { color: #c9ecec; }
       .dark-mode .description { color: #bbb; }
       .dark-mode .text, .dark-mode dl.facts dd { color: #ddd; }
-      .dark-mode dl.facts dt { color: #e8e8e8; }
+      .dark-mode dl.facts dt { color: #c9ecec; }
       .dark-mode footer { color: #bbb; }
+      .dark-mode figure.fig img { border-color: #333; }
+      .dark-mode figure.fig figcaption { color: #bbb; }
       .dark-mode .skills li { border-color: #444; color: #e6e6e6; }
-      .dark-mode .skills strong { color: #9fd36b; }
+      .dark-mode .skills strong { color: #c9ecec; }
+      .dark-mode .tile { background: #2a2a2a; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+
+      /* Videos: YouTube loads only after click */
+      .videos { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 18px; }
+      .vid { border-radius: 14px; overflow: hidden; background: #12232b; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14); }
+      .vid.wide { flex: 1 1 300px; max-width: 520px; aspect-ratio: 16 / 9; }
+      .vid.tall { flex: 0 1 240px; max-width: 240px; aspect-ratio: 9 / 16; }
+      .vid button, .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+      .vid button {
+        cursor: pointer; background: #1d5a6a; color: #fff; font: inherit; font-weight: 700; padding: 16px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center;
+        transition: background 0.2s;
+      }
+      .vid button:hover { background: #2a7a8a; }
+      .vid button .play { font-size: 2.4rem; line-height: 1; color: #35c3c4; }
+      .vid button small { font-weight: 400; opacity: 0.8; }
+      .vid button:focus-visible { outline: 3px solid #35c3c4; outline-offset: -6px; }
+
+      /* Lightbox */
+      #lightbox {
+        position: fixed; inset: 0; z-index: 2000; display: none;
+        align-items: center; justify-content: center; flex-direction: column;
+        background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(6px);
+      }
+      #lightbox.show { display: flex; }
+      #lightbox figure { margin: 0; max-width: 94vw; max-height: 92vh; display: flex; flex-direction: column; align-items: center; }
+      #lightbox img {
+        max-width: 94vw; max-height: 82vh; object-fit: contain; border-radius: 8px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      }
+      #lightbox figcaption { color: #eee; margin-top: 14px; font-size: 0.95rem; text-align: center; }
+      #lightbox button {
+        position: absolute; background: rgba(255, 255, 255, 0.12); color: #fff;
+        border: 0; width: 48px; height: 48px; border-radius: 50%;
+        font-size: 1.6rem; line-height: 1; cursor: pointer;
+        transition: background 0.2s;
+      }
+      #lightbox button:hover, #lightbox button:focus-visible { background: rgba(255, 255, 255, 0.3); outline: 2px solid #35c3c4; }
+      #lbClose { top: 18px; right: 22px; }
+      #lbPrev { left: 18px; top: 50%; transform: translateY(-50%); }
+      #lbNext { right: 18px; top: 50%; transform: translateY(-50%); }
 
       @media (max-width: 800px) {
         .hero { grid-template-columns: 1fr; }
-        .logo-panel { max-width: 300px; }
-            h1 { font-size: 2.2rem; }
+        .mosaic { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .mosaic.mosaic-six { grid-template-columns: repeat(3, 1fr); }
+        .hero-portrait { max-width: 100%; }
+        h1 { font-size: 2.2rem; }
         .description { font-size: 1.05rem; }
+        #lbPrev, #lbNext { top: auto; bottom: 18px; transform: none; }
+        #lbPrev { left: 28%; }
+        #lbNext { right: 28%; }
       }
       @media (max-width: 600px) {
-          nav { top: 10px; right: 10px; gap: 2px; padding: 4px 8px; }
+        nav { top: 10px; right: 10px; gap: 2px; padding: 4px 8px; }
         nav a { font-size: 0.75rem; padding: 6px 8px; letter-spacing: 0.06em; }
         .dark-toggle { top: 10px; left: 10px; font-size: 0.85rem; padding: 7px 13px; }
       }
+      @media (prefers-reduced-motion: reduce) { .tile img { transition: none; } }
     </style>
       <link rel="stylesheet" href="/assets/weather-tune.css" />
   </head>
@@ -93,16 +165,102 @@
     </nav>
 
     <main>
-      <h1>Transformec</h1>
-      <p class="description">This case study is being prepared. Come back soon.</p>
+      <h1>Green finance carousel</h1>
+      <p class="description">A carousel that explains green finance to industrial SMEs, made for TransformEC.</p>
 
-      <!-- Fill in when the files arrive (same structure as carmine-branding.html / forum-comercio-porto-2026.html):
-           1. Hero: project image + .facts list (Project, Studio, My role, Deliverables, Year, Website)
-           2. <h2>The challenge</h2> with a short paragraph
-           3. <h2>What I did</h2> with a .skills list (3 to 4 items)
-           4. Photos / videos / design pieces, if any
-           Then: remove the noindex meta, add og:* tags, add the card to portfolio/index.html and the page to sitemap.xml. -->
+      <div class="hero">
+        <figure class="hero-photo hero-portrait"><img src="transformec/01.jpg" width="1080" height="1350" fetchpriority="high" alt="Cover slide on a dark blue background with the question what green finance is and what opportunities exist for SMEs, in Portuguese" /></figure>
+        <dl class="facts">
+          <dt>Client</dt><dd>TransformEC</dd>
+          <dt>My role</dt><dd>Infographic and carousel design</dd>
+          <dt>Deliverables</dt><dd>A 15-slide carousel for social media, in three chapters</dd>
+          <dt>Year</dt><dd>2026</dd>
+        </dl>
+      </div>
+
+      <h2>The challenge</h2>
+      <p class="text">Green finance is full of acronyms, programmes and criteria, and SMEs in industry rarely have time to read about it. The carousel had to turn it into something clear enough to scan on a phone, and useful enough to act on. It is written in Portuguese.</p>
+
+      <h2>What I did</h2>
+      <ul class="skills">
+        <li><strong>Three chapters</strong>The content is split into Understand, Choose and Apply, with a navigation pill on each cover so the reader always knows where they are.</li>
+        <li><strong>Dense information made light</strong>Icons, short cards and comparison tables replace paragraphs, and dark and light slides alternate to set the rhythm.</li>
+        <li><strong>One system</strong>A single grid, icon set and teal accent, with the project logos always in the same place at the bottom.</li>
+      </ul>
+
+      <h2>The slides</h2>
+      <p class="text">Tap a slide to enlarge it.</p>
+
+      <h3>1. Understand (Perceber)</h3>
+      <p class="text">What green finance is, how to judge environmental sustainability and which investments count as green.</p>
+      <section class="mosaic mosaic-six" aria-label="1. Understand (Perceber)">
+        <button type="button" class="tile" data-index="0" aria-label="Enlarge slide 1">
+          <img src="transformec/01-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 1 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="1" aria-label="Enlarge slide 2">
+          <img src="transformec/02-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 2 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="2" aria-label="Enlarge slide 3">
+          <img src="transformec/03-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 3 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="3" aria-label="Enlarge slide 4">
+          <img src="transformec/04-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 4 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="4" aria-label="Enlarge slide 5">
+          <img src="transformec/05-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 5 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="5" aria-label="Enlarge slide 6">
+          <img src="transformec/06-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 6 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+      </section>
+
+      <h3>2. Choose (Escolher)</h3>
+      <p class="text">Which European and national programmes exist, how they differ and which one fits a project.</p>
+      <section class="mosaic mosaic-six" aria-label="2. Choose (Escolher)">
+        <button type="button" class="tile" data-index="6" aria-label="Enlarge slide 7">
+          <img src="transformec/07-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 7 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="7" aria-label="Enlarge slide 8">
+          <img src="transformec/08-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 8 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="8" aria-label="Enlarge slide 9">
+          <img src="transformec/09-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 9 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="9" aria-label="Enlarge slide 10">
+          <img src="transformec/10-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 10 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="10" aria-label="Enlarge slide 11">
+          <img src="transformec/11-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 11 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+      </section>
+
+      <h3>3. Apply (Candidatar)</h3>
+      <p class="text">Five steps to prepare an application, and what to do and what to avoid.</p>
+      <section class="mosaic mosaic-six" aria-label="3. Apply (Candidatar)">
+        <button type="button" class="tile" data-index="11" aria-label="Enlarge slide 12">
+          <img src="transformec/12-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 12 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="12" aria-label="Enlarge slide 13">
+          <img src="transformec/13-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 13 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="13" aria-label="Enlarge slide 14">
+          <img src="transformec/14-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 14 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+        <button type="button" class="tile" data-index="14" aria-label="Enlarge slide 15">
+          <img src="transformec/15-thumb.jpg" width="432" height="540" loading="lazy" alt="Slide 15 of 15 of the TransformEC green finance carousel, in Portuguese" />
+        </button>
+      </section>
     </main>
+
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button type="button" id="lbClose" aria-label="Close">&times;</button>
+      <button type="button" id="lbPrev" aria-label="Previous piece">&#8249;</button>
+      <figure>
+        <img id="lbImg" src="" alt="" />
+        <figcaption id="lbCap"></figcaption>
+      </figure>
+      <button type="button" id="lbNext" aria-label="Next piece">&#8250;</button>
+    </div>
 
     <footer>© 2026 Bruno Reis</footer>
 
@@ -117,6 +275,161 @@
         try {
           if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
         } catch (e) {}
+
+        var photos = [
+  {
+    "src": "transformec/01.jpg",
+    "alt": "Slide 1 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 1"
+  },
+  {
+    "src": "transformec/02.jpg",
+    "alt": "Slide 2 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 2"
+  },
+  {
+    "src": "transformec/03.jpg",
+    "alt": "Slide 3 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 3"
+  },
+  {
+    "src": "transformec/04.jpg",
+    "alt": "Slide 4 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 4"
+  },
+  {
+    "src": "transformec/05.jpg",
+    "alt": "Slide 5 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 5"
+  },
+  {
+    "src": "transformec/06.jpg",
+    "alt": "Slide 6 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 6"
+  },
+  {
+    "src": "transformec/07.jpg",
+    "alt": "Slide 7 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 7"
+  },
+  {
+    "src": "transformec/08.jpg",
+    "alt": "Slide 8 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 8"
+  },
+  {
+    "src": "transformec/09.jpg",
+    "alt": "Slide 9 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 9"
+  },
+  {
+    "src": "transformec/10.jpg",
+    "alt": "Slide 10 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 10"
+  },
+  {
+    "src": "transformec/11.jpg",
+    "alt": "Slide 11 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 11"
+  },
+  {
+    "src": "transformec/12.jpg",
+    "alt": "Slide 12 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 12"
+  },
+  {
+    "src": "transformec/13.jpg",
+    "alt": "Slide 13 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 13"
+  },
+  {
+    "src": "transformec/14.jpg",
+    "alt": "Slide 14 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 14"
+  },
+  {
+    "src": "transformec/15.jpg",
+    "alt": "Slide 15 of 15 of the TransformEC green finance carousel, in Portuguese",
+    "title": "Slide 15"
+  }
+];
+        var tiles = [].slice.call(document.querySelectorAll(".tile"));
+        var lb = document.getElementById("lightbox");
+        var img = document.getElementById("lbImg");
+        var cap = document.getElementById("lbCap");
+        var current = 0, opener = null;
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function show(i) {
+          current = (i + photos.length) % photos.length;
+          img.src = photos[current].src;
+          img.alt = photos[current].alt;
+          cap.textContent = photos[current].title + "  ·  " + (current + 1) + " / " + photos.length;
+          // preload neighbours
+          [current + 1, current - 1].forEach(function (n) {
+            new Image().src = photos[(n + photos.length) % photos.length].src;
+          });
+        }
+        // the photo "grows" from its tile to the centre of the screen
+        function grow(from) {
+          if (reduce || !img.animate || !from) return;
+          var go = function () {
+            var a = from.getBoundingClientRect(), b = img.getBoundingClientRect();
+            if (!b.width) return;
+            img.animate(
+              [
+                { transform: "translate(" + (a.left + a.width / 2 - b.left - b.width / 2) + "px," + (a.top + a.height / 2 - b.top - b.height / 2) + "px) scale(" + a.width / b.width + ")", opacity: 0.6 },
+                { transform: "none", opacity: 1 }
+              ],
+              { duration: 380, easing: "cubic-bezier(.2,.8,.2,1)" }
+            );
+          };
+          if (img.complete && img.naturalWidth) go(); else img.addEventListener("load", go, { once: true });
+        }
+        function open(i, tile) {
+          var from = tile.querySelector("img");
+          opener = tile;
+          lb.hidden = false;
+          lb.classList.add("show");
+          document.body.style.overflow = "hidden";
+          show(i);
+          grow(from);
+          document.getElementById("lbClose").focus();
+        }
+        function close() {
+          lb.classList.remove("show");
+          lb.hidden = true;
+          img.src = "";
+          document.body.style.overflow = "";
+          if (opener) opener.focus();
+        }
+        tiles.forEach(function (t, i) {
+          t.addEventListener("click", function () { open(i, t); });
+        });
+        document.getElementById("lbClose").addEventListener("click", close);
+        document.getElementById("lbPrev").addEventListener("click", function () { show(current - 1); });
+        document.getElementById("lbNext").addEventListener("click", function () { show(current + 1); });
+        lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+        document.addEventListener("keydown", function (e) {
+          if (!lb.classList.contains("show")) return;
+          if (e.key === "Escape") close();
+          else if (e.key === "ArrowLeft") show(current - 1);
+          else if (e.key === "ArrowRight") show(current + 1);
+          else if (e.key === "Tab") {
+            var f = [].slice.call(lb.querySelectorAll("button"));
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        });
+        // swipe on touch screens
+        var x0 = null;
+        lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+        lb.addEventListener("touchend", function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0; x0 = null;
+          if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+        });
       });
     </script>
       <script src="/assets/weather-tune.js" defer></script>
