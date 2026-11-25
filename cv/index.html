@@ -455,7 +455,6 @@
         margin: 0 0 20px;
       }
       .cv-download {
-        display: inline-block;
         margin: 0;
         padding: 10px 20px;
         border-radius: 999px;
@@ -469,6 +468,30 @@
           color 0.4s ease, transform 0.4s ease;
       }
       /* Light on: full yellow with a soft glow */
+      .cv-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .cv-icon {
+        width: 1.25em;
+        height: 1.25em;
+        flex: none;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .cv-label {
+        font-weight: 500;
+        font-size: 0.85em;
+        opacity: 0.75;
+      }
+      .cv-lang {
+        font-weight: 800;
+        font-size: 1.1em;
+      }
       .cv-download:hover,
       .cv-download:focus-visible {
         background: #ffed00;
@@ -606,9 +629,9 @@
     <main class="container">
       <h1>Bruno Reis</h1>
       <div class="cv-downloads">
-        <a class="cv-download" href="/assets/BrunoMSReis_CV_en.pdf" download hreflang="en"><span aria-hidden="true">⬇</span> CV (PDF) · English</a>
-        <a class="cv-download" href="/assets/BrunoMSReis_CV_pt.pdf" download hreflang="pt"><span aria-hidden="true">⬇</span> CV (PDF) · Português</a>
-        <a class="cv-download" href="/assets/BrunoMSReis_CV_es.pdf" download hreflang="es"><span aria-hidden="true">⬇</span> CV (PDF) · Español</a>
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_en.pdf" download hreflang="en"><svg class="cv-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11M7.2 10.4l4.8 4.8 4.8-4.8M4.5 15.5v3a1.6 1.6 0 0 0 1.6 1.6h11.8a1.6 1.6 0 0 0 1.6-1.6v-3"/></svg> <span class="cv-label">CV (PDF)</span> <strong class="cv-lang">English</strong></a>
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_pt.pdf" download hreflang="pt"><svg class="cv-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11M7.2 10.4l4.8 4.8 4.8-4.8M4.5 15.5v3a1.6 1.6 0 0 0 1.6 1.6h11.8a1.6 1.6 0 0 0 1.6-1.6v-3"/></svg> <span class="cv-label">CV (PDF)</span> <strong class="cv-lang">Português</strong></a>
+        <a class="cv-download" href="/assets/BrunoMSReis_CV_es.pdf" download hreflang="es"><svg class="cv-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11M7.2 10.4l4.8 4.8 4.8-4.8M4.5 15.5v3a1.6 1.6 0 0 0 1.6 1.6h11.8a1.6 1.6 0 0 0 1.6-1.6v-3"/></svg> <span class="cv-label">CV (PDF)</span> <strong class="cv-lang">Español</strong></a>
       </div>
 
       <!-- About Me Section -->
