@@ -512,6 +512,7 @@
   </head>
 
   <body>
+    <script>try{if(localStorage.getItem('theme')!=='light')document.body.classList.add('dark-mode')}catch(e){}</script>
     <!-- Buttons -->
 
     <button
@@ -1686,7 +1687,7 @@
 
       // On load
       window.addEventListener("DOMContentLoaded", () => {
-        if (localStorage.getItem("theme") === "dark") {
+        if (localStorage.getItem("theme") !== "light") {
           document.body.classList.add("dark-mode");
         }
         shufflePortfolio();
