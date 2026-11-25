@@ -39,12 +39,11 @@
         --muted: #555;
         --accent: #ffed00;
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #000;
-          --fg: #f2f2f2;
-          --muted: #b5b5b5;
-        }
+      /* Dark by default, same as the rest of the site (see the Mode button) */
+      body.dark-mode {
+        --bg: #121212;
+        --fg: #f2f2f2;
+        --muted: #b5b5b5;
       }
       body {
         font-family: "Montserrat", Arial, sans-serif;
@@ -65,6 +64,22 @@
         font-weight: 700;
         text-decoration: none;
         border-bottom: 3px solid var(--accent);
+      }
+      .dark-toggle {
+        margin-left: auto;
+        align-self: center;
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 7px 14px;
+        border-radius: 30px;
+        font: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+      body.dark-mode .dark-toggle {
+        background: #eee;
+        color: #111;
       }
       main {
         max-width: 760px;
@@ -111,10 +126,12 @@
     </style>
   </head>
   <body>
+    <script>try{if(localStorage.getItem('theme')!=='light')document.body.classList.add('dark-mode')}catch(e){}</script>
     <nav>
       <a href="/">Home</a>
       <a href="/portfolio/">Portfolio</a>
       <a href="/cv/">CV</a>
+      <button class="dark-toggle" type="button" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
     </nav>
 
     <main>
@@ -206,6 +223,12 @@
     <footer>© 2026 Bruno Reis</footer>
 
     <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        try {
+          localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+        } catch (e) {}
+      }
       document.getElementById("open-cc").addEventListener("click", function () {
         var b = document.querySelector(".cc-footer-link button");
         if (b) b.click();
