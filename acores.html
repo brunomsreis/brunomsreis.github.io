@@ -208,6 +208,7 @@
     <link rel="stylesheet" href="/assets/weather-tune.css" />
   </head>
 <body>
+    <script>try{if(localStorage.getItem('theme')!=='light')document.body.classList.add('dark-mode')}catch(e){}</script>
 
   <button class="dark-toggle" aria-label="Switch between light and dark mode" onclick="toggleDarkMode()"><span aria-hidden="true">🌓</span> Mode</button>
   <div class="wt-widget wt-fixed" id="weather-tune" hidden>
@@ -253,7 +254,7 @@
     }
     window.addEventListener('DOMContentLoaded', () => {
       // Dark mode preference
-      if (localStorage.getItem('theme') === 'dark') {
+      if (localStorage.getItem('theme') !== 'light') {
         document.body.classList.add('dark-mode');
       }
       // Lightbox logic
