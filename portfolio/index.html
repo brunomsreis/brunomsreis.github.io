@@ -559,12 +559,11 @@
     <div class="container">
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="video"><span aria-hidden="true">🎬</span> Video</button>
-        <button class="filter-btn" data-filter="motion-graphics">
-          <span aria-hidden="true">🎞️</span> Motion Graphics
-        </button>
-        <button class="filter-btn" data-filter="design"><span aria-hidden="true">🎨</span> Design</button>
+        <button class="filter-btn" data-filter="design"><span aria-hidden="true">🎨</span> Branding &amp; Design</button>
         <button class="filter-btn" data-filter="ux-ui"><span aria-hidden="true">🧠🖌️</span> UX/UI</button>
+        <button class="filter-btn" data-filter="motion-video">
+          <span aria-hidden="true">🎬</span> Motion &amp; Video
+        </button>
         <button class="filter-btn" data-filter="photography">
           <span aria-hidden="true">📸</span> Photography
         </button>
@@ -598,56 +597,6 @@
       </div>
     </a>
     -->
-
-        <a
-          href="../motion-graphics-ebankit.html"
-          class="portfolio-item"
-          data-category="motion-graphics"
-          aria-label="motion graphics"
-          data-year="2025-05-29"
-        >
-          <div class="portfolio-image">
-            <iframe loading="lazy"
-              src="https://archive.org/embed/academia_202506"
-              class="archive-iframe"
-              title="Animated Videos for ebankIT"
-              frameborder="0"
-              allow="autoplay"
-              allowfullscreen
-            >
-            </iframe>
-          </div>
-          <div class="portfolio-info">
-            <h3>Motion Graphics @ ebankIT</h3>
-            <p>
-              Dynamic animations and graphic storytelling for brand promotion on
-              social media and website.
-            </p>
-          </div> </a
-        ><!-- Preciso de editar os videos escondidos e mudar os nomes no site -->
-
-        <a
-          href="../kehrpy-shoes.html"
-          class="portfolio-item"
-          data-category="photography"
-          aria-label="photography"
-          data-year="2022-07-29"
-        >
-          <div class="portfolio-image">
-            <img
-              src="../project3/capaKherpy.png"
-              loading="lazy"
-              alt="shoe brand photography"
-            />
-          </div>
-          <div class="portfolio-info">
-            <h3>Kehrpy Shoes</h3>
-            <p>
-              Working with Kehrpy Shoes, the goal was to visually reflect the
-              brand’s identity through bold, stylish imagery.
-            </p>
-          </div>
-        </a>
 
         <a
           href="../video-inesc-tec.html"
@@ -1430,7 +1379,7 @@
         <a
           href="../work-ebankit.html"
           class="portfolio-item"
-          data-category="design"
+          data-category="design motion-graphics"
           aria-label="design"
           data-year="2025-05-03"
         >
@@ -1657,11 +1606,21 @@
       let currentFilter = "all";
       let currentSeries = "all";
 
+      // Each filter button covers one or more card categories
+      const filterGroups = {
+        design: ["design"],
+        "ux-ui": ["ux-ui"],
+        "motion-video": ["motion-graphics", "video"],
+        photography: ["photography", "editorial"],
+      };
+
       function applyFilters() {
         portfolioItems.forEach((item) => {
           const categories = item.getAttribute("data-category").split(" ");
+          const wanted = filterGroups[currentFilter] || [currentFilter];
           const matchCategory =
-            currentFilter === "all" || categories.includes(currentFilter);
+            currentFilter === "all" ||
+            categories.some((c) => wanted.includes(c));
           const matchSeries =
             currentFilter !== "photography" ||
             currentSeries === "all" ||
